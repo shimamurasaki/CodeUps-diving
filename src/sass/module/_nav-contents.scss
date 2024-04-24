@@ -3,11 +3,13 @@
 .nav-contents__items {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: rem(-16);
 }
 
 .nav-contents__item {
-  width: 50%;
+  width: calc(100% / 2);
+  @include mq(md){
+    width: calc(100% / 4);
+  }
 }
 
 .nav-contents__title span {
@@ -22,8 +24,9 @@
 
 .nav-contents__title a {
   display: inline-block;
-  font-size: rem(18);
+  font-size: rem(16);
   font-weight: $bold;
+  line-height: 1.125;
   color: $white;
 }
 
