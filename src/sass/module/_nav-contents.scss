@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.nav-contents__items {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: rem(-16);
+}
+
+.nav-contents__item {
+  width: 50%;
+}
+
+.nav-contents__title span {
+  margin-right: rem(4);
+  display: inline-block;
+  width: rem(18);
+}
+
+.nav-contents__title {
+  margin-top: rem(40);
+}
+
+.nav-contents__title a {
+  display: inline-block;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $white;
+}
+
+.nav-contents__text {
+  margin-top: rem(24);
+  text-indent: rem(18);
+}
+
+.nav-contents__text a{
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.125;
+  color: $white;
+}
+
