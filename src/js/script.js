@@ -13,4 +13,13 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
+  //スワイパー
+    let swiper = new Swiper(".js-mv-swiper", {
+      loop: true,
+      autoplay: {
+      delay: 3000,
+      },
+    });
+
+
 });

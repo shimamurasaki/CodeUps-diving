@@ -18,10 +18,18 @@
   <meta property="og:description" content="" />
   <!-- ファビコン -->
   <link rel="”icon”" href="./assets/images/common/favicon.ico" />
+  <!-- googleFont -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <!-- Swiper読み込み -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <!-- css -->
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- JavaScript -->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
@@ -104,9 +112,186 @@
       </nav>
     </div>
   </header>
+
   <main>
+    <section class="mv">
+      <div class="mv__inner">
+        <div class="mv__header">
+          <h2 class="mv-title">DIVING</h2>
+          <p class="mv__subtitle">into the ocean</p>
+        </div>
+        <div class="mv__images">
+          <!-- Swiper -->
+          <div class="swiper js-mv-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide mv__img">
+                <div class="mv__img--sp">
+                  <img src="./assets/images/common/sp-hero_1.jpg" alt="ウミガメ">
+                </div>
+                <div class="mv__img--pc">
+                  <img src="./assets/images/common/pc-hero_1.jpg" alt="ウミガメ">
+                </div>
+              </div>
+              <div class="swiper-slide mv__img">
+                <div class="mv__img--sp">
+                  <img src="./assets/images/common/sp-hero_2.jpg" alt="ウミガメとの出会い">
+                </div>
+                <div class="mv__img--pc">
+                  <img src="./assets/images/common/pc-hero_2.jpg" alt="ウミガメとの出会い">
+                </div>
+              </div>
+              <div class="swiper-slide mv__img">
+                <div class="mv__img--sp">
+                  <img src="./assets/images/common/sp-hero_3.jpg" alt="青い空と海">
+                </div>
+                <div class="mv__img--pc">
+                  <img src="./assets/images/common/pc-hero_3.jpg" alt="青い空と海">
+                </div>
+              </div>
+              <div class="swiper-slide mv__img">
+                <div class="mv__img--sp">
+                  <img src="./assets/images/common/sp-hero_4.jpg" alt="きれいな砂浜">
+                </div>
+                <div class="mv__img--pc">
+                  <img src="./assets/images/common/pc-hero_4.jpg" alt="きれいな砂浜">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper -->
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact__inner inner">
+        <div class="contact__info">
+          <div class="contact__logo">
+            <img src="./assets/images/common/logo-blue.png" alt="CodeUps">
+          </div>
+          <div class="contact__access">
+            <div class="contact__access-text">
+              <p>沖縄県那覇市1-1</p>
+              <p>TEL:0120-000-0000</p>
+              <p>営業時間:8:30-19:00</p>
+              <p>定休日:毎週火曜日</p>
+            </div>
+            <div class="contact__access-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14320.124627230969!2d127.65836873349186!3d26.19566472716933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569a926a083d5%3A0xf368c08083a19ad6!2z44CSOTAxLTAxNTIg5rKW57iE55yM6YKj6KaH5biC5bCP56aE77yR5LiB55uu77yR!5e0!3m2!1sja!2sjp!4v1714141987828!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="contact__content">
+          <div class="section-header contact__header">
+            <h3 class="section-header__title--big"><span class="">C</span>ampaig</h3>
+            <p class="section-header__subtitle">キャンペーン</p>
+          </div>
+          <p class="contact-text">ご予約・お問い合わせはコチラ</p>
+          <div class="contact-button">
+            <a href="" class="view-button">View more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- キャンペーンカード -->
+    <div class="campaign-card">
+      <div class="campaign-card__image">
+        <img src="./assets/images/common/campaign_1.jpg" alt="海の中の色鮮やかな魚たち">
+      </div>
+      <div class="campaign-card__content">
+        <div class="campaign-card__header title-tag">
+          <div class="title-tag__tag">
+            <p>ライセンス講習</p>
+          </div>
+          <div class="title-tag__header">
+            <p>ライセンス講習</p>
+          </div>
+        </div>
+        <div class="campaign-card__price price-pop">
+          <p class="price-pop__text">全部コミコミ(お一人様)</p>
+          <div class="price-pop__priceBox">
+            <p class="price-pop__none-price">¥56,000</p>
+            <p class="price-pop__price">¥46,000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ブログカード -->
+    <div class="blog-card">
+      <div class="blog-card__image">
+        <img src="./assets/images/common/blog_1.jpg" alt="">
+      </div>
+      <div class="blog-card__content">
+        <div class="blog-card__header">
+          <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
+          <p class="blog-card__title">ライセンス取得</p>
+        </div>
+      </div>
+      <div class="blog-card__text">
+        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+      </div>
+    </div>
+
+    <!-- ゲストカード -->
+    <div class="gest-card">
+      <div class="gest-card__contents">
+        <div class="gest-card__content">
+          <div class="gest-card__header">
+            <p class="gest-card__info">20代(女性)</p>
+            <div class="gest-card__tag title-tag">
+              <div class="title-tag__tag">
+                <p>ライセンス講習</p>
+              </div>
+            </div>
+          </div>
+          <div class="gest-card__title">
+            <p>ここにタイトルが入ります。ここにタイトル</p>
+          </div>
+        </div>
+        <div class="gest-card__image">
+          <img src="./assets/images/common/voice_1.jpg" alt="女性のお客様">
+        </div>
+      </div>
+      <div class="gest-card__text">
+        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+      </div>
+    </div>
+
+    <!-- ボタン -->
+    <a href="" class="view-button">View more</a>
+
+    <!-- セクションタイトル -->
+    <div class="section-header">
+      <h3 class="section-header__title"><span class="">C</span>ampaig</h3>
+      <p class="section-header__subtitle">キャンペーン</p>
+    </div>
+
+    <!-- キャンペーンタグ -->
+    <div class="title-tag">
+      <div class="title-tag__tag">
+        <p>ライセンス講習</p>
+      </div>
+      <div class="title-tag__header">
+        <p>ライセンス講習</p>
+      </div>
+    </div>
+    
+    <!-- 料金ポップアップ -->
+    <div class="price-pop">
+      <p class="price-pop__text">全部コミコミ(お一人様)</p>
+      <div class="price-pop__priceBox">
+        <p class="price-pop__none-price">¥56,000</p>
+        <p class="price-pop__price">¥46,000</p>
+      </div>
+    </div>
+    
 
   </main>
+
   <footer class="footer">
     <div class="footer__inner inner">
       <div class="footer__info">

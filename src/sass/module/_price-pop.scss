@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.price-pop {
+  text-align: center;
+}
+
+.price-pop__text {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $navyBlue;
+  line-height: 1.5;
+}
+
+.price-pop__priceBox {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(8);
+}
+
+.price-pop__none-price {
+  font-size: rem(24);
+  font-weight: $bold;
+  font-family: $sub-english-font-family;
+  // line-height: 1;
+  color: $navyBlue;
+  text-decoration: line-through;
+  text-decoration-color: #c94800;
+  text-decoration-thickness: rem(3);
+  padding-top: rem(5);
+}
+
+.price-pop__price {
+  font-size: rem(40);
+  font-weight: $bold;
+  font-family: $sub-english-font-family;
+  line-height: 1;
+  color: $skyBlue;
+  margin-left: rem(24);
+}

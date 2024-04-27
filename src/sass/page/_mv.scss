@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.mv__inner {
+  position: relative;
+}
+
+.mv__img {
+  width: 100%;
+  position: relative;
+}
+
+.mv__img--sp {
+  display: block;
+  @include mq(md){
+    display: none;
+  }
+}
+
+.mv__img--pc {
+  display: none;
+  @include mq(md){
+    display: block;
+  }
+}
+
+.mv__img::before {
+  content: "";
+  display: block;
+  padding-top: 177.867%;// tate667/yoko375
+  @include mq(md){
+    padding-top: 53.333%;// tate768/yoko1440
+  }
+}
+
+.mv__img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mv__header {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $white;
+  text-align: center;
+}
+
+.mv-title {
+  font-size: rem(40);
+  font-weight: $regular;
+  font-family: $english-font-family;
+  color: $white;
+  line-height: 1;
+  letter-spacing: 0.54em;
+  @include mq(md){
+    font-size: rem(80);
+    line-height: 1.25;
+  }
+}
+
+.mv__subtitle {
+  font-size: rem(20);
+  font-weight: $regular;
+  font-family: $english-font-family;
+  color: $white;
+  line-height: 1;
+  text-transform: uppercase;
+}

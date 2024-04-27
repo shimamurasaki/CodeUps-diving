@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.title-tag__tag p {
+  display: inline-block;
+  font-size: rem(12);
+  font-weight: $regular;
+  line-height: 1.833;
+  color: $skyBlue;
+  padding: rem(4) rem(12);
+  border: 1px solid $skyBlue;
+  @include mq("md") {
+    padding: rem(6) rem(16);
+  }
+}
+
+.title-tag__header p {
+  display: inline-block;
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.5;
+  color: $navyBlue;
+}
+
+.title-tag__header {
+  margin-top: rem(4);
+}
