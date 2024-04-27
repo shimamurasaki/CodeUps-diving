@@ -1,0 +1,123 @@
+@use "global" as *;
+
+.about {
+  margin-top: rem(80);
+  padding-bottom: rem(70);
+  @include mq(md) {
+    margin-top: rem(140);
+    padding-bottom: rem(219);
+    position: relative;
+  }
+}
+
+.about__item {
+  position: relative;
+}
+
+.about__images {
+  margin-top: rem(24);
+  display: flex;
+  justify-content: center;
+  padding-left: rem(64);
+  @include mq(md) {
+    margin-top: rem(40);
+    position: relative;
+    padding-left: rem(200);
+  }
+}
+
+.about__images,
+.about__images img:last-child {
+  margin-left: rem(-64);
+  @include mq(md) {
+    margin-left: rem(-200);
+  }
+}
+
+.about__images img:first-child {
+  position: relative;
+  z-index: 1;
+  max-width: 37.101%;
+  @include mq(md) {
+    max-width: 37.037%;
+  }
+}
+
+.about__images img:last-child {
+  max-width: 81.449%;
+  position: relative;
+  top: rem(26);
+  width: calc(62.899% + rem(64));
+  @include mq(md) {
+    max-width: 81.481%;
+    top: rem(80);
+    width: calc(62.963% + rem(200));
+  }
+}
+
+.about__contens {
+  margin-top: rem(58);
+  @include mq(md) {
+    z-index: 10;
+    position: absolute;
+    top: rem(200);
+    right: rem(41);
+    display: flex;
+    max-width: rem(840);
+    width: 100%;
+  }
+}
+
+.about__title {
+  font-size: rem(40);
+  font-family: $english-font-family;
+  font-weight: $regular;
+  color: $skyBlue;
+  line-height: 1;
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: 1.25;
+    color: $white;
+    max-width: rem(400);
+    width: 50%;
+  }
+}
+
+.about-content {
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: 0;
+    padding-left: rem(40);
+    width: 50%;
+  }
+}
+
+.about__text {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $navyBlue;
+  line-height: 1.5;
+  @include mq(md) {
+    color: $white;
+  }
+}
+
+.about__button {
+  text-align: center;
+  margin-top: rem(50);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.about__illust {
+  display: none;
+  @include mq(md) {
+    display: inline-block;
+    max-width: rem(194);
+    width: 100%;
+    position: absolute;
+    right: 80px;
+    bottom: 74px;
+  }
+}

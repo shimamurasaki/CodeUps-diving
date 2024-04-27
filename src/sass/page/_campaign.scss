@@ -1,0 +1,87 @@
+@use "global" as *;
+
+.campaign {
+  width: 100vw;
+  margin-top: rem(40);
+  @include mq(md){
+    margin-top: rem(120);
+    position: relative;
+  }
+}
+
+.campaign__contents {
+  margin-top: rem(24);
+  padding-left: rem(15);
+  margin-left: auto;
+  @include mq(md){
+    max-width: rem(1264);
+    width: 100%;
+  }
+}
+
+.campaign__content {
+  max-width: rem(280);
+  width: 100%;
+  @include mq(md){
+    max-width: rem(334);
+  }
+}
+
+.campaign__content:not(:last-child) {
+  margin-right: rem(24);
+  @include mq(md){
+    margin-right: rem(40);
+  }
+}
+
+.campaign__button {
+  margin-top: rem(40);
+  text-align: center;
+}
+
+.campaign__swiper-btn {
+  display: none;
+  @include mq(md){
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: rem(-25);
+    right: rem(180);
+  }
+}
+
+.campaign__next-btn,
+.campaign__prev-btn {
+  display: none;
+  @include mq(md){
+    display: inline-block;
+    width: rem(80);
+    height: rem(80);
+    border: 1px solid $skyBlue;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: rem(20);
+  }
+}
+
+.campaign__prev-btn {
+  margin-left: rem(80);
+}
+
+.campaign__next-btn span {
+  display: inline-block;
+  width: 40px;
+  height: 6px;
+  border-bottom: 1px solid $skyBlue;
+  border-left: 1px solid $skyBlue;
+  transform: skew(-45deg);
+}
+
+.campaign__prev-btn span {
+  display: inline-block;
+  width: 40px;
+  height: 6px;
+  border-bottom: 1px solid $skyBlue;
+  border-right: 1px solid $skyBlue;
+  transform: skew(45deg);
+}

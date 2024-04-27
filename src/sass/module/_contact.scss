@@ -1,29 +1,34 @@
 @use "global" as *;
 
 .contact {
-  padding-top: rem(54);
+  padding-top: rem(80);
   padding-bottom: rem(100);
   @include mq("md") {
+    max-width: rem(1130);
+    padding-left: rem(25);
+    padding-right: rem(25);
     padding-top: rem(140);
     padding-bottom: rem(160);
-    padding-right: rem(50);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
   }
 }
 
 .contact__inner {
+  padding: 0 rem(15);
   @include mq("md") {
-    padding: rem(80) 0;
+    padding: rem(80) 0 rem(80) rem(50);
     background-color: $white;
     box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 }
 
 .contact__info {
   @include mq("md") {
-    max-width: rem(522);// 440+82
+    max-width: 48.333%;
     width: 100%;
     padding-right: rem(82);
     border-right: 1px solid $skyBlue;
@@ -104,8 +109,7 @@
   margin-top: rem(40);
   text-align: center;
   @include mq("md") {
-    max-width: rem(315);
-    width: 100%;
+    max-width: 29.167%;
     margin-top: 0;
     margin-left: rem(81);
   }
@@ -124,3 +128,16 @@
   text-align: center;
 }
 
+.contact__illust {
+  display: inline-block;
+  max-width: rem(109);
+  width: 100%;
+  position: absolute;
+  top: 54px;
+  right: 15px;
+  @include mq(md) {
+    max-width: rem(301);
+    top: 100px;
+    right: 50px;
+  }
+}

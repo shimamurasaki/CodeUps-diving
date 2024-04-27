@@ -41,3 +41,23 @@
   color: $skyBlue;
 }
 
+.section-header__title--white {
+  font-size: rem(32);
+  font-weight: $regular;
+  font-family: $english-font-family;
+  color: $navyBlue;
+  line-height: 1.25;
+  @include mq(md){
+    font-size: rem(40);
+    line-height: 1;
+    color: $white;
+  }
+}
+
+.section-header__subtitle--white {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $white;
+  line-height: 1.5;
+}
+

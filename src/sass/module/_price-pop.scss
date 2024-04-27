@@ -5,10 +5,14 @@
 }
 
 .price-pop__text {
-  font-size: rem(16);
+  font-size: rem(14);
   font-weight: $regular;
   color: $navyBlue;
-  line-height: 1.5;
+  line-height: 1.714;
+  @include mq(md){
+    font-size: rem(16);
+    line-height: 1.5;
+  }
 }
 
 .price-pop__priceBox {
@@ -18,22 +22,30 @@
 }
 
 .price-pop__none-price {
-  font-size: rem(24);
+  font-size: rem(20);
   font-weight: $bold;
   font-family: $sub-english-font-family;
-  // line-height: 1;
+  line-height: 1;
   color: $navyBlue;
   text-decoration: line-through;
   text-decoration-color: #c94800;
   text-decoration-thickness: rem(3);
-  padding-top: rem(5);
+  padding-top: rem(10);
+  @include mq(md){
+    font-size: rem(24);
+    padding-top: rem(14);
+  }
 }
 
 .price-pop__price {
-  font-size: rem(40);
+  font-size: rem(32);
   font-weight: $bold;
   font-family: $sub-english-font-family;
   line-height: 1;
   color: $skyBlue;
-  margin-left: rem(24);
-}
+  padding-left: rem(16);
+  @include mq(md){
+    font-size: rem(40);
+    padding-left: rem(24);
+  }
+} 
