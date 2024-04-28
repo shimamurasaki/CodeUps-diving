@@ -1,0 +1,50 @@
+@use "global" as *;
+
+.common-button {
+  display: inline-block;
+  width: rem(202);
+  padding: rem(16) 0;
+  border: 1px solid $skyBlue;
+  background-color: $skyBlue;
+  color: $white;
+  font-size: 14px;
+  font-family: $english-font-family;
+  line-height: 1.571;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.common-button::before {
+  content: "";
+  display: inline-block;
+  border: 1px solid $skyBlue;
+  position: absolute;
+  top: rem(-4);
+  left: rem(-4);
+  right: rem(4);
+  bottom: rem(4);
+  z-index: -1;
+}
+
+.common-button::after {
+  content: "";
+  display: inline-block;
+  width: rem(40);
+  height: rem(6);
+  border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
+  transform: skew(45deg);
+  position: absolute;
+  top: rem(22);
+  right: rem(40);
+}
+
+.common-button:hover {
+  background-color: $white;
+  color: $skyBlue;
+}
+
+.common-button:hover::after {
+  border-bottom: 1px solid &skyblue;
+  border-right: 1px solid $skyBlue;
+}
