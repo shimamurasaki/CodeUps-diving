@@ -12,6 +12,7 @@
   line-height: 1.571;
   position: relative;
   transition: 0.3s ease;
+  padding-right: rem(40);
 }
 
 .common-button::before {
@@ -19,10 +20,10 @@
   display: inline-block;
   border: 1px solid $skyBlue;
   position: absolute;
-  top: rem(-4);
-  left: rem(-4);
-  right: rem(4);
-  bottom: rem(4);
+  top: rem(4);
+  left: rem(4);
+  right: rem(-4);
+  bottom: rem(-4);
   z-index: -1;
 }
 
@@ -45,6 +46,6 @@
 }
 
 .common-button:hover::after {
-  border-bottom: 1px solid &skyblue;
+  border-bottom: 1px solid $skyBlue;
   border-right: 1px solid $skyBlue;
 }
