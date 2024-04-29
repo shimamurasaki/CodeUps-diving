@@ -28,11 +28,21 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- JavaScript -->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
+
   <!-- Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
+  <div class="loader">
+    <div class="loader__header">
+      <h2 class="loader-title">diving</h2>
+      <p class="loader__subtitle">into the ocean</p>
+    </div>
+  </div>
+
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">
@@ -117,7 +127,7 @@
     <section class="mv">
       <div class="mv__inner">
         <div class="mv__header">
-          <h2 class="mv-title">DIVING</h2>
+          <h2 class="mv-title">diving</h2>
           <p class="mv__subtitle">into the ocean</p>
         </div>
         <div class="mv__images">
@@ -323,7 +333,7 @@
           <p class="section-header__subtitle">ダイビング情報</p>
         </div>
         <div class="infomation__contents">
-          <div class="infomation__image">
+          <div class="infomation__image colorbox">
             <img src="./assets/images/common/infomation.jpg" alt="海の中を泳ぐ魚たち">
           </div>
           <div class="infomation__content">
@@ -421,7 +431,7 @@
                   <p>ここにタイトルが入ります。ここにタイトル</p>
                 </div>
               </div>
-              <div class="gest-card__image">
+              <div class="gest-card__image  colorbox">
                 <img src="./assets/images/common/voice_1.jpg" alt="女性のお客様">
               </div>
             </div>
@@ -444,7 +454,7 @@
                   <p>ここにタイトルが入ります。ここにタイトル</p>
                 </div>
               </div>
-              <div class="gest-card__image">
+              <div class="gest-card__image  colorbox">
                 <img src="./assets/images/common/voice_2.jpg" alt="男性のお客様">
               </div>
             </div>
@@ -472,7 +482,7 @@
           <p class="section-header__subtitle">料金一覧</p>
         </div>
         <div class="price__contents">
-          <div class="price__image">
+          <div class="price__image  colorbox">
             <picture>
               <source media="(min-width: 768px)" srcset="./assets/images/common/price-pc.jpg">
               <img src="./assets/images/common/price-sp.jpg" alt="海中のウミガメ">
@@ -593,6 +603,16 @@
       </div>
       <div class="contact__illust">
         <img src="./assets/images/common/contact-fish.png" alt="魚のイラスト">
+      </div>
+
+      <div class="top-up">
+        <a href="#top" class="top-up__circle">
+          <div class="top-up__yazirusi">
+            <div class="top-up__line01"></div>
+            <div class="line02"></div>
+            <div class="top-up__line02"></div>
+          </div>
+        </a>
       </div>
     </section>
   </main>

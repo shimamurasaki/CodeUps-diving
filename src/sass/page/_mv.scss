@@ -59,6 +59,7 @@
   color: $white;
   line-height: 1;
   letter-spacing: 0.54em;
+  text-transform: uppercase;
   @include mq(md){
     font-size: rem(80);
     line-height: 1.25;

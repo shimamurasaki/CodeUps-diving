@@ -22,6 +22,7 @@
   line-height: 1;
   padding: 0 rem(20);
   justify-content: center;
+  position: relative;
 }
 
 .pc-nav__item:first-child a {
@@ -36,4 +37,23 @@
   font-size: rem(10);
   font-family:$base-font-family;
   line-height: 1.5;
+}
+
+.pc-nav__item a::after {
+  content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: rem(22);
+    /*線の形状*/
+    width: 80%;
+    height: 1px;
+    background:#fff;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: center top;/*上部中央基点*/
+}
+
+.pc-nav__item a:hover::after {
+  transform: scale(1, 1);/*X方向にスケール拡大*/
 }

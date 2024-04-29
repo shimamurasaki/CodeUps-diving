@@ -75,6 +75,7 @@
   border-bottom: 1px solid $skyBlue;
   border-left: 1px solid $skyBlue;
   transform: skew(-45deg);
+  margin-left: rem(5);
 }
 
 .campaign__prev-btn span {
@@ -84,4 +85,5 @@
   border-bottom: 1px solid $skyBlue;
   border-right: 1px solid $skyBlue;
   transform: skew(45deg);
+  margin-right: rem(5);
 }
