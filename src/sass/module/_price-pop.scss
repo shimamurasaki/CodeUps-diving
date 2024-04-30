@@ -29,7 +29,7 @@
   color: $navyBlue;
   text-decoration: line-through;
   text-decoration-color: #c94800;
-  text-decoration-thickness: rem(3);
+  text-decoration-thickness: rem(4);
   padding-top: rem(10);
   @include mq(md){
     font-size: rem(24);
@@ -43,7 +43,7 @@
   font-family: $sub-english-font-family;
   line-height: 1;
   color: $skyBlue;
-  padding-left: rem(16);
+  padding-left: rem(19);
   @include mq(md){
     font-size: rem(40);
     padding-left: rem(24);

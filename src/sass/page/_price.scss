@@ -2,7 +2,7 @@
 
 .price {
   padding-top: rem(80);
-  padding-bottom: rem(80);
+  padding-bottom: rem(85);
   background-color: #ddf0f1;
   z-index: 0;
   @include mq(md){
@@ -13,7 +13,7 @@
 }
 
 .price__contents {
-  margin-top: rem(24);
+  margin-top: rem(28);
   @include mq(md){
     margin-top: rem(40);
     display: flex;
@@ -59,7 +59,7 @@
 }
 
 .price__list + .price__list {
-  margin-top: rem(40);
+  margin-top: rem(39);
 }
 
 .price__list-items dt {
@@ -88,8 +88,12 @@
   }
 }
 
+.price__list-item dd.money {
+  letter-spacing: 0.02em;
+}
+
 .price__button {
-  margin-top: rem(40);
+  margin-top: rem(36);
   text-align: center;
   @include mq(md){
     margin-top: rem(80);

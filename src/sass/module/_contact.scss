@@ -2,7 +2,7 @@
 
 .contact {
   padding-top: rem(80);
-  padding-bottom: rem(100);
+  padding-bottom: rem(50);
   @include mq("md") {
     max-width: rem(1130);
     padding-left: rem(25);
@@ -16,7 +16,7 @@
 }
 
 .contact__inner {
-  padding: 0 rem(15);
+  padding: 0 rem(40);
   @include mq("md") {
     padding: rem(80) 0 rem(80) rem(50);
     box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
@@ -35,7 +35,6 @@
 }
 
 .contact__logo {
-  padding-bottom: rem(6);
   text-align: center;
 }
 
@@ -69,6 +68,7 @@
   font-weight: $regular;
   color: $navyBlue;
   line-height: 1.5;
+  letter-spacing: 0.019em;
 }
 
 .contact__access-text p:not(:first-child) {
@@ -119,11 +119,11 @@
   font-weight: $regular;
   line-height: 1.286;
   color: $skyBlue;
-  margin-top: rem(8);
+  margin-top: rem(14);
 }
 
 .contact-button {
-  margin-top: rem(40);
+  margin-top: rem(36);
   text-align: center;
 }
 

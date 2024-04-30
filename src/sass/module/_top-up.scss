@@ -4,11 +4,11 @@
   z-index: 1000;
   position: relative;
   right: rem(15);
-  bottom: rem(-80);
+  bottom: rem(-40);
   text-align: end;
   @include mq(md){
     right: rem(20);
-    bottom: rem(-80);
+    bottom: rem(-40);
   }
 }
 
@@ -49,7 +49,7 @@
   top: 0;
   right: 0;
   transform-origin: right bottom;
-  width: rem(6);
+  width: rem(10);
   height: rem(1);
   background-color: $skyBlue;
   transform: rotate(45deg);

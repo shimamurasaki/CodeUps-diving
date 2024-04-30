@@ -14,7 +14,10 @@
 .gest-card__contents {
   display: flex;
   justify-content: space-between;
-  gap: rem(40);
+}
+
+.gest-card__content {
+  width: 48%;
 }
 
 .gest-card__header {
@@ -36,9 +39,10 @@
   margin-top: rem(4);
   font-size: rem(16);
   font-weight: $medium;
+  line-height: 1.4;
   color: $navyBlue;
-  padding-bottom: rem(4);
   border-bottom: 1px solid $skyBlue;
+  padding-bottom: rem(5);
   @include mq("md") {
     margin-top: rem(8);
     font-size: rem(24);
@@ -46,7 +50,7 @@
 }
 
 .gest-card__image {
-  width: 100%;
+  width: 48%;
   position: relative;
 }
 
@@ -70,7 +74,7 @@
 }
 
 .gest-card__text {
-  margin-top: rem(15);
+  margin-top: rem(16);
   font-size: rem(16);
   font-weight: $regular;
   line-height: 1.5;

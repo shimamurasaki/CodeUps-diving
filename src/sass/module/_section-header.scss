@@ -27,14 +27,25 @@
   font-weight: $regular;
   color: $skyBlue;
   line-height: 1.5;
+  padding-top: rem(4);
 }
 
 .section-header__title--big {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  text-align: center;
   font-size: rem(80);
   font-weight: $regular;
   font-family: $english-font-family;
   color: $navyBlue;
   line-height: 1;
+}
+
+.section-header__subtitle--big {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $skyBlue;
+  line-height: 0.5;
 }
 
 .section-header__title--big span {
@@ -59,5 +70,6 @@
   font-weight: $regular;
   color: $white;
   line-height: 1.5;
+  padding-top: rem(4);
 }
 

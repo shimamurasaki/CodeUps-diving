@@ -58,8 +58,10 @@
   font-family: $english-font-family;
   color: $white;
   line-height: 1;
-  letter-spacing: 0.54em;
+  letter-spacing: 0.52em;
   text-transform: uppercase;
+  display: inline-block;
+  padding-left: rem(21);
   @include mq(md){
     font-size: rem(80);
     line-height: 1.25;
@@ -72,5 +74,5 @@
   font-family: $english-font-family;
   color: $white;
   line-height: 1;
-  text-transform: uppercase;
+  padding-top: rem(10);
 }
