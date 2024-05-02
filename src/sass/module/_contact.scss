@@ -3,25 +3,26 @@
 .contact {
   position: relative;
   padding-top: rem(80);
-  padding-bottom: rem(8);
+  padding-bottom: rem(100);
   @include mq("md") {
-    max-width: rem(1130);
     padding-left: rem(25);
     padding-right: rem(25);
-    padding-top: rem(140);
+    padding-top: rem(100);
     padding-bottom: rem(160);
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
 .contact__inner {
   padding: 0 rem(40);
+  max-width: rem(1180);
+  padding: rem(80) 0 rem(80) rem(50);
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   @include mq("md") {
-    padding: rem(80) 0 rem(80) rem(50);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
+    max-width: rem(1080);
   }
 }
 
@@ -136,7 +137,7 @@
 }
 
 .contact-button {
-  margin-top: rem(36);
+  margin-top: rem(40);
   text-align: center;
 }
 
@@ -149,17 +150,17 @@
   right: 15px;
   @include mq(md) {
     max-width: rem(310);
-    top: 103px;
-    right: -110px;
+    top: 100px;
+    right: 45px;
   }
 }
 
 .contact__top-btn {
-    text-align: right;
-    max-width: rem(345);
-    margin: auto;
-    margin-top: rem(40);
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
   @include mq(md) {
-
+    bottom: 20px;
+    right: 20px;
   }
 }

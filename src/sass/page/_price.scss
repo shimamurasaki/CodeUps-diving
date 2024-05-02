@@ -2,7 +2,7 @@
 
 .price {
   padding-top: rem(80);
-  padding-bottom: rem(85);
+  padding-bottom: rem(80);
   background-color: #ddf0f1;
   z-index: 0;
   @include mq(md){
@@ -93,10 +93,10 @@
 }
 
 .price__button {
-  margin-top: rem(36);
+  margin-top: rem(40);
   text-align: center;
   @include mq(md){
-    margin-top: rem(78);
+    margin-top: rem(80);
   }
 }
 

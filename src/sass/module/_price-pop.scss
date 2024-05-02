@@ -18,7 +18,9 @@
 
 .price-pop__priceBox {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: rem(20);
+  padding-right: rem(40);
   margin-top: rem(8);
 }
 
