@@ -28,6 +28,9 @@
   color: $skyBlue;
   line-height: 1.5;
   padding-top: rem(4);
+  @include mq(md){
+    padding-top: rem(8);
+  }
 }
 
 .section-header__title--big {
@@ -39,6 +42,11 @@
   font-family: $english-font-family;
   color: $navyBlue;
   line-height: 1;
+  @include mq(md){
+    width: initial;
+    margin-left: initial;
+    margin-left: rem(-5);
+  }
 }
 
 .section-header__subtitle--big {

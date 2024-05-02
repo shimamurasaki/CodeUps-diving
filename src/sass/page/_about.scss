@@ -1,57 +1,52 @@
 @use "global" as *;
 
 .about {
-  margin-top: rem(83);
-  padding-bottom: rem(70);
+  margin-top: rem(80);
+  padding-bottom: rem(72);
   @include mq(md) {
-    margin-top: rem(140);
+    margin-top: 142px;
     padding-bottom: rem(219);
     position: relative;
   }
 }
 
 .about__item {
-  position: relative;
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 .about__images {
-  margin-top: rem(28);
   display: flex;
-  justify-content: center;
-  padding-left: rem(64);
-  @include mq(md) {
-    margin-top: rem(40);
-    position: relative;
-    padding-left: rem(200);
-  }
-}
-
-.about__images,
-.about__images img:last-child {
-  margin-left: rem(-64);
-  @include mq(md) {
-    margin-left: rem(-200);
-  }
 }
 
 .about__images img:first-child {
+  max-width: 37.101%;
   position: relative;
   z-index: 1;
-  max-width: 37.101%;
+  aspect-ratio: 128 / 194;
   @include mq(md) {
     max-width: 37.037%;
+    aspect-ratio: 400 / 606;
   }
 }
 
 .about__images img:last-child {
   max-width: 81.449%;
   position: relative;
-  top: rem(26);
-  width: calc(62.899% + rem(64));
+  top: 26px;
+  width: calc(63.188% + 65px);
+  margin-left: -65px;
+  height: 100%;
+  aspect-ratio: 281 / 186;
   @include mq(md) {
     max-width: 81.481%;
-    top: rem(80);
-    width: calc(62.963% + rem(200));
+    top: 80px;
+    width: calc(62.963% + 200px);
+    margin-left: -200px;
+    aspect-ratio: 880 / 600;
+    height: rem(580);
   }
 }
 
@@ -60,9 +55,10 @@
   @include mq(md) {
     z-index: 10;
     position: absolute;
-    top: rem(200);
-    right: rem(41);
+    top: rem(250);
+    left: rem(380);
     display: flex;
+    justify-content: space-between;
     max-width: rem(840);
     width: 100%;
   }
@@ -87,7 +83,7 @@
   margin-top: rem(16);
   @include mq(md) {
     margin-top: 0;
-    padding-left: rem(40);
+    padding-left: rem(21);
     width: 50%;
   }
 }
@@ -107,7 +103,8 @@
   margin-top: rem(48);
   padding-right: rem(13);
   @include mq(md) {
-    margin-top: rem(40);
+    margin-top: rem(36);
+    padding-right: 0;
   }
 }
 

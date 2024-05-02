@@ -96,7 +96,7 @@
   margin-top: rem(36);
   text-align: center;
   @include mq(md){
-    margin-top: rem(80);
+    margin-top: rem(78);
   }
 }
 
@@ -108,6 +108,6 @@
     width: 100%;
     position: absolute;
     left: 100px;
-    bottom: 60px;
+    bottom: 58px;
   }
 }

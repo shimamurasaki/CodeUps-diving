@@ -1,15 +1,8 @@
 @use "global" as *;
 
 .top-up {
+  display: block;
   z-index: 1000;
-  position: relative;
-  right: rem(15);
-  bottom: rem(-40);
-  text-align: end;
-  @include mq(md){
-    right: rem(20);
-    bottom: rem(-40);
-  }
 }
 
 .top-up__circle {

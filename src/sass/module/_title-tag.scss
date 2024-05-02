@@ -23,4 +23,7 @@
 
 .title-tag__header {
   margin-top: rem(4);
+  @include mq("md") {
+    margin-top: rem(2);
+  }
 }

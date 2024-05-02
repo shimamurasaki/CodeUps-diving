@@ -43,14 +43,11 @@
 .campaign-card__header {
   padding-bottom: rem(8);
   border-bottom: 1px solid $skyBlue;
-  @include mq(md){
-    padding-bottom: rem(10);
-  }
 }
 
 .campaign-card__price {
   margin-top: rem(8);
   @include mq(md){
-    margin-top: (16);
+    margin-top: 15px;
   }
 }

@@ -7,7 +7,7 @@
   margin: auto;
   @include mq("md") {
     max-width: rem(520);
-    padding: rem(48) rem(24) rem(24);
+    padding: rem(24) rem(24) rem(24);
   }
 }
 
@@ -17,14 +17,19 @@
 }
 
 .gest-card__content {
-  width: 48%;
+  max-width: 47.604%;
+  width: 100%;
+  margin-top: auto;
+  @include mq("md") {
+    max-width: 58.475%;
+  }
 }
 
 .gest-card__header {
   @include mq("md") {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: end;
   }
 }
 
@@ -50,8 +55,12 @@
 }
 
 .gest-card__image {
-  width: 48%;
+  max-width: 48.243%;
+  width: 100%;
   position: relative;
+  @include mq("md") {
+    max-width: 38.136%;
+  }
 }
 
 .gest-card__image::before {

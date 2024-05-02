@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .infomation {
-  padding-top: rem(82);
+  padding-top: rem(80);
   padding-bottom: rem(83);
   background-color: #ddf0f1;
   position: relative;
@@ -52,8 +52,9 @@
 .infomation__content {
   margin-top: rem(24);
   @include mq(md){
+    margin-top: 0;
     width: 50%;
-    padding-left: rem(48);
+    padding-left: rem(45);
   }
 }
 
