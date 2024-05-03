@@ -14,7 +14,7 @@
 }
 
 .campaign__inner {
-  padding-left: 15px;
+  padding-left: rem(15);
 }
 
 .campaign__contents {
@@ -40,7 +40,7 @@
 .campaign__content:not(:last-child) {
   margin-right: rem(24);
   @include mq(md){
-    margin-right: 38px;
+    margin-right: rem(38);
   }
 }
 
@@ -83,8 +83,8 @@
 
 .campaign__next-btn span {
   display: inline-block;
-  width: 40px;
-  height: 6px;
+  width: rem(40);
+  height: rem(6);
   border-bottom: 1px solid $skyBlue;
   border-left: 1px solid $skyBlue;
   transform: skew(-45deg);
@@ -93,8 +93,8 @@
 
 .campaign__prev-btn span {
   display: inline-block;
-  width: 40px;
-  height: 6px;
+  width: rem(40);
+  height: rem(6);
   border-bottom: 1px solid $skyBlue;
   border-right: 1px solid $skyBlue;
   transform: skew(45deg);
