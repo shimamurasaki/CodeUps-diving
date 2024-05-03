@@ -62,7 +62,7 @@
   margin-top: rem(39);
 }
 
-.price__list-items dt {
+.price__list-title {
   font-size: rem(16);
   font-weight: $bold;
   color: $navyBlue;
@@ -77,7 +77,7 @@
   justify-content: space-between;
 }
 
-.price__list-item dd {
+.price__list-item li {
   font-size: rem(14);
   font-weight: $regular;
   color: $navyBlue;
@@ -88,7 +88,7 @@
   }
 }
 
-.price__list-item dd.money {
+.price__list-item li.money {
   letter-spacing: 0.02em;
 }
 
