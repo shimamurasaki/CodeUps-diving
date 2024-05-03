@@ -13,7 +13,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
-  $(".js-sp-nav.nav-contents__title, .js-sp-nav.nav-contents__text").click(function () {
+  $(".js-sp-title, .js-sp-text").click(function () {
     if ($('.js-hamburger').hasClass('is-active')) {
         $('.js-hamburger').removeClass("is-active");
         $(".js-sp-nav").fadeOut(300);
