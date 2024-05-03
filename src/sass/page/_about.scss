@@ -4,7 +4,7 @@
   margin-top: rem(80);
   padding-bottom: rem(80);
   @include mq(md) {
-    margin-top: REM(140);
+    margin-top: rem(140);
     padding-bottom: rem(225);
     position: relative;
   }
@@ -14,11 +14,16 @@
   margin-top: rem(24);
   @include mq(md) {
     margin-top: rem(40);
+    position: relative;
+    max-width: rem(1080);
   }
 }
 
 .about__images {
   display: flex;
+  @include mq(md) {
+    justify-content: space-between;
+  }
 }
 
 .about__images img:first-child {
@@ -52,14 +57,15 @@
 .about__contens {
   margin-top: rem(58);
   @include mq(md) {
+    margin-top: 0;
     z-index: 10;
     position: absolute;
-    top: rem(250);
-    left: rem(380);
+    top: 200px;
+    right: 40px;
     display: flex;
-    justify-content: space-between;
     max-width: rem(840);
     width: 100%;
+    gap: rem(40);
   }
 }
 
@@ -74,7 +80,7 @@
     line-height: 1.25;
     color: $white;
     max-width: rem(400);
-    width: 50%;
+    width: 47.619%;
   }
 }
 
@@ -82,8 +88,8 @@
   margin-top: rem(16);
   @include mq(md) {
     margin-top: 0;
-    padding-left: rem(21);
-    width: 50%;
+    max-width: rem(400);
+    width: 52.381%;
   }
 }
 

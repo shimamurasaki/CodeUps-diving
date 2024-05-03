@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.infomation {
+.information {
   padding-top: rem(100);
   padding-bottom: rem(76);
   background-color: #ddf0f1;
@@ -12,7 +12,7 @@
   }
 }
 
-.infomation__contents {
+.information__contents {
   margin-top: rem(24);
   @include mq(md){
     margin-top: rem(40);
@@ -21,7 +21,7 @@
   }
 }
 
-.infomation__image {
+.information__image {
   position: relative;
   width: 100%;
   @include mq(md){
@@ -29,7 +29,7 @@
   }
 }
 
-.infomation__image::before {
+.information__image::before {
   content: "";
   display: block;
   padding-top: 65.797%;
@@ -38,7 +38,7 @@
   }
 }
 
-.infomation__image img {
+.information__image img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,7 +49,7 @@
   display: inline-block;
 }
 
-.infomation__content {
+.information__content {
   margin-top: rem(24);
   @include mq(md){
     margin-top: 0;
@@ -58,7 +58,7 @@
   }
 }
 
-.infomation__title {
+.information__title {
   font-size: rem(20);
   font-weight: $bold;
   color: $navyBlue;
@@ -72,7 +72,7 @@
   }
 }
 
-.infomation__text {
+.information__text {
   margin-top: rem(8);
   font-size: rem(16);
   font-weight: $regular;
@@ -80,7 +80,7 @@
   line-height: 1.5;
 }
 
-.infomation__button {
+.information__button {
   text-align: center;
   margin-top: rem(40);
 }
