@@ -4,6 +4,10 @@
   z-index: 1000;
 }
 
+.top-up a:hover {
+  opacity: 0.8;
+}
+
 .top-up__circle {
   display: inline-block;
   width: rem(48);
