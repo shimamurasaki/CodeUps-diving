@@ -27,7 +27,6 @@
   <!-- css -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js"></script>
 
@@ -235,10 +234,10 @@
     </section>
 
     <section class="campaign" id="campaign">
-      <div class="campaign__inner">
+      <div class="campaign__inner inner">
         <div class="campaign__header section-header">
-          <h3 class="section-header__title"><span class="">C</span>ampaign</h3>
-          <p class="section-header__subtitle">キャンペーン</p>
+          <h3 class="section-header__title">キャンペーン</h3>
+          <p class="section-header__subtitle"><span class="">C</span>ampaign</p>
         </div>
         <div class="campaign__swiper-btn">
           <div class="js-campaign-button-next campaign__next-btn"><span></span></div>
@@ -453,7 +452,7 @@
           <!-- Swiper -->
         </div>
         <div class="campaign__button">
-          <a href="" class="common-button">View more</a>
+          <a href="" class="common-button">View more<span></span></a>
         </div>
       </div>
     </section>
@@ -461,8 +460,8 @@
     <section class="about" id="about">
       <div class="about__inner inner">
         <div class="about__header section-header">
-          <h3 class="section-header__title"><span class="">A</span>bout us</h3>
-          <p class="section-header__subtitle">私たちについて</p>
+          <h3 class="section-header__title">私たちについて</h3>
+          <p class="section-header__subtitle"><span class="">A</span>bout us</p>
         </div>
         <div class="about__item">
           <div class="about__images">
@@ -476,7 +475,7 @@
             <div class="about-content">
               <p class="about__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
               <div class="about__button">
-                <a href="" class="common-button">View more</a>
+                <a href="" class="common-button">View more<span></span></a>
               </div>
             </div>
           </div>
@@ -490,8 +489,8 @@
     <section class="information" id="information">
       <div class="information__inner inner">
         <div class="information__header section-header">
-          <h3 class="section-header__title"><span class="">I</span>nformation</h3>
-          <p class="section-header__subtitle">ダイビング情報</p>
+          <h3 class="section-header__title">ダイビング情報</h3>
+          <p class="section-header__subtitle"><span class="">I</span>nformation</p>
         </div>
         <div class="information__contents">
           <div class="information__image colorbox">
@@ -503,21 +502,21 @@
               <p class="information__text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
             </div>
             <div class="information__button">
-              <a href="" class="common-button">View more</a>
+              <a href="" class="common-button">View more<span></span></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="blog" id="blog">
-      <div class="blog__inner">
+    <section class="blog blog-bg" id="blog">
+      <div class="blog__inner inner">
         <div class="blog__header section-header">
-          <h3 class="section-header__title--white"><span class="">B</span>log</h3>
-          <p class="section-header__subtitle--white">ブログ</p>
+          <h3 class="section-header__title--white">ブログ</h3>
+          <p class="section-header__subtitle--white"><span class="">B</span>log</p>
         </div>
-        <div class="blog__items">
-          <div class="blog-card blog__item">
+        <div class="blog__items card-list">
+          <a class="blog-card card-list__item">
             <div class="blog-card__image">
               <img src="./assets/images/common/blog_1.jpg" alt="">
             </div>
@@ -530,8 +529,8 @@
             <div class="blog-card__text">
               <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
             </div>
-          </div><!-- blog__itemここまで -->
-          <div class="blog-card blog__item">
+          </a><!-- blog__itemここまで -->
+          <a class="blog-card card-list__item">
             <div class="blog-card__image">
               <img src="./assets/images/common/blog_2.jpg" alt="">
             </div>
@@ -544,8 +543,8 @@
             <div class="blog-card__text">
               <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
             </div>
-          </div><!-- blog__itemここまで -->
-          <div class="blog-card blog__item">
+          </a><!-- blog__itemここまで -->
+          <a class="blog-card card-list__item">
             <div class="blog-card__image">
               <img src="./assets/images/common/blog_3.jpg" alt="">
             </div>
@@ -558,10 +557,10 @@
             <div class="blog-card__text">
               <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
             </div>
-          </div><!-- blog__itemここまで -->
+          </a><!-- blog__itemここまで -->
         </div><!-- blog__itemsここまで -->
         <div class="blog__button">
-          <a href="" class="common-button">View more</a>
+          <a href="" class="common-button">View more<span></span></a>
         </div>
       </div>
       <div class="blog__illust">
@@ -572,11 +571,11 @@
     <section class="voice" id="voice">
       <div class="voice__inner inner">
         <div class="voice__header section-header">
-          <h3 class="section-header__title"><span class="">V</span>oice</h3>
-          <p class="section-header__subtitle">お客様の声</p>
+          <h3 class="section-header__title">お客様の声</h3>
+          <p class="section-header__subtitle"><span class="">V</span>oice</p>
         </div>
-        <div class="voice__items">
-          <div class="gest-card voice__item">
+        <div class="voice__items sheet-list">
+          <div class="gest-card sheet-list__item">
             <div class="gest-card__contents">
               <div class="gest-card__content">
                 <div class="gest-card__header">
@@ -599,7 +598,7 @@
               <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
             </div>
           </div><!-- voice__item -->
-          <div class="gest-card voice__item">
+          <div class="gest-card sheet-list__item">
             <div class="gest-card__contents">
               <div class="gest-card__content">
                 <div class="gest-card__header">
@@ -624,7 +623,7 @@
           </div><!-- voice__item -->
         </div><!-- voice__items -->
         <div class="voice__button">
-          <a href="" class="common-button">View more</a>
+          <a href="" class="common-button">View more<span></span></a>
         </div>
       </div>
       <div class="voice__illust--top">
@@ -638,8 +637,8 @@
     <section class="price" id="price">
       <div class="price__inner inner">
         <div class="price__header section-header">
-          <h3 class="section-header__title"><span class="">P</span>rice</h3>
-          <p class="section-header__subtitle">料金一覧</p>
+          <h3 class="section-header__title">料金一覧</h3>
+          <p class="section-header__subtitle"><span class="">P</span>rice</p>
         </div>
         <div class="price__contents">
           <div class="price__image colorbox">
@@ -657,7 +656,7 @@
                   <li class="money">¥50,000</li>
                 </ul>
                 <ul class="price__list-item">
-                  <li>アドバンスドオープンウォーターコース</li>
+                  <li>アドバンスドオープンウォーターコースアドバンスドオープンウォーターコース</li>
                   <li class="money">¥60,000</li>
                 </ul>
                 <ul class="price__list-item">
@@ -724,7 +723,7 @@
           </div><!-- price__content -->
         </div><!-- price__contents -->
         <div class="price__button">
-          <a href="" class="common-button">View more</a>
+          <a href="" class="common-button">View more<span></span></a>
         </div>
       </div>
       <div class="price__illust">
@@ -752,12 +751,12 @@
         </div>
         <div class="contact__content">
           <div class="section-header contact__header">
-            <h3 class="section-header__title--big"><span class="">C</span>ontact</h3>
-            <p class="section-header__subtitle--big">お問合せ</p>
+            <h3 class="section-header__title--big">お問合せ</h3>
+            <p class="section-header__subtitle--big"><span class="">C</span>ontact</p>
           </div>
           <p class="contact-text">ご予約・お問い合わせはコチラ</p>
           <div class="contact-button">
-            <a href="" class="common-button">Contact us</a>
+            <a href="" class="common-button">Contact us<span></span></a>
           </div>
         </div>
       </div>

@@ -2,11 +2,22 @@
 
 .section-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   text-align: center;
 }
 
 .section-header__title {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $skyBlue;
+  line-height: 1.5;
+  padding-top: rem(4);
+  @include mq(md){
+    padding-top: rem(8);
+  }
+}
+
+.section-header__subtitle {
   font-size: rem(32);
   font-weight: $regular;
   font-family: $english-font-family;
@@ -18,22 +29,18 @@
   }
 }
 
-.section-header__title span {
+.section-header__subtitle span {
   color: $skyBlue;
-}
-
-.section-header__subtitle {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $skyBlue;
-  line-height: 1.5;
-  padding-top: rem(4);
-  @include mq(md){
-    padding-top: rem(8);
-  }
 }
 
 .section-header__title--big {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $skyBlue;
+  line-height: 0.5;
+}
+
+.section-header__subtitle--big {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   text-align: center;
@@ -45,21 +52,24 @@
   @include mq(md){
     width: initial;
     margin-left: rem(-5);
+    position: relative;
+    z-index: 50;
   }
 }
 
-.section-header__subtitle--big {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $skyBlue;
-  line-height: 0.5;
-}
-
-.section-header__title--big span {
+.section-header__subtitle--big span {
   color: $skyBlue;
 }
 
 .section-header__title--white {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $white;
+  line-height: 1.5;
+  padding-top: rem(4);
+}
+
+.section-header__subtitle--white {
   font-size: rem(32);
   font-weight: $regular;
   font-family: $english-font-family;
@@ -72,11 +82,10 @@
   }
 }
 
-.section-header__subtitle--white {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $white;
-  line-height: 1.5;
-  padding-top: rem(4);
+.section-header__subtitle--white span {
+  @include mq(md){
+    color: $white;
+  }
+  color: $skyBlue;
 }
 

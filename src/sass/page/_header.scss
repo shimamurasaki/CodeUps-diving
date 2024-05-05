@@ -53,3 +53,9 @@
     display: block;
   }
 }
+
+.header__sp-nav {
+  @include mq(md){
+    display: none;
+  }
+}

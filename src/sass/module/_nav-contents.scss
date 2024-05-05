@@ -3,7 +3,16 @@
 .nav-contents__box {
   display: flex;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  /* IE, Edge 対応 */
+  -ms-overflow-style: none;
+  /* Firefox 対応 */
+  scrollbar-width: none;
 }
+/* Chrome, Safari 対応 */
+.nav-contents__box::-webkit-scrollbar {
+  display:none;
+ }
 
 .nav-contents__left,
 .nav-contents__right {
@@ -54,6 +63,10 @@
   display: flex;
 }
 
+.nav-contents__title a:hover {
+  opacity: 0.7;
+}
+
 .nav-contents__title p {
   margin-left: rem(4);
   color: $white;
@@ -77,4 +90,6 @@
   line-height: 1.125;
 }
 
-
+.nav-contents__text:hover {
+  opacity: 0.7;
+}
