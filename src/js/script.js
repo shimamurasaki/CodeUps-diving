@@ -16,46 +16,28 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     $(window).resize(checkWidth);
   });
   
-  let state = false;
-
-// ハンバーガーメニューのクリックイベントを処理
-$(".js-hamburger").click(function () {
-  if (state == false) {
-    // スクロールを無効化
-    $(window).on('touchmove.noScroll', function(e) {
-      e.preventDefault();
-    });
-    state = true;
-  } else {
-    // スクロールを有効化
-    $(window).off('.noScroll');
-    state = false;
-  }
-
-  // ハンバーガーメニューのアクティブ状態を切り替え、ナビゲーションメニューを表示／非表示にする
-  if ($('.js-hamburger').hasClass('is-active')) {
-    $('.js-hamburger').removeClass("is-active");
-    $(".js-sp-nav").fadeOut(300);
-  } else {
-    $('.js-hamburger').addClass("is-active");
-    $(".js-sp-nav").fadeIn(300);
-  }
-});
-
-// モバイルナビゲーションメニュー内の要素のクリックを処理
-$(".js-sp-title, .js-sp-text").click(function () {
-  if ($('.js-hamburger').hasClass('is-active')) {
-    $('.js-hamburger').removeClass("is-active");
-    $(".js-sp-nav").fadeOut(300);
-    // スクロールを無効化
-    $('html').css('overflow','hidden');
-  } else {
-    $('.js-hamburger').addClass("is-active");
-    $(".js-sp-nav").fadeIn(300);
-    // スクロールを有効化
-    $('html').css('overflow','scroll');
-  }
-});
+  $(".js-hamburger").click(function () {
+    if ($('.js-hamburger').hasClass('is-active')) {
+      $('.js-hamburger').removeClass("is-active");
+      $(".js-sp-nav").fadeOut(300);
+      $('body').css('overflow','scroll');
+    } else {
+      $('.js-hamburger').addClass("is-active");
+      $(".js-sp-nav").fadeIn(300);
+      $('body').css('overflow','hidden');
+    }
+  });
+  
+  $(".js-sp-title, .js-sp-text").click(function () {
+    if ($('.js-hamburger').hasClass('is-active')) {
+        $('.js-hamburger').removeClass("is-active");
+        $(".js-sp-nav").fadeOut(300);
+        $('body').css('overflow','scroll');
+    } else {
+        $('.js-hamburger').addClass("is-active");
+        $(".js-sp-nav").fadeIn(300);
+    }
+  });
 
   
 
