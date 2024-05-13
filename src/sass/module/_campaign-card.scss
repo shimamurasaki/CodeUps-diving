@@ -5,6 +5,8 @@
   max-width: rem(280);
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   @include mq(md){
     max-width: rem(334);
   }
@@ -36,6 +38,10 @@
 
 .campaign-card__content {
   padding: rem(17) rem(16) rem(21);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   @include mq(md){
     padding: rem(24) rem(16) rem(40);
   }
@@ -47,8 +53,8 @@
 }
 
 .campaign-card__price {
-  margin-top: rem(8);
+  margin-top: auto;
   @include mq(md){
-    margin-top: rem(15);
+    // margin-top: rem(15);
   }
 }

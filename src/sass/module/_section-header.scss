@@ -1,20 +1,7 @@
 @use "global" as *;
 
 .section-header {
-  display: flex;
-  flex-direction: column-reverse;
   text-align: center;
-}
-
-.section-header__title {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $skyBlue;
-  line-height: 1.5;
-  padding-top: rem(4);
-  @include mq(md){
-    padding-top: rem(8);
-  }
 }
 
 .section-header__subtitle {
@@ -33,11 +20,15 @@
   color: $skyBlue;
 }
 
-.section-header__title--big {
+.section-header__title {
   font-size: rem(12);
   font-weight: $regular;
   color: $skyBlue;
-  line-height: 0.5;
+  line-height: 1.5;
+  margin-top: rem(4);
+  @include mq(md){
+    margin-top: rem(8);
+  }
 }
 
 .section-header__subtitle--big {
@@ -61,12 +52,11 @@
   color: $skyBlue;
 }
 
-.section-header__title--white {
+.section-header__title--big {
   font-size: rem(12);
   font-weight: $regular;
-  color: $white;
-  line-height: 1.5;
-  padding-top: rem(4);
+  color: $skyBlue;
+  line-height: 0.5;
 }
 
 .section-header__subtitle--white {
@@ -87,5 +77,13 @@
     color: $white;
   }
   color: $skyBlue;
+}
+
+.section-header__title--white {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $white;
+  line-height: 1.5;
+  padding-top: rem(4);
 }
 

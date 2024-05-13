@@ -2,34 +2,37 @@
 
 .sheet-list {
   @include mq(md){
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(40);
   }
 }
 
-.sheet-list__item {
-  @include mq(md){
-    max-width: calc(50% - rem(40) / 2);
-    width: 100%;
-  }
-}
+// .sheet-list__item {
+//   @include mq(md){
+//     max-width: calc(50% - rem(40) / 2);
+//     width: 100%;
+//   }
+// }
 
 .sheet-list__item + .sheet-list__item {
   margin-top: rem(40);
   @include mq(md){
     margin-top: 0;
-    margin-left: rem(40);
+    // margin-left: rem(40);
   }
 }
 
-.sheet-list__item:nth-child(2n + 1) {
-  @include mq(md){
-    margin-left: 0;
-  }
-}
+// .sheet-list__item:nth-child(2n + 1) {
+//   @include mq(md){
+//     margin-left: 0;
+//   }
+// }
 
-.sheet-list__item:nth-child(n + 3) {
-  @include mq(md){
-    margin-top: rem(40);
-  } 
-}
+// .sheet-list__item:nth-child(n + 3) {
+//   @include mq(md){
+//     margin-top: rem(40);
+//   } 
+// }

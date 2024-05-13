@@ -1,12 +1,12 @@
 @use "global" as *;
 
-.voice {
-  padding-top: rem(80);
-  padding-bottom: rem(80);
+.voice__wrapper {
+  margin-top: rem(80);
   @include mq("md") {
-    padding-top: rem(140);
-    padding-bottom: rem(140);
+    margin-top: rem(140);
     position: relative;
+    width: min(100%, rem(1600));
+    margin: auto;
   }
 }
 

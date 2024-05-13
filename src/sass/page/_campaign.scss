@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.campaign {
+.campaign__wrapper {
   width: 100%;
   margin-top: rem(40);
   padding-bottom: rem(10);
@@ -22,6 +22,7 @@
 .campaign__content {
   max-width: rem(280);
   width: 100%;
+  padding-bottom: rem(10);
   @include mq(md){
     max-width: rem(334);
   }
@@ -35,10 +36,10 @@
 }
 
 .campaign__button {
-  margin-top: rem(20);
+  margin-top: rem(10);
   text-align: center;
   @include mq(md){
-    margin-top: rem(60);
+    margin-top: rem(50);
   }
 }
 

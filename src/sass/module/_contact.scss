@@ -1,42 +1,52 @@
 @use "global" as *;
 
-.contact {
+.contact__wrapper {
   position: relative;
-  padding-top: rem(80);
-  padding-bottom: rem(100);
+  margin-top: rem(80);
   @include mq("md") {
-    padding-left: rem(25);
-    padding-right: rem(25);
-    padding-top: rem(100);
-    padding-bottom: rem(160);
+    margin-top: rem(100);
+    margin: auto;
+    width: min(100%, rem(1600));
   }
 }
 
 .contact__inner {
-  padding: 0 rem(40);
-  max-width: rem(1180);
+  margin: auto;
   @include mq("md") {
-    max-width: rem(1080);
-    padding: rem(80) 0 rem(80) rem(50);
-    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    padding-left: rem(25);
+  padding-right: rem(25);
+  }
+}
+
+.contact__box {
+  @include mq("md") {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    padding: rem(85) rem(112) rem(80) rem(50);
+    width: 100%;
+    max-width: rem(1080);
+    margin: auto;
+    box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
   }
 }
 
 .contact__info {
+  padding-left: rem(40);
+  padding-right: rem(40);
+  max-width: rem(600);
+  margin: auto;
   @include mq("md") {
-    max-width: 51%;
-    width: 100%;
-    padding-right: rem(82);
     border-right: 1px solid $skyBlue;
+    margin: 0;
+    width: 70%;
+    padding-left: 0;
+    padding-right: rem(85);
   }
 }
 
 .contact__logo {
   text-align: center;
+  border-bottom: 1px solid $skyBlue;
   @include mq("md") {
     padding-bottom: rem(5);
   }
@@ -52,12 +62,11 @@
 }
 
 .contact__access {
-  border-top: 1px solid $skyBlue;
-  padding-top: rem(16);
+  margin-top: rem(16);
   @include mq("md") {
     display: flex;
     gap: rem(21);
-    padding-top: rem(24);
+    margin-top: rem(24);
   }
 }
 
@@ -120,11 +129,15 @@
 
 .contact__content {
   margin-top: rem(40);
+  padding-left: rem(30);
+  padding-right: rem(30);
   text-align: center;
   @include mq("md") {
-    max-width: 29.167%;
     margin-top: 0;
-    margin-left: rem(85);
+    width: 43%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: rem(82);
   }
 }
 
@@ -146,22 +159,21 @@
   max-width: rem(109);
   width: 100%;
   position: absolute;
-  top: rem(54);
+  top: rem(-25);
   right: rem(15);
   @include mq(md) {
-    max-width: rem(310);
-    top: rem(100);
-    right: rem(45);
-    z-index: 10;
+    max-width: rem(301);
+    top: rem(-20);
+    right: rem(50);
   }
 }
 
 .contact__top-btn {
     position: absolute;
-    bottom: rem(15);
+    bottom: rem(-90);
     right: rem(15);
   @include mq(md) {
-    bottom: rem(20);
+    bottom: rem(-150);
     right: rem(20);
   }
 }

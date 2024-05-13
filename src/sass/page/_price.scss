@@ -1,15 +1,22 @@
 @use "global" as *;
 
 .price {
+  background-color: #ddf0f1;
+}
+
+.price__wrapper {
+  margin-top: rem(80);
   padding-top: rem(80);
   padding-bottom: rem(80);
-  background-color: #ddf0f1;
   position: relative;
   z-index: 0;
   @include mq(md){
+    margin-top: rem(140);
     padding-top: rem(100);
     padding-bottom: rem(100);
     position: relative;
+    width: min(100%, rem(1600));
+    margin: auto;
   }
 }
 

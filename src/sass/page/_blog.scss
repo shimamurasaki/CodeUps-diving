@@ -1,7 +1,9 @@
 @use "global" as *;
 
 .blog {
-  position: relative;
+  @include mq(md){
+    position: relative;
+  }
 }
 
 .blog-bg {
@@ -25,6 +27,14 @@
     left: 0px;
     z-index: -1;
   } 
+}
+
+.blog__wrapper {
+  position: relative;
+  @include mq(md){
+    width: min(100%, rem(1600));
+    margin: auto;
+  }
 }
 
 .blog__items {
@@ -52,9 +62,9 @@
   @include mq(md) {
     display: inline-block;
     max-width: rem(437);
-    width: 100%;
     position: absolute;
     top: rem(24);
     left: rem(100);
+    z-index: 50;
   }
 }

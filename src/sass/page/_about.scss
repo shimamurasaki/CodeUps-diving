@@ -1,12 +1,12 @@
 @use "global" as *;
 
-.about {
+.about__wrapper {
   margin-top: rem(70);
-  padding-bottom: rem(80);
   @include mq(md) {
     margin-top: rem(140);
-    padding-bottom: rem(225);
+    margin: auto;
     position: relative;
+    width: min(100%, rem(1600));
   }
 }
 
@@ -23,41 +23,42 @@
 
 .about__images {
   display: flex;
+  width: 100%;
+  position: relative;
+  padding-bottom: rem(26);
   @include mq(md) {
-    justify-content: space-between;
+    padding-bottom: rem(80);
   }
 }
 
 .about__images img:first-child {
-  max-width: 37.101%;
-  position: relative;
-  z-index: 1;
+  width: 37.101%;
+  position: absolute;
   aspect-ratio: 128 / 194;
+  z-index: 2;
   @include mq(md) {
-    max-width: 37.037%;
+    width: 37.037%;
     aspect-ratio: 400 / 606;
   }
 }
 
 .about__images img:last-child {
-  max-width: 81.449%;
+  width: 81.449%;
   position: relative;
   top: rem(26);
-  width: calc(63.188% + rem(65));
-  margin-left: rem(-65);
-  height: 100%;
+  right: 0;
+  margin-left: auto;
   aspect-ratio: 281 / 186;
+  z-index: 1;
   @include mq(md) {
-    max-width: 81.481%;
-    top: rem(80);
-    width: calc(62.963% + rem(200));
-    margin-left: rem(-200);
+    width: 81.481%;
     aspect-ratio: 880 / 600;
+    top: rem(80);
   }
 }
 
 .about__contens {
-  margin-top: rem(58);
+  margin-top: rem(40);
   @include mq(md) {
     margin-top: 0;
     z-index: 10;
@@ -117,8 +118,8 @@
   display: none;
   @include mq(md) {
     display: inline-block;
+    z-index: 50;
     max-width: rem(194);
-    width: 100%;
     position: absolute;
     right: rem(80);
     bottom: rem(74);

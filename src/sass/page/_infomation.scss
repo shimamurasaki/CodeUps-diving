@@ -1,12 +1,14 @@
 @use "global" as *;
 
-.information {
+.information__wrapper {
+  margin-top: rem(80);
   padding-top: rem(100);
   padding-bottom: rem(76);
   background-color: #ddf0f1;
   position: relative;
   z-index: 0;
   @include mq(md){
+    margin-top: rem(140);
     padding-top: rem(100);
     padding-bottom: rem(76);
   }
