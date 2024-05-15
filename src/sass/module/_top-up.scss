@@ -2,6 +2,13 @@
 
 .top-up {
   z-index: 1000;
+  position: fixed;
+  bottom: rem(15);
+  right: rem(15);
+  @include mq(md){
+    bottom: rem(20);
+  right: rem(20);
+  }
 }
 
 .top-up a:hover {

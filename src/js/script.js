@@ -20,10 +20,12 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     if ($('.js-hamburger').hasClass('is-active')) {
       $('.js-hamburger').removeClass("is-active");
       $(".js-sp-nav").fadeOut(300);
+      $('.header__inner').css('background-color','rgba(13, 41, 54, 0.68)');
       $('body').css('overflow','scroll');
     } else {
       $('.js-hamburger').addClass("is-active");
       $(".js-sp-nav").fadeIn(300);
+      $('.header__inner').css('background-color','#408F95');
       $('body').css('overflow','hidden');
     }
   });
@@ -87,6 +89,21 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
             counter = 1;
           }
         });
+      });
+
+      //topボタン
+      let topBtn = $('.top-up');
+      topBtn.hide();
+
+      // ボタンの表示設定
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 80) {
+          // 指定px以上のスクロールでボタンを表示
+          topBtn.fadeIn();
+        } else {
+          // 画面が指定pxより上ならボタンを非表示
+          topBtn.fadeOut();
+        }
       });
     
 

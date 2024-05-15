@@ -167,13 +167,3 @@
     right: rem(50);
   }
 }
-
-.contact__top-btn {
-    position: absolute;
-    bottom: rem(-90);
-    right: rem(15);
-  @include mq(md) {
-    bottom: rem(-150);
-    right: rem(20);
-  }
-}
