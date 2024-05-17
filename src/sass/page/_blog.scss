@@ -32,7 +32,6 @@
 .blog__wrapper {
   position: relative;
   @include mq(md){
-    width: min(100%, rem(1600));
     margin: auto;
   }
 }
@@ -46,6 +45,23 @@
     z-index: 10;
     margin-top: rem(82);
     max-width: rem(1080);
+  }
+}
+
+.blog__items::before {
+  @include mq(md){
+    background-image: url(../images/common/blog-fish.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    width: max(rem(306), min(30.35vw, rem(437)));
+    height: rem(201);
+    position: absolute;
+    top: rem(-222);
+    left: calc(50% - max(rem(340), min(27.85vw, rem(401))));
+    transform: translateX(-50%);
+    z-index: 30;
   }
 }
 

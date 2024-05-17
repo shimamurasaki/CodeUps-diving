@@ -6,7 +6,6 @@
     margin-top: rem(140);
     margin: auto;
     position: relative;
-    width: min(100%, rem(1600));
   }
 }
 
@@ -18,6 +17,22 @@
     margin-top: rem(40);
     position: relative;
     max-width: rem(1080);
+  }
+}
+
+.about__item::after {
+  @include mq(md) {
+    background-image: url(../images/common/about-sango.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    width: max(rem(136), min(13.47vw, rem(194)));
+    height: max(rem(127), min(12.57vw, rem(181)));
+    position: absolute;
+    right: calc(50% - max(rem(512), min(44.24vw, rem(637))));
+    bottom: max(rem(-90), min(-6.25vw, rem(-63)));
+    z-index: 30;
   }
 }
 
@@ -114,14 +129,3 @@
   }
 }
 
-.about__illust {
-  display: none;
-  @include mq(md) {
-    display: inline-block;
-    z-index: 50;
-    max-width: rem(194);
-    position: absolute;
-    right: rem(80);
-    bottom: rem(74);
-  }
-}

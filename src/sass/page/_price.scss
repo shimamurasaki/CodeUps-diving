@@ -15,7 +15,6 @@
     padding-top: rem(100);
     padding-bottom: rem(100);
     position: relative;
-    width: min(100%, rem(1600));
     margin: auto;
   }
 }
@@ -31,6 +30,20 @@
     justify-content: space-between;
     max-width: 100%;
   }
+}
+
+.price__contents::after {
+  background-image: url(../images/common/price-fish.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  width: max(rem(306), min(30.35vw, rem(437)));
+  height: max(rem(141), min(13.96vw, rem(201)));
+  position: absolute;
+  left: calc(50% - max(rem(347), min(27.85vw, rem(401))));
+  bottom: rem(50);
+  transform: translateX(-50%);
 }
 
 .price__image {
@@ -114,15 +127,3 @@
   }
 }
 
-.price__illust {
-  display: none;
-  @include mq(md) {
-    display: inline-block;
-    max-width: rem(437);
-    width: 100%;
-    position: absolute;
-    left: rem(100);
-    bottom: rem(58);
-    z-index: 10;
-  }
-}
