@@ -1,11 +1,15 @@
 @use "global" as *;
 
+.mv {
+  height: 100vh;
+}
+
 .mv__inner {
   position: relative;
 }
 
-.mv__img {
-  width: 100%;
+.mv__images {
+  height: 100vh;
   position: relative;
 }
 

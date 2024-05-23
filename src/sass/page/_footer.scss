@@ -18,10 +18,9 @@
 }
 
 .footer__logo{
-  max-width: rem(120);
-  width: 100%;
+  width: rem(120);
   @include mq(md){
-    max-width: rem(205);
+    width: rem(205);
   }
 }
 
@@ -39,10 +38,9 @@
 }
 
 .footer__snsLink {
-  max-width: rem(24);
-  width: 100%;
+  width: rem(24);
   @include mq(md){
-    max-width: rem(32);
+    width: rem(32);
   }
 }
 

@@ -29,22 +29,12 @@
   } 
 }
 
-.blog__wrapper {
-  position: relative;
-  @include mq(md){
-    margin: auto;
-  }
-}
-
 .blog__items {
   margin-top: rem(24);
-  max-width: rem(600);
   margin: auto;
   @include mq(md){
     position: relative;
     z-index: 10;
-    margin-top: rem(82);
-    max-width: rem(1080);
   }
 }
 
@@ -70,17 +60,5 @@
   margin-top: rem(40);
   @include mq(md){
     margin-top: rem(80);
-  }
-}
-
-.blog__illust {
-  display: none;
-  @include mq(md) {
-    display: inline-block;
-    max-width: rem(437);
-    position: absolute;
-    top: rem(24);
-    left: rem(100);
-    z-index: 50;
   }
 }
