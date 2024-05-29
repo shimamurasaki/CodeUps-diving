@@ -41,8 +41,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
-  
-
   //mvスワイパー
     let mvSwiper = new Swiper(".js-mv-swiper", {
       loop: true,
@@ -105,7 +103,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
           topBtn.fadeOut();
         }
       });
-    
 
       // // ローディング画面
       // $(function () {

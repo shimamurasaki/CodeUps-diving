@@ -16,7 +16,7 @@
   }
 }
 
-.section-header__subtitle span {
+.section-header__subtitle::first-letter {
   color: $skyBlue;
 }
 

@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.contact__wrapper {
+.top-contact {
   position: relative;
   margin-top: rem(80);
   @include mq("md") {

@@ -52,6 +52,34 @@
   border-bottom: 1px solid $skyBlue;
 }
 
+.campaign-card__tag p {
+  display: inline-block;
+  font-size: rem(12);
+  font-weight: $regular;
+  line-height: 1.833;
+  color: $skyBlue;
+  padding: rem(3) rem(11);
+  border: 1px solid $skyBlue;
+  @include mq("md") {
+    padding: rem(6) rem(16);
+  }
+}
+
+.campaign-card__title p {
+  display: inline-block;
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.5;
+  color: $navyBlue;
+}
+
+.campaign-card__title {
+  margin-top: rem(4);
+  @include mq("md") {
+    margin-top: rem(2);
+  }
+}
+
 .campaign-card__price {
   margin-top: auto;
   @include mq(md){
