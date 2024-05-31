@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.section-header__subtitle {
+.section-header__entitle {
   font-size: rem(32);
   font-weight: $regular;
   font-family: $english-font-family;
@@ -16,7 +16,7 @@
   }
 }
 
-.section-header__subtitle::first-letter {
+.section-header__entitle::first-letter {
   color: $skyBlue;
 }
 
@@ -31,59 +31,25 @@
   }
 }
 
-.section-header__subtitle--big {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  text-align: center;
-  font-size: rem(80);
-  font-weight: $regular;
-  font-family: $english-font-family;
-  color: $navyBlue;
-  line-height: 1;
-  @include mq(md){
-    width: initial;
-    margin-left: rem(-5);
-    position: relative;
-    z-index: 50;
-  }
-}
-
-.section-header__subtitle--big span {
-  color: $skyBlue;
-}
-
-.section-header__title--big {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $skyBlue;
-  line-height: 0.5;
-}
-
-.section-header__subtitle--white {
-  font-size: rem(32);
-  font-weight: $regular;
-  font-family: $english-font-family;
-  color: $navyBlue;
-  line-height: 1.25;
-  @include mq(md){
-    font-size: rem(40);
-    line-height: 1;
-    color: $white;
-  }
-}
-
-.section-header__subtitle--white span {
+.section-header__entitle--white {
+  @extend .section-header__entitle;
   @include mq(md){
     color: $white;
   }
+}
+
+.section-header__entitle--white::first-letter {
   color: $skyBlue;
+  @include mq(md){
+    color: $white;
+  }
 }
 
 .section-header__title--white {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $white;
-  line-height: 1.5;
-  margin-top: rem(4);
+  @extend .section-header__title;
+  color: $skyBlue;
+  @include mq(md){
+    color: $white;
+  }
 }
 

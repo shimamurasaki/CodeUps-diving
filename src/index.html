@@ -226,7 +226,7 @@
       <div class="campaign__inner inner">
         <div class="campaign__header">
           <div class="section-header">
-            <p class="section-header__subtitle">Campaign</p>
+            <p class="section-header__entitle">Campaign</p>
             <h2 class="section-header__title">キャンペーン</h2>
           </div>
         </div>
@@ -235,7 +235,7 @@
           <div class="js-campaign-button-prev campaign__prev-btn"><span></span></div>
         </div>
         <!-- Swiper -->
-        <div class="campaign__contents swiper js-campaign-swiper">
+        <div class="swiper campaign__contents js-campaign-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide campaign__content">
               <div class="campaign-card">
@@ -347,14 +347,20 @@
 
     <section class="about top-about" id="about">
       <div class="about__inner inner">
-        <div class="about__header section-header">
-          <p class="section-header__subtitle">About us</p>
-          <h2 class="section-header__title">私たちについて</h2>
+        <div class="about__header">
+          <div class="section-header">
+            <p class="section-header__entitle">About us</p>
+            <h2 class="section-header__title">私たちについて</h2>
+          </div>
         </div>
         <div class="about__item">
           <div class="about__images">
-            <img src="./assets/images/common/about_1.jpg" alt="">
-            <img src="./assets/images/common/about_2.jpg" alt="">
+            <div class="right">
+              <img src="./assets/images/common/about_1.jpg" alt="">
+            </div>
+            <div class="left">
+              <img src="./assets/images/common/about_2.jpg" alt="">
+            </div>
           </div>
           <div class="about__contens">
             <div class="about__title">
@@ -373,9 +379,11 @@
 
     <section class="information top-information" id="information">
       <div class="information__inner inner">
-        <div class="information__header section-header">
-          <p class="section-header__subtitle">Information</p>
-          <h2 class="section-header__title">ダイビング情報</h2>
+        <div class="information__header">
+          <div class="section-header">
+            <p class="section-header__entitle">Information</p>
+            <h2 class="section-header__title">ダイビング情報</h2>
+          </div>
         </div>
         <div class="information__contents">
           <div class="information__image colorbox">
@@ -396,54 +404,64 @@
 
     <section class="blog blog-bg" id="blog">
       <div class="blog__inner inner">
-        <div class="blog__header section-header">
-          <p class="section-header__subtitle--white">Blog</p>
-          <h2 class="section-header__title--white">ブログ</h2>
+        <div class="blog__header">
+          <div class="section-header">
+            <p class="section-header__entitle--white">Blog</p>
+            <h2 class="section-header__title--white">ブログ</h2>
+          </div>
         </div>
-        <div class="blog__items card-list">
-          <a class="blog-card card-list__item">
-            <div class="blog-card__image">
-              <img src="./assets/images/common/blog_1.jpg" alt="">
-            </div>
-            <div class="blog-card__content">
-              <div class="blog-card__header">
-                <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
-                <p class="blog-card__title">ライセンス取得</p>
+        <div class="blog__items">
+          <div class="card-list">
+            <a class="card-list__item">
+              <div class="blog-card">
+                <div class="blog-card__image">
+                  <img src="./assets/images/common/blog_1.jpg" alt="">
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__header">
+                    <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
+                    <p class="blog-card__title">ライセンス取得</p>
+                  </div>
+                </div>
+                <div class="blog-card__text">
+                  <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                </div>
+              </div> 
+            </a>
+            <a class="card-list__item">
+              <div class="blog-card">
+                <div class="blog-card__image">
+                  <img src="./assets/images/common/blog_2.jpg" alt="">
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__header">
+                    <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
+                    <p class="blog-card__title">ウミガメと泳ぐ</p>
+                  </div>
+                </div>
+                <div class="blog-card__text">
+                  <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                </div>
               </div>
-            </div>
-            <div class="blog-card__text">
-              <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
-          </a><!-- blog__itemここまで -->
-          <a class="blog-card card-list__item">
-            <div class="blog-card__image">
-              <img src="./assets/images/common/blog_2.jpg" alt="">
-            </div>
-            <div class="blog-card__content">
-              <div class="blog-card__header">
-                <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
-                <p class="blog-card__title">ウミガメと泳ぐ</p>
+            </a>
+            <a class="card-list__item">
+              <div class="blog-card">
+                <div class="blog-card__image">
+                  <img src="./assets/images/common/blog_3.jpg" alt="">
+                </div>
+                <div class="blog-card__content">
+                  <div class="blog-card__header">
+                    <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
+                    <p class="blog-card__title">カクレクマノミ</p>
+                  </div>
+                </div>
+                <div class="blog-card__text">
+                  <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                </div>
               </div>
-            </div>
-            <div class="blog-card__text">
-              <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
-          </a><!-- blog__itemここまで -->
-          <a class="blog-card card-list__item">
-            <div class="blog-card__image">
-              <img src="./assets/images/common/blog_3.jpg" alt="">
-            </div>
-            <div class="blog-card__content">
-              <div class="blog-card__header">
-                <time datetime="2023-11-17" class="blog-card__date">2023.11/17</time>
-                <p class="blog-card__title">カクレクマノミ</p>
-              </div>
-            </div>
-            <div class="blog-card__text">
-              <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
-            </div>
-          </a><!-- blog__itemここまで -->
-        </div><!-- blog__itemsここまで -->
+            </a>
+          </div><!-- blog__item -->
+        </div><!-- blog__list -->
         <div class="blog__button">
           <a href="" class="common-button">View more<span></span></a>
         </div>
@@ -452,57 +470,61 @@
 
     <section class="voice top-voice" id="voice">
       <div class="voice__inner inner">
-        <div class="voice__header section-header">
-          <p class="section-header__subtitle">Voice</p>
-          <h2 class="section-header__title">お客様の声</h2>
+        <div class="voice__header">
+          <div class="section-header">
+            <p class="section-header__entitle">Voice</p>
+            <h2 class="section-header__title">お客様の声</h2>
+          </div>
         </div>
-        <div class="voice__items sheet-list">
-          <div class="gest-card sheet-list__item">
-            <div class="gest-card__contents">
-              <div class="gest-card__content">
-                <div class="gest-card__header">
-                  <p class="gest-card__info">20代(女性)</p>
-                  <div class="gest-card__tag title-tag">
-                    <div class="title-tag__tag">
-                      <p>ライセンス講習</p>
+        <div class="voice__items">
+          <div class="sheet-list">
+            <div class="sheet-list__item">
+              <div class="gest-card">
+                <div class="gest-card__contents">
+                  <div class="gest-card__content">
+                    <div class="gest-card__header">
+                      <p class="gest-card__info">20代(女性)</p>
+                      <div class="gest-card__tag">
+                        <p>ライセンス講習</p>
+                      </div>
+                    </div>
+                    <div class="gest-card__title">
+                      <p>ここにタイトルが入ります。ここにタイトル</p>
                     </div>
                   </div>
-                </div>
-                <div class="gest-card__title">
-                  <p>ここにタイトルが入ります。ここにタイトル</p>
-                </div>
-              </div>
-              <div class="gest-card__image  colorbox">
-                <img src="./assets/images/common/voice_1.jpg" alt="女性のお客様">
-              </div>
-            </div>
-            <div class="gest-card__text">
-              <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
-            </div>
-          </div><!-- voice__item -->
-          <div class="gest-card sheet-list__item">
-            <div class="gest-card__contents">
-              <div class="gest-card__content">
-                <div class="gest-card__header">
-                  <p class="gest-card__info">30代(男性)</p>
-                  <div class="gest-card__tag title-tag">
-                    <div class="title-tag__tag">
-                      <p>ファンダイビング</p>
-                    </div>
+                  <div class="gest-card__image  colorbox">
+                    <img src="./assets/images/common/voice_1.jpg" alt="女性のお客様">
                   </div>
                 </div>
-                <div class="gest-card__title">
-                  <p>ここにタイトルが入ります。ここにタイトル</p>
+                <div class="gest-card__text">
+                  <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
                 </div>
               </div>
-              <div class="gest-card__image  colorbox">
-                <img src="./assets/images/common/voice_2.jpg" alt="男性のお客様">
+            </div><!-- sheet-list__item -->
+            <div class="sheet-list__item">
+              <div class="gest-card">
+                <div class="gest-card__contents">
+                  <div class="gest-card__content">
+                    <div class="gest-card__header">
+                      <p class="gest-card__info">30代(男性)</p>
+                      <div class="gest-card__tag">
+                        <p>ファンダイビング</p>
+                      </div>
+                    </div>
+                    <div class="gest-card__title">
+                      <p>ここにタイトルが入ります。ここにタイトル</p>
+                    </div>
+                  </div>
+                  <div class="gest-card__image  colorbox">
+                    <img src="./assets/images/common/voice_2.jpg" alt="男性のお客様">
+                  </div>
+                </div>
+                <div class="gest-card__text">
+                  <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
               </div>
-            </div>
-            <div class="gest-card__text">
-              <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
-            </div>
-          </div><!-- voice__item -->
+            </div><!-- sheet-list__item -->
+          </div><!-- sheet-list -->
         </div><!-- voice__items -->
         <div class="voice__button">
           <a href="" class="common-button">View more<span></span></a>
@@ -512,9 +534,11 @@
 
     <section class="price top-price" id="price">
       <div class="price__inner inner">
-        <div class="price__header section-header">
-          <p class="section-header__subtitle">Price</p>
-          <h2 class="section-header__title">料金一覧</h2>
+        <div class="price__header">
+          <div class="section-header">
+            <p class="section-header__entitle">Price</p>
+            <h2 class="section-header__title">料金一覧</h2>
+          </div>
         </div>
         <div class="price__contents">
           <div class="price__image colorbox">
@@ -624,9 +648,9 @@
             </div>
           </div>
           <div class="contact__content">
-            <div class="section-header contact__header">
-              <p class="section-header__subtitle--big">Contact</p>
-              <h2 class="section-header__title--big">お問い合わせ</h2>
+            <div class="contact__header">
+              <p class="contact__entitle">Contact</p>
+              <h2 class="contact__title">お問い合わせ</h2>
             </div>
             <p class="contact-text">ご予約・お問い合わせはコチラ</p>
             <div class="contact-button">
@@ -665,114 +689,116 @@
           </a>
         </div>
       </div>
-      <div class="footter__nav nav-contents">
-        <div class="nav-contents__box">
-          <div class="nav-contents__left">
-            <div class="nav-contents__items">
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#campaign">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>キャンペーン</p>
-                  </a>
-                </dt>
-                <dd class="nav-contents__text"><a href="">ライセンス取得</a></dd>
-                <dd class="nav-contents__text"><a href="">貸切体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="">ナイトダイビング</a></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#about">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>私たちについて</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
+      <div class="footter__nav">
+        <div class="nav-contents">
+          <div class="nav-contents__box">
+            <div class="nav-contents__left">
+              <div class="nav-contents__items">
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#campaign">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>キャンペーン</p>
+                    </a>
+                  </dt>
+                  <dd class="nav-contents__text"><a href="">ライセンス取得</a></dd>
+                  <dd class="nav-contents__text"><a href="">貸切体験ダイビング</a></dd>
+                  <dd class="nav-contents__text"><a href="">ナイトダイビング</a></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#about">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>私たちについて</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+              </div>
+              <div class="nav-contents__items">
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#information">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>ダイビング情報</p>
+                    </a>
+                  </dt>
+                  <dd class="nav-contents__text"><a href="">ライセンス講習</a></dd>
+                  <dd class="nav-contents__text"><a href="">体験ダイビング</a></dd>
+                  <dd class="nav-contents__text"><a href="">ファンダイビング</a></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#blog">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>ブログ</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+              </div>
             </div>
-            <div class="nav-contents__items">
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#information">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>ダイビング情報</p>
-                  </a>
-                </dt>
-                <dd class="nav-contents__text"><a href="">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="">ファンダイビング</a></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#blog">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>ブログ</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
-            </div>
-          </div>
-          <div class="nav-contents__right nav-contents__right--footer">
-            <div class="nav-contents__items">
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#voice">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>お客様の声</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#price">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>料金一覧</p>
-                  </a>
-                </dt>
-                <dd class="nav-contents__text"><a href="">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="">ファンダイビング</a></dd>
-              </dl>
-            </div>
-            <div class="nav-contents__items">
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#faq">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>よくある質問</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>プライバシー<br class="u-mobile">ポリシー</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>利用規約</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
-              <dl class="nav-contents__item">
-                <dt class="nav-contents__title">
-                  <a href="#contact">
-                    <img src="./assets/images/common/hitode.png" alt="ヒトデ">
-                    <p>お問い合わせ</p>
-                  </a>
-                </dt>
-                <dd></dd>
-              </dl>
+            <div class="nav-contents__right nav-contents__right--footer">
+              <div class="nav-contents__items">
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#voice">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>お客様の声</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#price">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>料金一覧</p>
+                    </a>
+                  </dt>
+                  <dd class="nav-contents__text"><a href="">ライセンス講習</a></dd>
+                  <dd class="nav-contents__text"><a href="">体験ダイビング</a></dd>
+                  <dd class="nav-contents__text"><a href="">ファンダイビング</a></dd>
+                </dl>
+              </div>
+              <div class="nav-contents__items">
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#faq">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>よくある質問</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>プライバシー<br class="u-mobile">ポリシー</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>利用規約</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <dl class="nav-contents__item">
+                  <dt class="nav-contents__title">
+                    <a href="#contact">
+                      <img src="./assets/images/common/hitode.png" alt="ヒトデ">
+                      <p>お問い合わせ</p>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+              </div>
             </div>
           </div>
         </div>
