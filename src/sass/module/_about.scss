@@ -1,14 +1,5 @@
 @use "global" as *;
 
-.top-about {
-  margin-top: rem(70);
-  @include mq(md) {
-    margin-top: rem(140);
-    margin: auto;
-    position: relative;
-  }
-}
-
 .about__item {
   margin-top: rem(24);
   margin: auto;
@@ -43,7 +34,7 @@
   }
 }
 
-.about__images .right {
+.about__right {
   width: 37.101%;
   position: absolute;
   aspect-ratio: 128 / 194;
@@ -54,7 +45,7 @@
   }
 }
 
-.about__images .left {
+.about__left {
   width: 81.449%;
   position: relative;
   top: rem(26);

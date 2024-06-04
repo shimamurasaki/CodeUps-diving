@@ -1,14 +1,5 @@
 @use "global" as *;
 
-.top-voice {
-  margin-top: rem(80);
-  @include mq("md") {
-    margin-top: rem(140);
-    position: relative;
-    margin: auto;
-  }
-}
-
 .voice__items {
   margin-top: rem(24);
   margin: auto;

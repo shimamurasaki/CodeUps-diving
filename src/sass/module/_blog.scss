@@ -45,11 +45,11 @@
     background-repeat: no-repeat;
     background-size: contain;
     content: "";
-    width: max(rem(306), min(30.35vw, rem(437)));
+    width: min(30.35vw, rem(437));
     height: rem(201);
     position: absolute;
-    top: rem(-222);
-    left: calc(50% - max(rem(340), min(27.85vw, rem(401))));
+    top: rem(-170);
+    left: calc(50% - min(27.85vw, rem(401)));
     transform: translateX(-50%);
     z-index: 30;
   }

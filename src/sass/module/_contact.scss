@@ -1,14 +1,5 @@
 @use "global" as *;
 
-.top-contact {
-  position: relative;
-  margin-top: rem(80);
-  @include mq("md") {
-    margin-top: rem(100);
-    margin: auto;
-  }
-}
-
 .contact__inner {
   margin: auto;
   @include mq("md") {
@@ -181,7 +172,7 @@
   line-height: 0.5;
 }
 
-.contact-text {
+.contact__text {
   font-size: rem(14);
   font-weight: $regular;
   line-height: 1.286;
@@ -189,7 +180,7 @@
   margin-top: rem(14);
 }
 
-.contact-button {
+.contact__button {
   margin-top: rem(40);
   text-align: center;
 }

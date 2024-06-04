@@ -1,21 +1,5 @@
 @use "global" as *;
 
-.top-price {
-  background-color: #ddf0f1;
-  margin-top: rem(80);
-  padding-top: rem(80);
-  padding-bottom: rem(80);
-  position: relative;
-  z-index: 0;
-  @include mq(md){
-    margin-top: rem(140);
-    padding-top: rem(100);
-    padding-bottom: rem(100);
-    position: relative;
-    margin: auto;
-  }
-}
-
 .price__contents {
   margin-top: rem(28);
   margin: auto;
@@ -105,7 +89,7 @@
   }
 }
 
-.price__list-item li.money {
+.price__money {
   letter-spacing: 0.02em;
   padding-left: rem(40);
 }

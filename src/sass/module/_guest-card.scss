@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.gest-card {
+.guest-card {
   padding: rem(15) rem(16) rem(24);
   box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
   @include mq("md") {
@@ -8,12 +8,12 @@
   }
 }
 
-.gest-card__contents {
+.guest-card__contents {
   display: flex;
   justify-content: space-between;
 }
 
-.gest-card__content {
+.guest-card__content {
   width: 47.604%;
   margin-top: auto;
   @include mq("md") {
@@ -21,7 +21,7 @@
   }
 }
 
-.gest-card__header {
+.guest-card__header {
   @include mq("md") {
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
   }
 }
 
-.gest-card__tag {
+.guest-card__tag {
   display: inline-block;
   font-size: rem(12);
   font-weight: $regular;
@@ -42,14 +42,14 @@
   }
 }
 
-.gest-card__info {
+.guest-card__info {
   font-size: rem(12);
   font-weight: $regular;
   line-height: 1.5;
   color: $navyBlue;
 }
 
-.gest-card__title {
+.guest-card__title {
   margin-top: rem(4);
   font-size: rem(16);
   font-weight: $medium;
@@ -63,7 +63,7 @@
   }
 }
 
-.gest-card__image {
+.guest-card__image {
   max-width: 48.243%;
   width: 100%;
   position: relative;
@@ -72,7 +72,7 @@
   }
 }
 
-.gest-card__image::before {
+.guest-card__image::before {
   content: "";
   display: block;
   padding-top: 77.483%;
@@ -81,7 +81,7 @@
   }
 }
 
-.gest-card__image img {
+.guest-card__image img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -91,7 +91,7 @@
   object-fit: cover;
 }
 
-.gest-card__text {
+.guest-card__text {
   margin-top: rem(16);
   font-size: rem(16);
   font-weight: $regular;

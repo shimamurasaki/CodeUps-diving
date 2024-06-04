@@ -30,9 +30,9 @@
 .mv__img::before {
   content: "";
   display: block;
-  padding-top: 177.867%;// tate667/yoko375
+  padding-top: 177.867%;
   @include mq(md){
-    padding-top: 53.333%;// tate768/yoko1440
+    padding-top: 53.333%;
   }
 }
 
