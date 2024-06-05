@@ -1,0 +1,127 @@
+@use "global" as *;
+
+/* タブメニュー */
+.tab-menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(21);
+  @include mq(md){
+    gap: rem(32);
+  }
+}
+
+.tab-menu__item {
+  width: calc((100% - rem(21)) / 2);
+  max-width: rem(162);
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-trigger {
+  display: block;
+  padding: rem(6);
+  border: 1px solid $skyBlue;
+  background-color: $white;
+  color: $skyBlue;
+}
+
+.tab-trigger.is-active {
+  background-color: $skyBlue;
+  color: $white;
+}
+
+/* タブコンテンツ */
+.tab-menu__contents {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  @include mq(md){
+    justify-content: space-between;
+  }
+}
+
+.tab-menu__content {
+  display: none;
+}
+
+.tab-menu__content.is-active {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: fade 0.5s ease;
+  @include mq(md){
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tab-menu__content-item {
+  @include mq(md){
+    width: calc((100% - 40px) / 2);
+  }
+}
+
+.tab-menu__content-item .campaign-card {
+  @include mq(md){
+    max-width: rem(520);
+  }
+}
+
+.tab-menu__pc-only {
+  display: none;
+  @include mq(md){
+    display: block;
+  }
+}
+
+.tab-menu__message {
+  @include mq(md){
+    margin-top: rem(24);
+    font-size: 16px;
+    font-weight: regular;
+    line-height: 1.5;
+    color: $navyBlue;
+  }
+}
+
+.tab-menu__comment {
+  @include mq(md){
+    margin-top: rem(32);
+    text-align: center;
+    color: $skyBlue;
+  }
+}
+
+.tab-menu__date {
+  @include mq(md){
+    font-family: $sub-english-font-family;
+    font-size: rem(16);
+    font-weight: $bold;
+    line-height: 1.125;
+  }
+}
+
+.tab-menu__button-text {
+  @include mq(md){
+    font-size: rem(14);
+    font-weight: $regular;
+    line-height: 1.286;
+  }
+}
+
+.tab-menu__button {
+  margin-top: rem(16);
+  text-align: center;
+}
+
+

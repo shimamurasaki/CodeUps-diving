@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.page-campaign__contents {
+  position: relative;
+}
+
+.page-campaign__contents::after {
+  background-image: url(../images/common/page-campaign__fish.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  width: min(32vw, rem(120));
+  height: min(14.67vw, rem(55));
+  position: absolute;
+  left: 0;
+  top: min(6.4vw, rem(-24));
+  @include mq(md) {
+    width: min(20.9vw, rem(301));
+    height: min(9.58vw, rem(138));
+    position: absolute;
+    left: calc(50% - min(48vw, rem(620)));
+    top: min(-4.86vw, rem(-70));
+  }
+}

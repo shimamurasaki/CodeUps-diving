@@ -104,16 +104,20 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         }
       });
 
-      // // ローディング画面
-      // $(function () {
-      //   function end_loader() {
-      //     $('.loader').fadeOut(800);
-      //   }
-      //   $(window).on('load', function () {
-      //     setTimeout(function () {
-      //       end_loader();
-      //     }, 3000)
-      //   })
-      // })
+      //下層ページ‐タブメニュー
+      $('.js-tab-trigger').on('click', function () {
+        //まずは全triggerからclass削除
+        $('.js-tab-trigger').removeClass('is-active');
+        //次に全targetからclass削除
+        $('.js-tab-target').removeClass('is-active');
+        //次にクリックした要素にis-active
+        $(this).addClass('is-active');
+        //data属性を取得する
+        let id = $(this).data("id");
+        //data属性値=idが等しいものにclass付与
+        $('#' + id).addClass('is-active')
+      });
+
+
 
 });
