@@ -23,6 +23,8 @@
   border: 1px solid $skyBlue;
   background-color: $white;
   color: $skyBlue;
+  font-size: rem(14);
+  line-height: 1.714;
 }
 
 .tab-trigger.is-active {
@@ -123,5 +125,3 @@
   margin-top: rem(16);
   text-align: center;
 }
-
-

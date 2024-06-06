@@ -118,6 +118,17 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         $('#' + id).addClass('is-active')
       });
 
+      //モーダル
+      $(".gallery__contents img").click(function () {
+        $(".gallery__display").html($(this).prop('outerHTML'));
+        $(".gallery__display").fadeIn(200);
+      });
+      $(".gallery__display, .gallery__display img").click(function () {
+          $(".gallery__display").fadeOut(200);
+      });
 
 
+
+
+      
 });

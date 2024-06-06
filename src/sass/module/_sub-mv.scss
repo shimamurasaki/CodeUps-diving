@@ -34,7 +34,6 @@
   color: $white;
   line-height: 1;
   display: inline-block;
-  text-indent: rem(21);
   @include mq(md){
     font-size: rem(80);
     text-indent: rem(45);

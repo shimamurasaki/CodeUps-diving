@@ -34,7 +34,7 @@
   }
 }
 
-.about__right {
+.about__left {
   width: 37.101%;
   position: absolute;
   aspect-ratio: 128 / 194;
@@ -45,7 +45,7 @@
   }
 }
 
-.about__left {
+.about__right {
   width: 81.449%;
   position: relative;
   top: rem(26);
@@ -60,7 +60,7 @@
   }
 }
 
-.about__contens {
+.about__contents {
   margin-top: rem(40);
   @include mq(md) {
     margin-top: 0;

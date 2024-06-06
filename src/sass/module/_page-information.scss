@@ -1,0 +1,106 @@
+@use "global" as *;
+
+.page-information {
+  position: relative;
+}
+
+.page-information__contents .tab-menu__item {
+  width: 100%;
+  max-width: 100%;
+}
+
+.page-information__contents .tab-menu__list {
+  flex-wrap: nowrap;
+  gap: rem(19);
+  justify-content: space-between;
+}
+
+.page-information__contents .tab-trigger {
+  background-color: #DDF0F1;
+  color: $skyBlue;
+  display: block;
+  padding:  rem(10);
+  font-size: rem(14);
+  @include mq(md){
+    font-size: rem(24);
+    padding:  rem(13);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: rem(13);
+  }
+}
+
+.page-information__contents .tab-trigger .whale{
+  @include mq(md){
+    display: inline-block;
+    font-size: rem(24);
+    mask-image: url(../images/common/whale.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+    background-color: $skyBlue;
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.page-information__contents .tab-trigger.is-active .whale{
+  background-color: $white;
+}
+
+.page-information__contents .tab-menu__contents {
+  margin-top: rem(16);
+  @include mq(md){
+    margin-top: rem(24);
+  }
+}
+
+.page-information__tab-contents {
+  border: 1px solid $skyBlue;
+  padding: 24px;
+  @include mq(md){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.page-information__tab-text {
+  @include mq(md){
+    width: calc((100% - 48px) / 2);
+  }
+}
+
+.page-information__tab-title {
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: 1;
+  padding-bottom: rem(8);
+  border-bottom: 1px solid $skyBlue;
+  color: $navyBlue;
+}
+
+.page-information__tab-message {
+  margin-top: rem(8);
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+}
+
+.page-information__tab-image {
+  margin-top: rem(8);
+  @include mq(md){
+    width: calc((100% - 48px) / 2);
+  }
+}
+
+.page-information__tab-image img {
+  aspect-ratio: 297 / 189;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include mq(md){
+    aspect-ratio: 492 / 313;
+  }
+}
