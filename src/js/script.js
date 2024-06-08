@@ -127,6 +127,27 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
           $(".gallery__display").fadeOut(200);
       });
 
+      //サイドバー（トグルリスト）
+      $('.jsToggleTitle').each(function() {
+        var $title = $(this);
+        var $content = $title.next();
+      
+        $title.on('click', function() {
+          $title.toggleClass('is-active');
+          $content.toggleClass('is-open');
+        });
+      
+        $content.find('.jsChildTitle').each(function() {
+          var $childTitle = $(this);
+          var $childContent = $childTitle.next();
+      
+          $childTitle.on('click', function() {
+            $childTitle.toggleClass('is-active');
+            $childContent.toggleClass('is-open');
+          });
+        });
+      });
+
 
 
 

@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.sidebar-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-box__header span img{
+  width: rem(50);
+  padding-right: rem(8);
+}
+
+.sidebar-box__header {
+  font-size: rem(24);
+  font-weight: $regular;
+  color: $navyBlue;
+  padding-left: rem(16);
+  border-left: 6px solid $skyBlue;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-box__content {
+  margin-top: rem(24);
+}
+
+.sidebar-box__content .campaign-card__price-box {
+  justify-content: center;
+}
+
+.sidebar-box__content .campaign-card__title {
+  text-align: center;
+}
+
+.sidebar-box__content .campaign-card__price-pop {
+  margin-top: rem(8);
+}
+
+.sidebar-box__content .campaign-card__text {
+  margin-top: rem(8);
+  font-size: rem(14);
+  line-height: 1.714;
+}
+
+.sidebar-box__content .campaign-card__price-before {
+  font-size: rem(20);
+  line-height: 1;
+}
+
+.sidebar-box__content .campaign-card__price-after {
+  font-size: rem(32);
+  line-height: 1;
+  padding-left: rem(16);
+}
