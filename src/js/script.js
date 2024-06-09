@@ -128,25 +128,41 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       });
 
       //サイドバー（トグルリスト）
-      $('.jsToggleTitle').each(function() {
+      $('.jsToggleTitle').each(function(index) {
         var $title = $(this);
         var $content = $title.next();
-      
+    
+        // 最初のタイトルだけ開いた状態にする
+        if (index === 0) {
+            $title.addClass('is-active');
+            $content.addClass('is-open');
+        }
+    
         $title.on('click', function() {
-          $title.toggleClass('is-active');
-          $content.toggleClass('is-open');
+            $title.toggleClass('is-active');
+            $content.toggleClass('is-open');
         });
-      
+    
         $content.find('.jsChildTitle').each(function() {
-          var $childTitle = $(this);
-          var $childContent = $childTitle.next();
-      
-          $childTitle.on('click', function() {
-            $childTitle.toggleClass('is-active');
-            $childContent.toggleClass('is-open');
-          });
+            var $childTitle = $(this);
+            var $childContent = $childTitle.next();
+    
+            $childTitle.on('click', function() {
+                $childTitle.toggleClass('is-active');
+                $childContent.toggleClass('is-open');
+            });
         });
-      });
+        });
+
+        // FAQアコーディオン
+        $('.jsAccordionTitle').on('click', function(){
+          //nextは次の要素を取得する、今回はクリック要素の次の要素にis-showクラスをつけている
+          $(this).next().toggleClass('is-open');
+          //クリックした要素自体にもclass付与
+          $(this).toggleClass('is-active')
+        });
+      
+    
 
 
 

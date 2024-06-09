@@ -41,6 +41,11 @@
   }
 }
 
+.sub-mv__title--faq {
+  @extend .sub-mv__title;
+  text-transform: uppercase;
+}
+
 .sub-mv__title::first-letter {
   text-transform: uppercase;
 }

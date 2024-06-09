@@ -1,18 +1,5 @@
 @use "global" as *;
 
-.home-blog {
-  position: relative;
-}
-
-.home-blog__contents {
-  display: flex;
-  flex-direction: column;
-  @include mq(md){
-    flex-direction: row;
-    gap: rem(80);
-  }
-}
-
 .home-blog__content .card-list {
   display: flex;
   flex-direction: column;

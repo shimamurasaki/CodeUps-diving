@@ -34,7 +34,7 @@
 
 /* タブコンテンツ */
 .tab-menu__contents {
-  margin-top: 40px;
+  margin-top: rem(40);
   display: flex;
   justify-content: center;
   @include mq(md){
@@ -49,7 +49,7 @@
 .tab-menu__content.is-active {
   display: inline-flex;
   flex-direction: column;
-  gap: 40px;
+  gap: rem(40);
   animation: fade 0.5s ease;
   @include mq(md){
     justify-content: space-between;
@@ -89,7 +89,7 @@
 .tab-menu__message {
   @include mq(md){
     margin-top: rem(24);
-    font-size: 16px;
+    font-size: rem(16);
     font-weight: regular;
     line-height: 1.5;
     color: $navyBlue;

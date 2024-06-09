@@ -1,0 +1,53 @@
+@use "global" as *;
+
+.page-price {
+  position: relative;
+}
+
+.page-price__contents {
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  max-width: rem(700);
+  border-collapse: collapse;
+  border: solid 1px $skyBlue;
+  position: relative;
+  margin: auto;
+}
+
+th {
+  padding: rem(8) 0;
+  background-color: $skyBlue;
+  color: $white;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+}
+
+.pc-title {
+  display: block;
+}
+
+td {
+  border: solid 1px $skyBlue;
+  vertical-align: middle;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $navyBlue;
+  height: rem(60);
+  background-color: $white;
+}
+
+.title {
+  width: 69.275%;
+  text-align: center;
+}
+
+.money {
+  width: 30.725%;
+  padding-right: rem(16);
+  text-align: right;
+}

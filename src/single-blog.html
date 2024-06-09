@@ -179,20 +179,213 @@
     <!-- 下層ページのメインビュー -->
     <section class="sub-mv">
       <div class="sub-mv__inner">
+        <div class="sub-mv__img">
+          <picture>
+            <source srcset="./assets/images/common/sub-blog_pc-hero.jpg" media="(min-width: 768px)">
+            <img src="./assets/images/common/sub-blog_sp-hero.jpg" alt="魚の群れ">
+        </div>
         <div class="sub-mv__header">
-          <h1 class="sub-mv__title">diving</h1>
+          <h1 class="sub-mv__title">blog</h1>
         </div>
       </div>
     </section>
 
     <!-- パンくずリスト -->
-    <div class="breadcrumb">
-      <div class="breadcrumb__inner">
-        <div>TOP > キャンペーン</div>
+    <div class="breadcrumb top-breadcrumb">
+      <div class="breadcrumb__inner inner">
+        <div>TOP > ブログ一覧 > ブログ詳細</div>
       </div>
     </div>
 
-    
+    <div class="sub-blog top-sub-contents">
+      <div class="sub-blog__inner inner">
+        <div class="sub-blog__content">
+          <div class="single-blog__content">
+            <div class="single-blog__title">
+              <time datetime="2023-11-17">2023.11.17</time>
+              <p>ライセンス取得</p>
+            </div>
+            <div class="single-blog__detail">
+              <div class="single-blog__image">
+                <img src="./assets/images/common/blog_1.jpg" alt="">
+              </div>
+              <div class="single-blog__text">
+                <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              </div>
+              <div class="single-blog__image">
+                <img src="./assets/images/common/blog_1.jpg" alt="">
+              </div>
+              <div class="single-blog__text">
+                <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              </div>
+              <ul class="single-blog__list">
+                <li class="single-blog__item"><span><img src="./assets/images/common/hitode_blue.png" alt="ヒトデ"></span>リスト１</li>
+                <li class="single-blog__item"><span><img src="./assets/images/common/hitode_blue.png" alt="ヒトデ"></span>リスト２</li>
+                <li class="single-blog__item"><span><img src="./assets/images/common/hitode_blue.png" alt="ヒトデ"></span>リスト３</li>
+              </ul>
+              <div class="single-blog__text">
+                <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              </div>
+            </div>
+            <!-- WPページナビゲーション -->
+            <div class="page-navi">
+              <div class="wp-pagenavi">
+                <div class="wp-pagenavi__prev">
+                  <a class="page smaller" href="#"></a>
+                </div>
+                <div class="wp-pagenavi__next">
+                  <a class="page smaller" href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-blog__sidebar">
+            <div class="sidebar-box">
+              <p class="sidebar-box__header"><span><img src="./assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>人気記事</p>
+              <div class="sidebar-box__content">
+                <div class="popularity-blog">
+                  <a href="#">
+                    <div class="popularity-blog__card">
+                      <div class="popularity-blog__image">
+                        <img src="./assets/images/common/blog_4.jpg" alt="">
+                      </div>
+                      <div class="popularity-blog__title">
+                        <time datetime="2023-11-17">2023/11/17</time>
+                        <p>ライセンス取得</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="popularity-blog__card">
+                      <div class="popularity-blog__image">
+                        <img src="./assets/images/common/blog_2.jpg" alt="">
+                      </div>
+                      <div class="popularity-blog__title">
+                        <time datetime="2023-11-17">2023/11/17</time>
+                        <p>ウミガメと泳ぐ</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="popularity-blog__card">
+                      <div class="popularity-blog__image">
+                        <img src="./assets/images/common/blog_3.jpg" alt="">
+                      </div>
+                      <div class="popularity-blog__title">
+                        <time datetime="2023-11-17">2023/11/17</time>
+                        <p>カクレクマノミ</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-box">
+              <p class="sidebar-box__header"><span><img src="./assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>口コミ</p>
+              <div class="sidebar-box__content">
+                <div class="review-card">
+                  <div class="review-card__image">
+                    <img src="./assets/images/common/blog_4.jpg" alt="">
+                  </div>
+                  <div class="review-card__tag">
+                    <p>30代(カップル)</p>
+                  </div>
+                  <div class="review-card__title">
+                    <p>ここにタイトルが入ります。ここにタイトル</p>
+                  </div>
+                </div>
+                <div class="review-card__button">
+                  <a href="" class="common-button">View more<span></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-box">
+              <p class="sidebar-box__header"><span><img src="./assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>キャンペーン</p>
+              <div class="sidebar-box__content">
+                <div class="sidebar-campaign">
+                  <div class="campaign-card">
+                    <div class="campaign-card__image">
+                      <img src="./assets/images/common/campaign_1.jpg" alt="海の中の色鮮やかな魚たち">
+                    </div>
+                    <div class="campaign-card__content">
+                      <div class="campaign-card__header">
+                        <div class="campaign-card__title">
+                          <p>ライセンス取得</p>
+                        </div>
+                      </div>
+                      <div class="campaign-card__price-pop">
+                        <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                        <div class="campaign-card__price-box">
+                          <p class="campaign-card__price-before">¥56,000</p>
+                          <p class="campaign-card__price-after">¥46,000</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="campaign-card">
+                    <div class="campaign-card__image">
+                      <img src="./assets/images/common/campaign_2.jpg" alt="透き通った海とそこに浮かぶ船">
+                    </div>
+                    <div class="campaign-card__content">
+                      <div class="campaign-card__header">
+                        <div class="campaign-card__title">
+                          <p>貸切体験ダイビング</p>
+                        </div>
+                      </div>
+                      <div class="campaign-card__price-pop">
+                        <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
+                        <div class="campaign-card__price-box">
+                          <p class="campaign-card__price-before">¥24,000</p>
+                          <p class="campaign-card__price-after">¥18,000</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-campaign__button">
+                  <a href="" class="common-button">View more<span></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-box">
+              <p class="sidebar-box__header"><span><img src="./assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>アーカイブ</p>
+              <div class="sidebar-box__content">
+                <div class="toggle-list">
+                  <p class="toggle-list__title jsToggleTitle">2023</p>
+                  <div class="toggle-list__content">
+                    <p class="toggle-list__title--child jsToggleTitle">3月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                    <p class="toggle-list__title--child jsToggleTitle">2月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                    <p class="toggle-list__title--child jsToggleTitle">1月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                  </div>
+                    
+                  <p class="toggle-list__title jsToggleTitle">2022</p>
+                  <div class="toggle-list__content">
+                    <p class="toggle-list__title--child jsToggleTitle">3月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                    <p class="toggle-list__title--child jsToggleTitle">2月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                    <p class="toggle-list__title--child jsToggleTitle">1月</p>
+                    <div class="toggle-list__content">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
 
     <section class="contact top-contact" id="contact">
       <div class="contact__inner inner">

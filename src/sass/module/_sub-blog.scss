@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.sub-blog {
+  position: relative;
+}
+
+.sub-blog__content {
+  display: flex;
+  flex-direction: column;
+  @include mq(md){
+    flex-direction: row;
+    gap: rem(80);
+  }
+}
