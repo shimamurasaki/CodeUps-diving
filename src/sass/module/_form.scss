@@ -2,11 +2,16 @@
 
 .form {
 	max-width: rem(700);
+	margin: auto;
 }
 
 .form__item {
   padding-bottom: rem(24);
   border-bottom: 1px dotted $skyBlue;
+	@include mq(md){
+    display: flex;
+		align-items: start;
+  }
 }
 
 .form__item + .form__item {
@@ -17,7 +22,17 @@
   font-size: rem(16);
   font-weight: $bold;
   color: $navyBlue;
+	@include mq(md){
+    width: 32.429%;
+  }
 }
+
+.form__item dd {
+	@include mq(md){
+    width: 68.571%;
+  }
+}
+
 
 .form__required-tag {
 	color: $white;
@@ -28,14 +43,42 @@
 	margin-left: rem(8);
 }
 
-.form__item input,
-.campaign-select select {
+.form__item input {
 	margin-top: rem(16);
 	width: 100%;
 	height: rem(40);
 	background-color: $white;
 	border: 1px solid $skyBlue;
 	padding: rem(8) rem(16);
+	@include mq(md){
+    margin-top: 0;
+  }
+}
+
+.campaign-select select {
+	margin-top: rem(16);
+	font-size: rem(12);
+	font-weight: $regular;
+	width: 100%;
+	height: rem(40);
+	background-color: $white;
+	border: 1px solid $skyBlue;
+	padding: rem(8) rem(16);
+	position: relative;
+  z-index: 1;
+}
+
+.campaign-select select::after {
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 8px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-bottom: 2px solid $skyBlue;
+  border-right: 2px solid $skyBlue;
+  z-index: -1;
 }
 
 .form__item textarea {
@@ -53,42 +96,46 @@
 	font-weight: $regular;
 }
 
-.checkbox-content {
-	margin-top: rem(16);
+/* チェックボックス */
+input[type=checkbox] {
+	display: none;
 }
-
-.checkbox-content label {
-	display: block;
-}
-
-.selectbox-3 {
-	display: inline-flex;
-	align-items: center;
-	position: relative;
-}
-
-.selectbox-3::after {
-	position: absolute;
-	right: 15px;
-	width: 10px;
-	height: 7px;
-	background-color: #535353;
-	clip-path: polygon(0 0, 100% 0, 50% 100%);
-	content: '';
-	pointer-events: none;
-}
-
-.selectbox-3 select {
-	appearance: none;
-	min-width: 230px;
-	height: 2.8em;
-	padding: .4em calc(.8em + 30px) .4em .8em;
-	border: 1px solid #d0d0d0;
-	border-radius: 3px;
-	background-color: #fff;
-	color: #333333;
-	font-size: 1em;
+.page-checkbox {
+	box-sizing: border-box;
 	cursor: pointer;
+	display: block;
+	padding: rem(5) rem(30);
+	position: relative;
+	width: auto;
+}
+.page-checkbox::before {
+	background: $white;
+	border: 1px solid $skyBlue;
+	content: '';
+	display: block;
+	height: rem(16);
+	left: rem(5);
+	margin-top: rem(-8);
+	position: absolute;
+	top: 50%;
+	width: rem(16);
+}
+.page-checkbox::after {
+	border-right: 3px solid #C94800;
+	border-bottom: 3px solid #C94800;
+	content: '';
+	display: block;
+	height: rem(9);
+	left: rem(10);
+	margin-top: rem(-7);
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	transform: rotate(45deg);
+	width: rem(5);
+}
+input[type=checkbox]:checked + .page-checkbox::after {
+	opacity: 1;
 }
 
 .form__button {
