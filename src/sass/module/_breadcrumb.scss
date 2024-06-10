@@ -1,8 +1,12 @@
 @use "global" as *;
 
-
 .breadcrumb__inner {
   font-size: rem(14);
   color: $navyBlue;
   font-weight: $regular;
+}
+
+.breadcrumb__inner--white {
+  @extend .breadcrumb__inner;
+  color: $white;
 }

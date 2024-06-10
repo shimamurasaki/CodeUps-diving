@@ -1,0 +1,10 @@
+@use "global" as *;
+
+.page-siteMAP__content {
+  position: relative;
+}
+
+.page-siteMAP__content .nav-contents__title p,
+.page-siteMAP__content .nav-contents__text {
+  color: $navyBlue;
+}

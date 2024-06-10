@@ -1,0 +1,21 @@
+@use "global" as *;
+
+.page-thanks {
+  position: relative;
+}
+
+.page-thanks__content {
+  text-align: center;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $navyBlue;
+}
+
+.page-thanks__title {
+  line-height: 1.125;
+}
+
+.page-thanks__messege {
+  margin-top: rem(40);
+}
+

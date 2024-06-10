@@ -1,0 +1,28 @@
+@use "global" as *;
+
+.sub-info {
+  max-width: rem(800);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+}
+
+.sub-info__title p {
+  font-size: rem(32);
+  font-weight: $medium;
+  color: $navyBlue;
+}
+
+.sub-info__text-box p,
+.sub-info__text-box li {
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 2;
+  color: $navyBlue;
+}
+
+.sub-info__text-box ol {
+  padding-left: rem(15);
+  list-style-type: decimal;
+}

@@ -1,0 +1,97 @@
+@use "global" as *;
+
+.form {
+	max-width: rem(700);
+}
+
+.form__item {
+  padding-bottom: rem(24);
+  border-bottom: 1px dotted $skyBlue;
+}
+
+.form__item + .form__item {
+  margin-top: rem(24);
+}
+
+.form__item dt {
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $navyBlue;
+}
+
+.form__required-tag {
+	color: $white;
+  font-size: rem(12);
+  font-weight: $regular;
+  padding: rem(2) rem(16);
+  background-color: #C94800;
+	margin-left: rem(8);
+}
+
+.form__item input,
+.campaign-select select {
+	margin-top: rem(16);
+	width: 100%;
+	height: rem(40);
+	background-color: $white;
+	border: 1px solid $skyBlue;
+	padding: rem(8) rem(16);
+}
+
+.form__item textarea {
+	margin-top: rem(16);
+	width: 100%;
+	height: rem(200);
+	background-color: $white;
+	border: 1px solid $skyBlue;
+	padding: rem(8) rem(16);
+}
+
+.form__item input .placeholder {
+	color: #DDF0F1;
+	font-size: rem(16);
+	font-weight: $regular;
+}
+
+.checkbox-content {
+	margin-top: rem(16);
+}
+
+.checkbox-content label {
+	display: block;
+}
+
+.selectbox-3 {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+}
+
+.selectbox-3::after {
+	position: absolute;
+	right: 15px;
+	width: 10px;
+	height: 7px;
+	background-color: #535353;
+	clip-path: polygon(0 0, 100% 0, 50% 100%);
+	content: '';
+	pointer-events: none;
+}
+
+.selectbox-3 select {
+	appearance: none;
+	min-width: 230px;
+	height: 2.8em;
+	padding: .4em calc(.8em + 30px) .4em .8em;
+	border: 1px solid #d0d0d0;
+	border-radius: 3px;
+	background-color: #fff;
+	color: #333333;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+.form__button {
+	text-align: center;
+	margin-top: rem(24);
+}

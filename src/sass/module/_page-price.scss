@@ -5,49 +5,84 @@
 }
 
 .page-price__contents {
-  margin: 0 auto;
-}
-
-table {
-  width: 100%;
-  max-width: rem(700);
-  border-collapse: collapse;
-  border: solid 1px $skyBlue;
-  position: relative;
   margin: auto;
+  @include mq(md){
+    max-width: rem(700);
+  }
 }
 
-th {
-  padding: rem(8) 0;
+.page-price__content {
+  @include mq(md){
+    display: flex;
+  }
+}
+
+.page-price__content + .page-price__content{
+  margin-top: rem(40);
+  @include mq(md){
+    margin-top: rem(80);
+  }
+}
+
+.page-price__header {
   background-color: $skyBlue;
-  color: $white;
+  padding: rem(8) 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: rem(8);
+  @include mq(md){
+    flex-direction: column;
+    align-items: center;
+    width: 28.571%;
+  }
+}
+
+.page-price__header p {
   font-size: rem(16);
   font-weight: $bold;
   line-height: 1.5;
+  color: $white;
 }
 
-.pc-title {
-  display: block;
+.page-price__header img {
+  width: rem(24);
+  height: rem(24);
+  @include mq(md){
+    width: rem(64);
+    height: rem(64);
+  }
 }
 
-td {
+.page-price__content table {
+  width: 100%;
+  border-collapse: collapse;
+  @include mq(md){
+    width: 71.429%;
+  }
+}
+
+.page-price__content td {
+  height: rem(60);
   border: solid 1px $skyBlue;
-  vertical-align: middle;
   font-size: rem(16);
   font-weight: $regular;
   line-height: 1.5;
   color: $navyBlue;
-  height: rem(60);
-  background-color: $white;
 }
 
-.title {
+.page-price__content td.title {
   width: 69.275%;
   text-align: center;
+  @include mq(md){
+    text-align: left;
+    padding-left: rem(15);
+  }
 }
 
-.money {
+.page-price__content td.money {
   width: 30.725%;
-  padding-right: rem(16);
   text-align: right;
+  padding-right: rem(16);
 }
+
