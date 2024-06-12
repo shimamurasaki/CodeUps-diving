@@ -181,11 +181,11 @@
       <div class="sub-mv__inner">
         <div class="sub-mv__img">
           <picture>
-            <source srcset="./assets/images/common/sub-aboutus_pc-hero.jpg" media="(min-width: 768px)">
-            <img src="./assets/images/common/sub-aboutus_sp-hero.jpg" alt="シーサー">
+            <source srcset="./assets/images/common/sub-contact_pc-hero.jpg" media="(min-width: 768px)">
+            <img src="./assets/images/common/sub-contact_sp-hero.jpg" alt="波打ち際">
         </div>
         <div class="sub-mv__header">
-          <h1 class="sub-mv__title">about us</h1>
+          <h1 class="sub-mv__title">contact</h1>
         </div>
       </div>
     </section>
@@ -193,85 +193,78 @@
     <!-- パンくずリスト -->
     <div class="breadcrumb top-breadcrumb">
       <div class="breadcrumb__inner inner">
-        <div>TOP > 私たちについて</div>
+        <div>TOP > お問い合わせ > お問い合わせエラー</div>
       </div>
     </div>
 
-    <div class="page-aboutus top-sub-contents">
-      <div class="page-aboutus__inner inner">
-        <div class="about__item">
-          <div class="about__images">
-            <div class="about__left">
-              <img src="./assets/images/common/about_1.jpg" alt="屋根の上にいるシーサー">
-            </div>
-            <div class="about__right">
-              <img src="./assets/images/common/about_2.jpg" alt="海の中の色鮮やかな魚たち">
-            </div>
+    <div class="page-contact top-sub-contents">
+      <div class="page-contact__inner inner">
+        <div class="page-contact__content">
+          <div class="page-contact__error-messege">
+            <p>※必須項目が入力されていません。<br class="u-mobile">入力してください。</p>
           </div>
-          <div class="about__contents">
-            <div class="about__title">
-              <p>Dive into<br>the Ocean</p>
-            </div>
-            <div class="about-content">
-              <p class="about__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            </div>
+          <div class="form error">
+            <form action="" method="post" id="">
+              <dl class="form__item error">
+                <dt>お名前<span class="form__required-tag">必須</span></dt>
+                <dd>
+                  <input type="text" placeholder="沖縄　太郎" name="company" value="" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt>メールアドレス<span class="form__required-tag">必須</span></dt>
+                <dd>
+                  <input type="email" placeholder="aaa000@ggmail.com" name="mail_address" value="" class="validate[]" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt>電話番号<span class="form__required-tag">必須</span></dt>
+                <dd>
+                  <input type="tel" placeholder="000-0000-0000" name="tel_number" value="" class="validate[]" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="">お問い合わせ項目<span class="form__required-tag">必須</span></dt>
+                <dd class="checkbox-content">
+                  <input type="checkbox" id="01-A" name="page-checkbox" checked="checked" value="ダイビング講習について" required>
+                  <label for="01-A" class="page-checkbox">ダイビング講習について</label>
+                  <input type="checkbox" id="01-B" name="page-checkbox" value="ファンデイビングについて" required>
+                  <label for="01-B" class="page-checkbox">ファンデイビングについて</label>
+                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
+                  <label for="01-C" class="page-checkbox">体験ダイビングについて</label>
+                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
+                  <label for="01-C" class="page-checkbox">スペシャルダイビングについて</label>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt>キャンペーン</dt>
+                <dd class="form__campaign-select">
+                  <select name="hoge" class="">
+                    <option value="">キャンペーン内容を選択</option>
+                    <option value="セレクト1">セレクト1</option>
+                    <option value="セレクト2">セレクト2</option>
+                  </select>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt>お問い合わせ内容<span class="form__required-tag">必須</span></dt>
+                <dd>
+                  <textarea name="contents"></textarea>
+                </dd>
+              </dl>
+              <div class="form__agree-check">
+                <input type="checkbox" id="agree" name="agree-check" value="個人情報の取り扱いについて同意のうえ送信します。" required>
+                <label for="agree" class="agree-check">個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</label>
+              </div>
+              <div class="form__button">
+                <a href="" class="common-button">Send<span></span></a>
+              </div>
+            </form>
           </div>
         </div>
+        
       </div>
     </div>
-
-    <section class="gallery top-gallery">
-      <div class="gallery__inner inner">
-        <div class="gallery__header">
-          <div class="section-header">
-            <p class="section-header__entitle">Gallery</p>
-            <h2 class="section-header__title">フォト</h2>
-          </div>
-        </div>
-        <div class="gallery__contents">
-          <img src="./assets/images/common/gallery1.jpg" alt="海の中の色鮮やかな魚たち">
-          <img src="./assets/images/common/gallery2.jpg" alt="透き通った海とそこに浮かぶ船">
-          <img src="./assets/images/common/gallery3.jpg" alt="海の中の色鮮やかな魚たち">
-          <img src="./assets/images/common/gallery4.jpg" alt="海の中の色鮮やかな魚たち">
-          <img src="./assets/images/common/gallery5.jpg" alt="海の中の色鮮やかな魚たち">
-          <img src="./assets/images/common/gallery6.jpg" alt="海の中の色鮮やかな魚たち">
-        </div>
-      </div>
-    </section>
-    <div class="gallery__display"></div>
-
-    <section class="contact top-contact" id="contact">
-      <div class="contact__inner inner">
-        <div class="contact__box">
-          <div class="contact__info">
-            <div class="contact__logo">
-              <img src="./assets/images/common/logo-blue.png" alt="CodeUps">
-            </div>
-            <div class="contact__access">
-              <div class="contact__access-text">
-                <p>沖縄県那覇市1-1</p>
-                <p>TEL:0120-000-0000</p>
-                <p>営業時間:8:30-19:00</p>
-                <p>定休日:毎週火曜日</p>
-              </div>
-              <div class="contact__access-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14320.124627230969!2d127.65836873349186!3d26.19566472716933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569a926a083d5%3A0xf368c08083a19ad6!2z44CSOTAxLTAxNTIg5rKW57iE55yM6YKj6KaH5biC5bCP56aE77yR5LiB55uu77yR!5e0!3m2!1sja!2sjp!4v1714141987828!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-            </div>
-          </div>
-          <div class="contact__content">
-            <div class="contact__header">
-              <p class="contact__entitle">Contact</p>
-              <h2 class="contact__title">お問い合わせ</h2>
-            </div>
-            <p class="contact__text">ご予約・お問い合わせはコチラ</p>
-            <div class="contact__button">
-              <a href="" class="common-button">Contact us<span></span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <div class="top-up">
       <a href="#top" class="top-up__circle">

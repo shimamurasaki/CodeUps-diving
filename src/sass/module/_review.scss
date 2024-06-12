@@ -11,11 +11,12 @@
 }
 
 .review-card__tag {
-  margin-top: rem(16);
+  margin-top: rem(15);
   font-size: rem(14);
   font-weight: $regular;
   line-height: 1.5;
   color: $navyBlue;
+  letter-spacing: -0.1em;
 }
 
 .review-card__title {

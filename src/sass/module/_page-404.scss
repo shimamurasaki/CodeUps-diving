@@ -2,7 +2,7 @@
 
 .page-404 {
   background-color: $skyBlue;
-  height: rem(425);
+  height: 100vh;
   padding-top: rem(80);
   position: relative;
 }
@@ -12,10 +12,42 @@
   padding-top: rem(8);
 }
 
-.page-404_content {
+.page-404__content {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: $regular;
+  font-family: sub-english-font-family;
+  color: $white;
+  text-align: center;
 }
 
-.page-404 .footer {
+.page-404__title {
+  font-size: rem(80);
+  letter-spacing: 0.5em;
+  text-indent: rem(15);
+  @include mq(md){
+    font-size: rem(160);
+  }
+}
+
+.page-404__text {
+  font-size: rem(16);
+  line-height: 1.5;
+}
+
+.page-404__button {
+  margin-top: rem(40);
+  @include mq(md){
+    margin-top: rem(80);
+  }
+}
+
+
+
+.page-404__footer.footer {
   margin-top: 0;
 }
+
+

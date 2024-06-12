@@ -19,7 +19,7 @@
   padding-bottom: 0;
   @include mq(md){
     display: block;
-    padding-bottom: rem(80);
+    padding-bottom: rem(60);
   }
 }
 
@@ -41,7 +41,9 @@
 
 .page-aboutus .about__contents {
   @include mq(md){
-    align-items: center;
+    gap: rem(65);
+    top: rem(176);
+    right: rem(35);
   }
 }
 

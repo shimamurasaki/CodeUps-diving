@@ -10,7 +10,7 @@
     display: grid;
     gap: rem(8);
     grid-auto-flow: dense;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(13, 1fr);
     position: relative;
   }
 }
@@ -25,30 +25,30 @@
     width: min(20.9vw, rem(301));
     height: min(9.58vw, rem(138));
     position: absolute;
-    top: rem(-232);
+    top: rem(-224);
     right: calc(50% - min(48vw, rem(640))); 
   }
 }
 
 .gallery__contents img:first-child {
-  grid-column: span 4;
+  grid-column: span 6;
   grid-row: span 4;
 }
 
 .gallery__contents img:nth-child(2),
 .gallery__contents img:nth-child(3) {
-  grid-column: span 5;
+  grid-column: span 7;
   grid-row: span 2;
 }
 
 .gallery__contents img:nth-child(4),
 .gallery__contents img:nth-child(5) {
-  grid-column: span 5;
+  grid-column: span 7;
   grid-row: span 2;
 }
 
 .gallery__contents img:nth-child(6) {
-  grid-column: span 4;
+  grid-column: span 6;
   grid-row: span 4;
 }
 

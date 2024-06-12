@@ -2,6 +2,8 @@
 
 .page-navi {
   margin-top: rem(80);
-  clear: both;
-  text-align: center;
+  @include mq(md){
+    clear: both;
+    text-align: center;
+  }
 }

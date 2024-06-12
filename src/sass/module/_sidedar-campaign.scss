@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.sidebar-campaign {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+}
+
+.sidebar-campaign .campaign-card {
+  max-width: 100%;
+}
+
+.sidebar-campaign .campaign-card__image::before {
+  @include mq(md){
+    padding-top: 63.967%;
+  }
+}
+
+.sidebar-campaign .campaign-card__content {
+  padding: 0 rem(22) rem(24);
+  @include mq(md){
+    padding: rem(12) rem(22) rem(24);
+  }
+}
+
+.sidebar-campaign .campaign-card__price-text {
+  font-size: rem(14);
+  margin-top: rem(2);
+  padding-right: 0;
+}
+
+.sidebar-campaign__button {
+  text-align: center;
+  margin-top: rem(40);
+}

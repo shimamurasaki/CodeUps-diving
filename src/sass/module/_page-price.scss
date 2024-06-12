@@ -26,7 +26,7 @@
 
 .page-price__header {
   background-color: $skyBlue;
-  padding: rem(8) 0;
+  padding: rem(7) 0;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -69,19 +69,23 @@
   font-weight: $regular;
   line-height: 1.5;
   color: $navyBlue;
+  @include mq(md){
+    height: rem(59);
+  }
 }
 
 .page-price__content td.title {
-  width: 69.275%;
+  width: 69.5%;
   text-align: center;
   @include mq(md){
     text-align: left;
     padding-left: rem(15);
+    width: 66.275%;
   }
 }
 
 .page-price__content td.money {
-  width: 30.725%;
+  width: 31.725%;
   text-align: right;
   padding-right: rem(16);
 }

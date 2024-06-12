@@ -18,13 +18,14 @@
   color: $white;
   font-size: rem(16);
   font-weight: $regular;
-  padding: rem(16);
+  padding: rem(14) rem(16);
   position: relative;
   cursor: pointer;
   user-select: none;
   margin-top: rem(40);
   @include mq(md){
-    padding: rem(26) rem(40) rem(25);
+    padding: rem(25) rem(40);
+    font-size: rem(20);
   }
 }
 
@@ -76,14 +77,14 @@
 
 .page-faq__content.is-open {
   background-color: $white;
-  padding: rem(24) rem(16);
+  padding: rem(24) rem(16) rem(22);
   border: 1px solid $skyBlue;
-  line-height: normal;
+  line-height: 1.45;
   /* numberに書き換える*/
   height: auto;
   opacity: 1;
   @include mq(md){
     margin-top: rem(16);
-    padding: rem(40);
+    padding: rem(37);
   }
 }

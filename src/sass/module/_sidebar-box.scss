@@ -7,7 +7,6 @@
 
 .sidebar-box__header span img{
   width: rem(50);
-  padding-right: rem(8);
 }
 
 .sidebar-box__header {
@@ -15,8 +14,9 @@
   font-weight: $regular;
   color: $navyBlue;
   padding-left: rem(16);
-  border-left: 6px solid $skyBlue;
+  border-left: 7px solid $skyBlue;
   display: flex;
+  gap: rem(10);
   align-items: center;
 }
 
@@ -52,3 +52,9 @@
   line-height: 1;
   padding-left: rem(16);
 }
+
+.sidebar-box__content .campaign-card__price-box {
+  padding-left: rem(40);
+}
+
+

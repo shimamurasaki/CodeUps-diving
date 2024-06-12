@@ -205,35 +205,37 @@
               <dl class="form__item">
                 <dt>お名前<span class="form__required-tag">必須</span></dt>
                 <dd>
-                  <input type="text" placeholder="沖縄　太郎" name="company" value="" />
+                  <input type="text" placeholder="沖縄　太郎" name="company" value="" required>
                 </dd>
               </dl>
               <dl class="form__item">
                 <dt>メールアドレス<span class="form__required-tag">必須</span></dt>
                 <dd>
-                  <input type="email" placeholder="aaa000@ggmail.com" name="mail_address" value="" class="validate[]" />
+                  <input type="email" placeholder="aaa000@ggmail.com" name="mail_address" value="" class="validate[]" required>
                 </dd>
               </dl>
               <dl class="form__item">
                 <dt>電話番号<span class="form__required-tag">必須</span></dt>
                 <dd>
-                  <input type="tel" placeholder="000-0000-0000" name="tel_number" value="" class="validate[]" />
+                  <input type="tel" placeholder="000-0000-0000" name="tel_number" value="" class="validate[]" required>
                 </dd>
               </dl>
               <dl class="form__item">
                 <dt class="">お問い合わせ項目<span class="form__required-tag">必須</span></dt>
                 <dd class="checkbox-content">
-                  <input type="checkbox" id="01-A" name="page-checkbox" checked="checked" value="ダイビング講習について">
+                  <input type="checkbox" id="01-A" name="page-checkbox" checked="checked" value="ダイビング講習について" required>
                   <label for="01-A" class="page-checkbox">ダイビング講習について</label>
-                  <input type="checkbox" id="01-B" name="page-checkbox" value="ファンデイビングについて">
+                  <input type="checkbox" id="01-B" name="page-checkbox" value="ファンデイビングについて" required>
                   <label for="01-B" class="page-checkbox">ファンデイビングについて</label>
-                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて">
+                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
                   <label for="01-C" class="page-checkbox">体験ダイビングについて</label>
+                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
+                  <label for="01-C" class="page-checkbox">スペシャルダイビングについて</label>
                 </dd>
               </dl>
               <dl class="form__item">
                 <dt>キャンペーン</dt>
-                <dd class="campaign-select">
+                <dd class="form__campaign-select">
                   <select name="hoge" class="">
                     <option value="">キャンペーン内容を選択</option>
                     <option value="セレクト1">セレクト1</option>
@@ -247,6 +249,10 @@
                   <textarea name="contents"></textarea>
                 </dd>
               </dl>
+              <div class="form__agree-check">
+                <input type="checkbox" id="agree" name="agree-check" value="個人情報の取り扱いについて同意のうえ送信します。" required>
+                <label for="agree" class="agree-check">個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</label>
+              </div>
               <div class="form__button">
                 <a href="" class="common-button">Send<span></span></a>
               </div>

@@ -3,9 +3,18 @@
 .home-blog__content .card-list {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: rem(500);
   @include mq(md){
+    max-width: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.home-blog__content .card-list__item:nth-child(n+3) {
+  @include mq(md){
+    margin-top: rem(40);
   }
 }
 

@@ -25,6 +25,9 @@
   transform: translate(-50%, -50%);
   color: $white;
   text-align: center;
+  @include mq(md){
+    top: 59%;
+  }
 }
 
 .sub-mv__title {
@@ -37,7 +40,6 @@
   white-space: nowrap;
   @include mq(md){
     font-size: rem(80);
-    text-indent: rem(45);
     line-height: 1.25;
   }
 }

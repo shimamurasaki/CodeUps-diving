@@ -91,6 +91,7 @@
   color: $navyBlue;
   line-height: 1.714;
   @include mq(md){
+    margin-top: rem(14);
     font-size: rem(16);
     line-height: 1.5;
     padding-right: rem(20);

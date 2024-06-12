@@ -1,5 +1,11 @@
 @use "global" as *;
 
+
+.toggle-list__content {
+  padding-left: 2rem;
+  transition-duration: 0.3s;
+}
+
 .toggle-list__title {
   font-size: 24px;
   font-weight: $regular;
@@ -7,32 +13,32 @@
   position: relative;
   cursor: pointer;
   transition: 0.3s;
-  padding-left: rem(48);
+  padding-left: rem(32);
   display: block;
 }
 
 .toggle-list__title--child {
   @extend .toggle-list__title;
-  padding: rem(24) rem(24) rem(24) rem(48);
+  padding: rem(16) rem(24);
 }
 
 .toggle-list__title::after {
   content: "";
 	display: inline-block;
-	width: rem(24);
-	height: rem(24);
+	width: rem(20);
+	height: rem(20);
 	background-image:url(../images/common/toggle-button.png);
   background-repeat: no-repeat;
   background-size: contain;
 	position:absolute;
 	top: 25%;
-	left: 0;
+	left: rem(-10);
 	transform: translate(50%) ;
 	transition: 0.3s;
 }
 
 .toggle-list__title.is-active::after {
-  top: 35%;
+  top: 25%;
   transform: translate(50%) rotate(90deg);
 	transition: 0.3s;
 }
@@ -57,10 +63,7 @@
 }
 
 .toggle-list__content.is-open {
-  margin-bottom: rem(4);
-  padding: rem(12) 0 rem(12) rem(32);
   height: 100%;
   opacity: 1;
   display: block;
 }
-
