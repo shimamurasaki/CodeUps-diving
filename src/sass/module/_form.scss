@@ -3,6 +3,10 @@
 .form {
 	max-width: rem(700);
 	margin: auto;
+	@include mq(md){
+    margin: 0;
+		margin-left: rem(104);
+  }
 }
 
 .form.error {
@@ -13,6 +17,7 @@
   padding-bottom: rem(24);
   border-bottom: 1px dotted $skyBlue;
 	@include mq(md){
+		padding-bottom: rem(40);
     display: flex;
 		align-items: start;
   }
@@ -20,20 +25,25 @@
 
 .form__item + .form__item {
   margin-top: rem(24);
+	@include mq(md){
+    margin-top: rem(40);
+  }
 }
 
 .form__item dt {
   font-size: rem(16);
   font-weight: $bold;
   color: $navyBlue;
+	line-height: 1;
 	@include mq(md){
-    width: 32.429%;
+    width: 30%;
   }
 }
 
 .form__item dd {
 	@include mq(md){
-    width: 68.571%;
+    width: 68%;
+		margin-left: rem(10);
   }
 }
 
@@ -42,13 +52,14 @@
 	color: $white;
   font-size: rem(12);
   font-weight: $regular;
-  padding: rem(2) rem(16);
+  padding: rem(2) rem(18);
   background-color: #C94800;
 	margin-left: rem(8);
+	line-height: 1;
 }
 
 .form__item input {
-	margin-top: rem(16);
+	margin-top: rem(22);
 	width: 100%;
 	height: rem(40);
 	background-color: $white;
@@ -56,6 +67,13 @@
 	padding: rem(8) rem(16);
 	@include mq(md){
     margin-top: 0;
+  }
+}
+
+.form__item .checkbox-content {
+	margin-top: rem(16);
+	@include mq(md){
+		margin-top: 0;
   }
 }
 
@@ -100,11 +118,12 @@
 	height: rem(40);
 	background-color: $white;
 	border: 1px solid $skyBlue;
-	padding: rem(8) rem(16);
+	padding: rem(5);
 	position: relative;
   z-index: 1;
 	@include mq(md){
     margin-top: 0;
+		height: rem(30);
   }
 }
 
@@ -122,7 +141,7 @@
 }
 
 .form__item textarea {
-	margin-top: rem(16);
+	margin-top: rem(20);
 	width: 100%;
 	height: rem(200);
 	background-color: $white;
@@ -147,9 +166,12 @@ input[type=checkbox] {
 	box-sizing: border-box;
 	cursor: pointer;
 	display: block;
-	padding: rem(5) rem(30);
+	padding: rem(2) rem(22);
 	position: relative;
 	width: auto;
+	@include mq(md){
+    padding: rem(5) rem(30);
+  }
 }
 .page-checkbox::before {
 	background: $white;
@@ -157,19 +179,19 @@ input[type=checkbox] {
 	content: '';
 	display: block;
 	height: rem(14);
-	left: rem(5);
+	left: 0;
 	margin-top: rem(-8);
 	position: absolute;
 	top: 50%;
 	width: rem(14);
 }
 .page-checkbox::after {
-	border-right: 3px solid #C94800;
-	border-bottom: 3px solid #C94800;
+	border-right: 2px solid #C94800;
+	border-bottom: 2px solid #C94800;
 	content: '';
 	display: block;
 	height: rem(9);
-	left: rem(10);
+	left: rem(5);
 	margin-top: rem(-7);
 	opacity: 0;
 	position: absolute;
@@ -191,14 +213,18 @@ input[type=checkbox]:checked + .page-checkbox::after {
 }
 
 .agree-check {
-	font-size: rem(16);
-	line-height: 1.375;
+	font-size: rem(14);
+	line-height: 1.6;
 	box-sizing: border-box;
 	cursor: pointer;
 	display: block;
 	padding-left: rem(30);
 	position: relative;
 	width: auto;
+	@include mq(md){
+    padding-left: rem(45);
+		line-height: 1.375;
+  }
 }
 .agree-check::before {
 	background: $white;
@@ -231,4 +257,7 @@ input[type=checkbox]:checked + .agree-check::after {
 .form__button {
 	text-align: center;
 	margin-top: rem(24);
+	@include mq(md){
+    margin-top: rem(40);
+  }
 }

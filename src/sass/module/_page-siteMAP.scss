@@ -1,5 +1,45 @@
 @use "global" as *;
 
+.page-siteMAP__inner {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  @include mq(md){
+    max-width: 1180px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.page-siteMAP__content .nav-contents__left {
+  @include mq(md){
+    padding-left: rem(30);
+  }
+}
+
+.page-siteMAP__content .nav-contents__left .nav-contents__items:nth-child(2) {
+  @include mq(md){
+    padding-left: rem(40);
+  }
+}
+
+.page-siteMAP__content .nav-contents__right {
+  padding-left: rem(22);
+  @include mq(md){
+    padding-left: rem(68);
+  }
+}
+
+.page-siteMAP__content .nav-contents__right .nav-contents__items:nth-child(2) {
+  margin-top: rem(20);
+  @include mq(md){
+    padding-left: rem(45);
+    margin-top: 0;
+  }
+}
+
 .page-siteMAP__content {
   position: relative;
 }
