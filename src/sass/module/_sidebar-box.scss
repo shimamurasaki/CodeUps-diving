@@ -24,37 +24,26 @@
   margin-top: rem(24);
 }
 
-.sidebar-box__content .campaign-card__price-box {
-  justify-content: center;
-}
-
-.sidebar-box__content .campaign-card__title {
+.sidebar-campaign__title {
   text-align: center;
 }
 
-.sidebar-box__content .campaign-card__price-pop {
+.sidebar-campaign__price-pop {
   margin-top: rem(8);
 }
 
-.sidebar-box__content .campaign-card__text {
-  margin-top: rem(8);
-  font-size: rem(14);
-  line-height: 1.714;
+.sidebar-campaign__price-box {
+  justify-content: center;
+  padding-left: rem(40);
 }
 
-.sidebar-box__content .campaign-card__price-before {
+.sidebar-campaign__price-before {
   font-size: rem(20);
   line-height: 1;
 }
 
-.sidebar-box__content .campaign-card__price-after {
+.sidebar-campaign__price-after {
   font-size: rem(32);
   line-height: 1;
   padding-left: rem(16);
 }
-
-.sidebar-box__content .campaign-card__price-box {
-  padding-left: rem(40);
-}
-
-

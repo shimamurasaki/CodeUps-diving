@@ -4,123 +4,48 @@
   position: relative;
 }
 
-.page-information__contents .tab-menu__item {
-  width: 100%;
-  max-width: 100%;
-}
-
-.page-information__contents .tab-menu__list {
-  flex-wrap: nowrap;
-  gap: rem(19);
-  justify-content: space-between;
-  @include mq(md){
-    gap: rem(96);
-  }
-}
-
-.page-information__contents .tab-trigger {
-  background-color: #DDF0F1;
-  color: $skyBlue;
-  padding:  rem(10);
-  font-size: rem(14);
-  line-height: 1.4;
-  @include mq(md){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: rem(8);
-    font-size: rem(24);
-  }
-}
-
-.page-information__contents .tab-trigger .whale{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/whale.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(64);
-    height: rem(64);
-  }
-}
-.page-information__contents .tab-trigger.is-active .whale{
-  background-color: $white;
-}
-
-.page-information__contents .tab-trigger .shark{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/shark.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(63);
-    height: rem(63);
-  }
-}
-.page-information__contents .tab-trigger.is-active .shark{
-  background-color: $white;
-}
-
-.page-information__contents .tab-trigger .small-fish{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/small-fish.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(64);
-    height: rem(64);
-  }
-}
-.page-information__contents .tab-trigger.is-active .small-fish{
-  background-color: $white;
-}
-
-.page-information__contents .tab-menu__contents {
+.page-information__box-top {
   margin-top: rem(16);
   @include mq(md){
     margin-top: rem(27);
   }
 }
 
-.page-information__tab-contents {
+.page-information__box {
   border: 1px solid $skyBlue;
   padding: rem(24);
+  margin-top: rem(16);
   @include mq(md){
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: rem(24);
   }
 }
 
-.page-information__tab-text {
+.page-information__box-text {
   @include mq(md){
     width: calc((100% - 48px) / 2);
   }
 }
 
-.page-information__tab-title {
+.page-information__box-title {
   font-size: rem(24);
   font-weight: $bold;
   line-height: 1;
-  padding-bottom: rem(5);
+  padding-bottom: rem(8);
   border-bottom: 1px solid $skyBlue;
   color: $navyBlue;
 }
 
-.page-information__tab-message {
+.page-information__box-message {
   margin-top: rem(8);
   font-size: rem(16);
   font-weight: $regular;
   line-height: 1.5;
 }
 
-.page-information__tab-image {
+.page-information__box-image {
   margin-top: rem(8);
   @include mq(md){
     width: calc((100% - 48px) / 2);
@@ -128,7 +53,7 @@
   }
 }
 
-.page-information__tab-image img {
+.page-information__box-image img {
   aspect-ratio: 297 / 189;
   width: 100%;
   height: 100%;

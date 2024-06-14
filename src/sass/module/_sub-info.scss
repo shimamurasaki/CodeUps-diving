@@ -3,12 +3,6 @@
 .sub-info {
   max-width: rem(800);
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: rem(36);
-  @include mq(md) {
-    font-size: rem(34);
-  }
 }
 
 .sub-info__title p {
@@ -20,6 +14,14 @@
   }
 }
 
+.sub-info__text-box.first {
+  margin-top: rem(36);
+}
+
+.sub-info__text-box {
+  margin-top: rem(32);
+}
+
 .sub-info__text-box p,
 .sub-info__text-box li {
   font-size: rem(16);
@@ -29,6 +31,9 @@
 }
 
 .sub-info__text-box ol {
-  padding-left: rem(22);
+  padding-left: rem(24);
   list-style-type: decimal;
+  @include mq(md) {
+    font-size: rem(22);
+  }
 }

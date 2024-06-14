@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.home-blog__content .card-list {
+.home-blog__list {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -12,23 +12,23 @@
   }
 }
 
-.home-blog__content .card-list__item:nth-child(n+3) {
+.home-blog__list-item:nth-child(n+3) {
   @include mq(md){
     margin-top: rem(40);
   }
 }
 
-.home-blog__content .blog-card__image {
+.home-blog__card-image {
   overflow: hidden;
   width: 100%;
 }
 
-.home-blog__content .blog-card__image img {
+.home-blog__card-image img {
   height: auto;
   transition: transform .6s ease;
 }
 
-.home-blog__content .blog-card__image:hover img {
+.home-blog__card-image:hover img {
   transform: scale(1.1);
 }
 

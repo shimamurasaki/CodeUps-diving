@@ -1,11 +1,7 @@
 @use "global" as *;
 
 .about__item {
-  margin-top: rem(24);
-  margin: auto;
-  @include mq(md) {
-    position: relative;
-  }
+  position: relative;
 }
 
 .about__item::after {

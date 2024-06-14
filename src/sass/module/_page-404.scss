@@ -2,7 +2,6 @@
 
 .page-404 {
   background-color: $skyBlue;
-  height: 100vh;
   padding-top: rem(80);
   position: relative;
 }
@@ -16,14 +15,25 @@
 }
 
 .page-404__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: rem(698);
   font-weight: $regular;
   font-family: sub-english-font-family;
   color: $white;
   text-align: center;
+  align-items: center;
+}
+
+.page-404__image {
+  max-width: rem(698);
+  position: absolute;
+  top: rem(90);
+}
+
+.page-404__box {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
 
 .page-404__title {
@@ -53,7 +63,7 @@
 }
 
 .page-404__footer.footer {
-  margin-top: 0;
+  margin-top: rem(-33);
 }
 
 

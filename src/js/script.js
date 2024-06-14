@@ -155,6 +155,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         });
 
         // FAQアコーディオン
+        $('.jsAccordionTitle').next().addClass('is-open');
         $('.jsAccordionTitle').on('click', function(){
           //nextは次の要素を取得する、今回はクリック要素の次の要素にis-showクラスをつけている
           $(this).next().toggleClass('is-open');
