@@ -162,11 +162,12 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
           //クリックした要素自体にもclass付与
           $(this).toggleClass('is-active')
         });
-      
-    
 
-
-
+        // お問い合わせフォームエラーメッセージ
+        $("#form").click(function () {
+          $(".form__error").toggleClass('is-active');
+        });
+        
 
       
 });

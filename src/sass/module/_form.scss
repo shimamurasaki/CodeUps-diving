@@ -3,13 +3,25 @@
 .form {
 	max-width: rem(700);
 	margin: auto;
-	@include mq(md){
-    margin: 0;
-		margin-left: rem(104);
-  }
 }
 
-.form.error {
+.form__error {
+  text-align: center;
+}
+
+.form__error p {
+	font-size: rem(14);
+  font-weight: $regular;
+  color: #C94800;
+  text-align: left;
+	display: none;
+}
+
+.form__error.is-active {
+  display: inline-block;
+}
+
+.form__items {
 	margin-top: rem(40);
 }
 

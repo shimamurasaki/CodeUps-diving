@@ -200,8 +200,11 @@
     <div class="page-contact top-sub-contents">
       <div class="page-contact__inner inner">
         <div class="page-contact__content">
-          <div class="form">
-            <form action="" method="post" id="">
+          <form class="form" action="#" method="post" id="form">
+            <div class="form__error">
+              <p>※必須項目が入力されていません。<br class="u-mobile">入力してください。</p>
+            </div>
+            <div class="form__items">
               <dl class="form__item">
                 <dt>お名前<span class="form__required-tag">必須</span></dt>
                 <dd>
@@ -229,8 +232,8 @@
                   <label for="01-B" class="page-checkbox">ファンデイビングについて</label>
                   <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
                   <label for="01-C" class="page-checkbox">体験ダイビングについて</label>
-                  <input type="checkbox" id="01-C" name="page-checkbox" value="体験ダイビングについて" required>
-                  <label for="01-C" class="page-checkbox">スペシャルダイビングについて</label>
+                  <input type="checkbox" id="01-D" name="page-checkbox" value="体験ダイビングについて" required>
+                  <label for="01-D" class="page-checkbox">スペシャルダイビングについて</label>
                 </dd>
               </dl>
               <dl class="form__item">
@@ -238,8 +241,9 @@
                 <dd class="form__campaign-select">
                   <select name="hoge" class="">
                     <option value="">キャンペーン内容を選択</option>
-                    <option value="セレクト1">セレクト1</option>
-                    <option value="セレクト2">セレクト2</option>
+                    <option value="ライセンス取得">ライセンス取得</option>
+                    <option value="貸切体験ダイビング">貸切体験ダイビング</option>
+                    <option value="ナイトダイビング">ナイトダイビング</option>
                   </select>
                 </dd>
               </dl>
@@ -249,15 +253,15 @@
                   <textarea name="contents"></textarea>
                 </dd>
               </dl>
-              <div class="form__agree-check">
-                <input type="checkbox" id="agree" name="agree-check" value="個人情報の取り扱いについて同意のうえ送信します。" required>
-                <label for="agree" class="agree-check">個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</label>
-              </div>
-              <div class="form__button">
-                <a href="" class="common-button">Send<span></span></a>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="form__agree-check">
+              <input type="checkbox" id="agree" name="agree-check" value="個人情報の取り扱いについて同意のうえ送信します。" required>
+              <label for="agree" class="agree-check">個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</label>
+            </div>
+            <div class="form__button">
+              <button class="common-button" type="submit" id="js-submit">Send<span></span></button>
+            </div>
+          </form>
         </div>
         
       </div>
