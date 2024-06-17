@@ -134,7 +134,7 @@
   @include mq("md") {
     width: 35%;
     border-left: 1px solid $skyBlue;
-    padding-top: rem(25);
+    padding-top: rem(9);
     padding-left: rem(140);
     padding-right: 0;
     padding-bottom: rem(16);
@@ -169,6 +169,9 @@
   font-weight: $regular;
   color: $skyBlue;
   line-height: 0.5;
+  @include mq(md){
+    width: 110%;
+  }
 }
 
 .contact__text {
@@ -177,13 +180,16 @@
   line-height: 1.286;
   color: $skyBlue;
   margin-top: rem(14);
+  @include mq(md){
+    width: 110%;
+  }
 }
 
 .contact__button {
   margin-top: rem(40);
   text-align: center;
   @include mq(md) {
-    margin-top: rem(20);
+    margin-top: rem(36);
   }
 }
 
