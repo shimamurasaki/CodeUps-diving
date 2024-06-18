@@ -83,6 +83,8 @@
   letter-spacing: 0.006em;
   height: auto;
   opacity: 1;
+  font-size: rem(16);
+  color: $navyBlue;
   @include mq(md){
     margin-top: rem(16);
     padding: rem(39);

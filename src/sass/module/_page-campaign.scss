@@ -79,7 +79,7 @@
   @include mq(md){
     margin-top: rem(24);
     font-size: rem(16);
-    font-weight: regular;
+    font-weight: $regular;
     line-height: 1.5;
     color: $navyBlue;
   }
