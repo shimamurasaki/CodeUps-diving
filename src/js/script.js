@@ -229,7 +229,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       
               // エラーがあればエラーメッセージを表示
               if (!isValid) {
-                  $('.form__error').show();
+                  $('.form__error').css('display', 'flex');
               } else {
                   // フォームを送信する処理をここに追加
                   // ここではデモとしてアラートを表示します

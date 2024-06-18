@@ -5,8 +5,11 @@
 	margin: auto;
 }
 
-.form__item {
+.form__content {
 	margin-top: rem(40);
+}
+
+.form__item {
 	padding-bottom: rem(24);
 	border-bottom: 1px dotted $skyBlue;
 	@include mq(md){
@@ -14,6 +17,10 @@
 		align-items: start;
 		padding-bottom: rem(40);
   }
+}
+
+.form__item + .form__item {
+	margin-top: rem(40);
 }
 
 .form__item dt {
@@ -79,9 +86,15 @@ input::placeholder {
 
 .form__error {
   display: none;
+	justify-content: center;
+}
+
+.form__error p {
   font-size: rem(14);
   color: #C94800;
-  text-align: center;
+  text-align: left;
+	text-indent: -1em;
+  padding-left: 1em;
 }
 
 .form__input.error input,
@@ -116,16 +129,19 @@ $border-r-btn: rem(50);
 
 /*チェックボックスの指定*/
 $check-fz: rem(16);//フォントサイズ
+$check-fz-ag: rem(14);//フォントサイズ
 $check-size: rem(14);//外枠の幅高さ
+$check-size-ag: rem(22);//外枠の幅高さ
 $check-bg-cr: $white;//外枠の背景色
 $check-border-cr: $skyBlue;//外枠の色
 $check-bg-cr-inner: #C94800;//チェックマークの背景色
 $check-space: rem(8);//チェックマークと文字の距離
+$check-space-ag: rem(16);//チェックマークと文字の距離
 $check-space-betweenRadio: rem(20);//ラジオボタンの間の距離
 $check-weight: 2px;//チェックマークの線の太さ(px)
 
 /*テキストエリアの指定*/
-$textarea-height: rem(255);
+$textarea-height: rem(200);
 
 [type="text"],
 [type="search"],
@@ -165,11 +181,13 @@ textarea {
 [type="checkbox"] {
 	display: none;
 
-	+ span {
+	+ .info {
 		display: inline-block;
 		position: relative;
 		padding: 0 0 0 calc($check-size + $check-space);
 		font-size: $check-fz;
+		font-weight: $regular;
+		color: $navyBlue;
 		line-height: 1;
 		cursor: pointer;
 		transition: 0.3s ease;
@@ -193,7 +211,7 @@ textarea {
 		}
 	}
 
-	&:checked + span {
+	&:checked + .info {
 		&::after {
 			content: "";
 			position: absolute;
@@ -209,7 +227,59 @@ textarea {
 			margin-left: 0.1em;
 			border-left: $check-weight solid $check-bg-cr-inner;
 			border-bottom: $check-weight solid $check-bg-cr-inner;
+		}
+	}
+}
 
+[type="checkbox"] {
+	display: none;
+
+	+ .agree {
+		display: inline-block;
+		position: relative;
+		padding: 0 0 0 calc($check-size-ag + $check-space-ag);
+		font-size: $check-fz-ag;
+		font-weight: $regular;
+		color: $navyBlue;
+		line-height: 1;
+		cursor: pointer;
+		transition: 0.3s ease;
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			background: $check-bg-cr;
+			border: 1px solid $check-border-cr;
+			width: $check-size-ag;
+			height: $check-size-ag;
+			display: block;
+		}
+
+		&::after {
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+	}
+
+	&:checked + .agree {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			opacity: 1;
+			/*チェックマークじゃない場合は以下を変更する*/
+			transform: translateY(-50%) rotate(-45deg);
+			width: calc($check-size-ag * 0.9);
+			height: calc($check-size-ag * 0.5);
+			margin-top: -0.1em;
+			margin-left: 0.1em;
+			border-left: $check-weight solid $check-bg-cr-inner;
+			border-bottom: $check-weight solid $check-bg-cr-inner;
 		}
 	}
 }
@@ -229,11 +299,12 @@ select {
 	background-color: $back-cr;
   border: 1px solid $border-cr-default;
 	/*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
-	appearance: auto;
+	appearance: none;
 	/*↓デフォルトではないアイコンを使う場合は入力する*/
-	// background-image: url();
-	// background-position: right 12px center;
-	// background-repeat: no-repeat;
+	background-image: url(../images/common/Polygon.png);
+	background-position: right rem(5) top rem(12);
+	background-repeat: no-repeat;
+	background-size: rem(12);
 	&:focus {
 		border: 1px solid $border-cr;
 	}
@@ -242,7 +313,7 @@ select {
   }
 }
 
-::option {
+option {
 	width: 100%;
 }
 

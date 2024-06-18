@@ -181,6 +181,7 @@
           <picture>
             <source srcset="./assets/images/common/sub-contact_pc-hero.jpg" media="(min-width: 768px)">
             <img src="./assets/images/common/sub-contact_sp-hero.jpg" alt="波打ち際">
+          </picture>
         </div>
         <div class="sub-mv__header">
           <h1 class="sub-mv__title">contact</h1>
@@ -198,67 +199,71 @@
     <div class="page-contact top-sub-contents">
       <div class="page-contact__inner inner">
         <div class="page-contact__content form">
-          <form action="" method="post" id="">
-            <p class="form__error">※必須項目が入力されていません。入力してください。</p>
-            <dl class="form__item">
-              <dt class="form__label">
-                お名前<span class="form__required-tag">必須</span>
-              </dt>
-              <dd class="form__input">
-                <input type="text" name="name" value="" placeholder="沖縄　太郎" id="name" required>
-              </dd>
-            </dl>
-            <dl class="form__item">
-              <dt class="form__label">
-                メールアドレス<span class="form__required-tag">必須</span>
-              </dt>
-              <dd class="form__input">
-                <input type="email" name="mail_address" value="" class="validate[]" placeholder="aaa000@ggmail.com" id="email" required>
-              </dd>
-            </dl>
-            <dl class="form__item">
-              <dt class="form__label">
-                電話番号<span class="form__required-tag">必須</span>
-              </dt>
-              <dd class="form__input">
-                <input type="tel" name="tel" value="" class="validate[]" placeholder="000-0000-0000" id="tel" required>
-              </dd>
-            </dl>
-            <dl class="form__item">
-              <dt class="form__label">
-                お問い合わせ項目<span class="form__required-tag">必須</span>
-              </dt>
-              <dd class="form__checkbox">
-                <label><input type="checkbox" name="page-checkbox" value="ダイビング講習について" checked><span>ダイビング講習について</span></label>
-                <label><input type="checkbox" name="page-checkbox" value="ファンデイビングについて"><span>ファンデイビングについて</span></label>
-                <label><input type="checkbox" name="page-checkbox" value="体験ダイビングについて"><span>体験ダイビングについて</span></label>
-                <label><input type="checkbox" name="page-checkbox" value="スペシャルダイビングについて"><span>スペシャルダイビングについて</span></label>
-              </dd>
-            </dl>
-            <dl class="form__item">
-              <dt class="form__label">
-                キャンペーン
-              </dt>
-              <dd class="form__select">
-                <select name="select" class="">
-                  <option value="">キャンペーン内容を選択</option>
-                    <option value="ライセンス取得">ライセンス取得</option>
-                    <option value="貸切体験ダイビング">貸切体験ダイビング</option>
-                    <option value="ナイトダイビング">ナイトダイビング</option>
-                    <option value="貸切ファンダイビング">貸切ファンダイビング</option>
-                </select>
-              </dd>
-            </dl>
-            <dl class="form__item">
-              <dt class="form__label">
-                お問い合わせ内容<span class="form__required-tag">必須</span>
-              </dt>
-              <dd class="form__textarea">
-                <textarea name="contents"></textarea>
-              </dd>
-            </dl>
+          <form action="#" method="post" id="form">
+            <div class="form__error">
+              <p>※必須項目が入力されていません。<br class="u-mobile">入力してください。</p>
+            </div>
+            <div class="form__content">
+              <dl class="form__item">
+                <dt class="form__label">
+                  お名前<span class="form__required-tag">必須</span>
+                </dt>
+                <dd class="form__input">
+                  <input type="text" name="name" value="" placeholder="沖縄　太郎" id="name" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="form__label">
+                  メールアドレス<span class="form__required-tag">必須</span>
+                </dt>
+                <dd class="form__input">
+                  <input type="email" name="mail_address" value="" class="validate[]" placeholder="aaa000@ggmail.com" id="email" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="form__label">
+                  電話番号<span class="form__required-tag">必須</span>
+                </dt>
+                <dd class="form__input">
+                  <input type="tel" name="tel" value="" class="validate[]" placeholder="000-0000-0000" id="tel" required>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="form__label">
+                  お問い合わせ項目<span class="form__required-tag">必須</span>
+                </dt>
+                <dd class="form__checkbox">
+                  <label><input type="checkbox" name="page-checkbox" value="ダイビング講習について" checked><span class="info">ダイビング講習について</span></label>
+                  <label><input type="checkbox" name="page-checkbox" value="ファンデイビングについて"><span class="info">ファンデイビングについて</span></label>
+                  <label><input type="checkbox" name="page-checkbox" value="体験ダイビングについて"><span class="info">体験ダイビングについて</span></label>
+                  <label><input type="checkbox" name="page-checkbox" value="スペシャルダイビングについて"><span class="info">スペシャルダイビングについて</span></label>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="form__label">
+                  キャンペーン
+                </dt>
+                <dd class="form__select">
+                  <select name="select" class="">
+                    <option value="">キャンペーン内容を選択</option>
+                      <option value="ライセンス取得">ライセンス取得</option>
+                      <option value="貸切体験ダイビング">貸切体験ダイビング</option>
+                      <option value="ナイトダイビング">ナイトダイビング</option>
+                      <option value="貸切ファンダイビング">貸切ファンダイビング</option>
+                  </select>
+                </dd>
+              </dl>
+              <dl class="form__item">
+                <dt class="form__label">
+                  お問い合わせ内容<span class="form__required-tag">必須</span>
+                </dt>
+                <dd class="form__textarea">
+                  <textarea name="contents"></textarea>
+                </dd>
+              </dl>
+            </div>
             <div class="form__privacyCheck">
-              <label><input type="checkbox" id="privacyCheck" name="privacyCheck" value="個人情報の取り扱いについて同意のうえ送信します。" required><span>個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</span></label>
+              <label><input type="checkbox" id="privacyCheck" name="privacyCheck" value="個人情報の取り扱いについて同意のうえ送信します。" required><span class="agree">個人情報の取り扱いについて同意のうえ<br class="u-mobile">送信します。</span></label>
             </div>
             <div class="form__button">
               <button class="common-button" type="submit" id="js-submit">Send<span></span></button>
