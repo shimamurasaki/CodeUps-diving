@@ -1,16 +1,16 @@
 @use "global" as *;
 
-.single-blog__title {
+.single-blog__header {
   border-bottom: 1px solid $skyBlue;
 }
 
-.single-blog__title time {
+.single-blog__header time {
   font-size: rem(14);
   font-weight: $regular;
   line-height: 1.286;
 }
 
-.single-blog__title p {
+.single-blog__title {
   font-size: rem(24);
   font-weight: $medium;
   color: $navyBlue;
@@ -21,19 +21,10 @@
   }
 }
 
-.single-blog__text {
-  font-size: rem(16);
-  line-height: 1.5;
-}
-
-.single-blog__detail {
+.single-blog__image {
   margin-top: rem(24);
-  display: flex;
-  flex-direction: column;
-  gap: rem(24);
   @include mq(md){
-    margin-top: rem(8);
-    gap: rem(40);
+    margin-top: rem(40);
   }
 }
 
@@ -44,17 +35,38 @@
   object-fit: cover;
 }
 
-.single-blog__item span img{
-  width: rem(18);
-  height: rem(18);
+.single-blog__entry {
+  margin-top: rem(24);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  @include mq(md){
+    margin-top: rem(40);
+    gap: rem(40);
+  }
 }
 
-.single-blog__item {
+.single-blog__entry p {
+  font-size: rem(16);
+  line-height: 1.5;
+}
+
+.single-blog__entry li {
   font-size: rem(16);
   font-weight: $regular;
   line-height: 1.5;
   color: $navyBlue;
-  display: flex;
-  align-items: center;
-  gap: rem(9);
+  text-indent: rem(-27);
+  padding-left: rem(27);
+}
+
+.single-blog__entry li::before {
+  content: "";
+  display: inline-block;
+  width: rem(18);
+  height: rem(18);
+  background: url(../images/common/hitode_blue.png) no-repeat;
+  background-size: contain;
+  margin-right: rem(9);
+  vertical-align: middle;
 }

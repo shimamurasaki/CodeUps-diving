@@ -4,18 +4,9 @@
 .tab-menu__list {
   display: flex;
   flex-wrap: wrap;
-  gap: rem(21);
+  gap: rem(16) rem(21);
   @include mq(md){
-    gap: rem(32);
-  }
-}
-
-.tab-menu__list--information {
-  display: flex;
-  gap: rem(19);
-  justify-content: space-between;
-  @include mq(md){
-    gap: rem(96);
+    gap: rem(16) rem(32);
   }
 }
 
@@ -25,16 +16,6 @@
   text-align: center;
   cursor: pointer;
   border: 1px solid $skyBlue;
-}
-
-.tab-menu__item--information {
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
-}
-
-.tab-trigger {
   display: block;
   padding: rem(3);
   background-color: $white;
@@ -42,98 +23,15 @@
   font-size: rem(14);
   line-height: 1.714;
   box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
 }
 
-.tab-trigger--information {
-  display: block;
-  background-color: #DDF0F1;
-  color: $skyBlue;
-  padding:  rem(10);
-  font-size: rem(14);
-  line-height: 1.4;
-  @include mq(md){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: rem(8);
-    font-size: rem(24);
-  }
-}
-
-.tab-trigger.is-active {
+.tab-menu__item.current {
   background-color: $skyBlue;
   color: $white;
 }
 
-.tab-trigger--information.is-active {
+.tab-menu__item:hover {
   background-color: $skyBlue;
   color: $white;
 }
-
-.tab-trigger--information .whale{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/whale.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(64);
-    height: rem(64);
-  }
-}
-
-.tab-trigger--information.is-active .whale{
-  background-color: $white;
-}
-
-.tab-trigger--information .shark{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/shark.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(63);
-    height: rem(63);
-  }
-}
-.tab-trigger--information.is-active .shark{
-  background-color: $white;
-}
-
-.tab-trigger--information .small-fish{
-  @include mq(md){
-    display: inline-block;
-    mask-image: url(../images/common/small-fish.png);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: cover;
-    background-color: $skyBlue;
-    width: rem(64);
-    height: rem(64);
-  }
-}
-.tab-trigger--information.is-active .small-fish{
-  background-color: $white;
-}
-
-/* タブコンテンツ */
-.tab-menu__content {
-  display: none;
-}
-
-.tab-menu__content.is-active {
-  display: inline;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-

@@ -201,22 +201,14 @@
         <div class="page-campaign__contents tab-menu">
           <!-- タブメニュー -->
           <ul class="tab-menu__list">
-            <li class="tab-menu__item">
-              <span class="tab-trigger js-tab-trigger is-active" data-id="campaign01">ALL</span>
-            </li>
-            <li class="tab-menu__item">
-              <span class="tab-trigger js-tab-trigger" data-id="campaign02">ライセンス講習</span>
-            </li>
-            <li class="tab-menu__item">
-              <span class="tab-trigger js-tab-trigger" data-id="campaign03">ファンダイビング</span>
-            </li>
-            <li class="tab-menu__item">
-              <span class="tab-trigger js-tab-trigger" data-id="campaign04">体験ダイビング</span>
-            </li>
+            <li class="tab-menu__item current">ALL</li>
+            <li class="tab-menu__item">ライセンス講習</li>
+            <li class="tab-menu__item">ファンダイビング</li>
+            <li class="tab-menu__item">体験ダイビング</li>
           </ul>
           <!-- タブコンテンツ -->
           <div class="tab-menu__contents top-page-campaign__contents">
-            <div class="tab-menu__content js-tab-target is-active" id="campaign01">
+            <div class="tab-menu__content">
               <div class="page-campaign__card-list">
                 <div class="page-campaign__content-item">
                   <div class="campaign-card page-campaign__card">
@@ -364,36 +356,39 @@
                 </div>
               </div>
             </div>
-            <div class="tab-menu__content js-tab-target" id="campaign02">
-
-            </div>
-            <div class="tab-menu__content js-tab-target" id="campaign03">
-
-            </div>
-            <div class="tab-menu__content js-tab-target" id="campaign04">
-
-            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- WPページナビゲーション -->
-    <div class="page-navi inner">
-      <div class="wp-pagenavi">
-        <div class="wp-pagenavi__prev">
-          <a class="page smaller" href="#"></a>
-        </div>
-        <div class="wp-pagenavi__number">
-          <span class="current">1</span>
-          <a class="page smaller" href="#">2</a>
-          <a class="page smaller" href="#">3</a>
-          <a class="page smaller" href="#">4</a>
-          <a class="page smaller pc-only" href="#">5</a>
-          <a class="page smaller pc-only" href="#">6</a>
-        </div>
-        <div class="wp-pagenavi__next">
-          <a class="page smaller" href="#"></a>
+    <div class="page-navi">
+      <div class="page-navi__inner">
+        <div class="wp-pagenavi">
+          <div class="wp-pagenavi__prev">
+            <a class="page smaller" href="#"></a>
+          </div>
+          <div class="wp-pagenavi__number current">
+            <a class="page smaller" href="#">1</a>
+          </div>
+          <div class="wp-pagenavi__number">
+            <a class="page smaller" href="#">2</a>
+          </div>
+          <div class="wp-pagenavi__number">
+            <a class="page smaller" href="#">3</a>
+          </div>
+          <div class="wp-pagenavi__number">
+            <a class="page smaller" href="#">4</a>
+          </div>
+          <div class="wp-pagenavi__number pc-only">
+            <a class="page smaller" href="#">5</a>
+          </div>
+          <div class="wp-pagenavi__number pc-only">
+            <a class="page smaller" href="#">6</a>
+          </div>
+          <div class="wp-pagenavi__next">
+            <a class="page smaller" href="#"></a>
+          </div>
         </div>
       </div>
     </div>
@@ -424,7 +419,7 @@
             </div>
             <p class="contact__text">ご予約・お問い合わせはコチラ</p>
             <div class="contact__button">
-              <a href="" class="common-button">Contact us<span></span></a>
+              <a href="./page-contact.html" class="common-button">Contact us<span></span></a>
             </div>
           </div>
         </div>

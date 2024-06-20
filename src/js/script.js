@@ -105,11 +105,11 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       });
 
       //下層ページ‐タブメニュー
-      $('.js-tab-trigger').on('click', function () {
+      $('.js-tab-info').on('click', function () {
         //まずは全triggerからclass削除
-        $('.js-tab-trigger').removeClass('is-active');
+        $('.js-tab-info').removeClass('is-active');
         //次に全targetからclass削除
-        $('.js-tab-target').removeClass('is-active');
+        $('.js-tab-box').removeClass('is-active');
         //次にクリックした要素にis-active
         $(this).addClass('is-active');
         //data属性を取得する
@@ -122,9 +122,13 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       $(".gallery__contents img").click(function () {
         $(".gallery__display").html($(this).prop('outerHTML'));
         $(".gallery__display").fadeIn(200);
+        // 背景を固定してスクロールさせない
+        $('html, body').css('overflow', 'hidden');
       });
       $(".gallery__display, .gallery__display img").click(function () {
-          $(".gallery__display").fadeOut(200);
+        $(".gallery__display").fadeOut(200);
+        // 背景の固定を解除する
+        $('html, body').removeAttr('style');
       });
 
       //サイドバー（トグルリスト）
@@ -155,12 +159,10 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         });
 
         // FAQアコーディオン
-        $('.jsAccordionTitle').next().addClass('is-open');
+        $('.jsAccordionContent').show();
         $('.jsAccordionTitle').on('click', function(){
-          //nextは次の要素を取得する、今回はクリック要素の次の要素にis-showクラスをつけている
-          $(this).next().toggleClass('is-open');
-          //クリックした要素自体にもclass付与
-          $(this).toggleClass('is-active')
+          $(this).next().slideToggle();
+          $(this).toggleClass("active");
         });
 
         // お問い合わせフォームエラーメッセージ

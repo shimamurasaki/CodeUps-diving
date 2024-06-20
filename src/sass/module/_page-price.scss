@@ -4,10 +4,14 @@
   position: relative;
 }
 
-.page-price__contents {
+.page-price__inner {
   margin: auto;
+  padding-left: rem(15);
+  padding-right: rem(15);
   @include mq(md){
     max-width: rem(700);
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

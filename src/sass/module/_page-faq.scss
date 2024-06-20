@@ -4,13 +4,8 @@
   position: relative;
 }
 
-.page-faq__accordion {
-  margin-top: 10px;
-}
-
-.page-faq__container {
-  max-width: rem(700);
-  margin: auto;
+.page-faq__container + .page-faq__container {
+  margin-top: rem(40);
 }
 
 .page-faq__title {

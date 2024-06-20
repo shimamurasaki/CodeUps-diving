@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.home-blog__list {
+.card-list--2col {
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -12,35 +12,8 @@
   }
 }
 
-.home-blog__list-item:nth-child(n+3) {
+.card-list--2col__item:nth-child(n+3) {
   @include mq(md){
     margin-top: rem(40);
   }
 }
-
-.home-blog__card-image {
-  overflow: hidden;
-  width: 100%;
-}
-
-.home-blog__card-image img {
-  height: auto;
-  transition: transform .6s ease;
-}
-
-.home-blog__card-image:hover img {
-  transform: scale(1.1);
-}
-
-.home-blog__sidebar {
-  width: rem(294);
-  margin: auto;
-  margin-top: rem(80);
-  display: flex;
-  flex-direction: column;
-  gap: rem(80);
-  @include mq(md){
-    margin-top: 0;
-  }
-}
-

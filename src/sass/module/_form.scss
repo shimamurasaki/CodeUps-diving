@@ -1,14 +1,5 @@
 @use "global" as *;
 
-.form {
-	max-width: rem(700);
-	margin: auto;
-}
-
-.form__content {
-	margin-top: rem(40);
-}
-
 .form__item {
 	padding-bottom: rem(24);
 	border-bottom: 1px dotted $skyBlue;

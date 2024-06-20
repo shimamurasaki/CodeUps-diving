@@ -56,4 +56,16 @@
   padding: 0 rem(1);
 }
 
+.blog-card--home__image {
+  overflow: hidden;
+  width: 100%;
+}
 
+.blog-card--home__image img {
+  height: auto;
+  transition: transform .6s ease;
+}
+
+.blog-card--home__image:hover img {
+  transform: scale(1.1);
+}

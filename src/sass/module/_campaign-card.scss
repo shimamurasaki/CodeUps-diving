@@ -133,4 +133,29 @@
     font-size: rem(40);
     padding-left: rem(24);
   }
-} 
+}
+
+.campaign-card--sidebar-title {
+  text-align: center;
+}
+
+.campaign-card--sidebar__price-pop {
+  margin-top: rem(8);
+}
+
+.campaign-card--sidebar__price-box {
+  justify-content: center;
+  padding-left: rem(40);
+  align-items: center;
+}
+
+campaign-card--sidebar__price-before {
+  font-size: rem(20);
+  line-height: 1;
+}
+
+.campaign-card__price-after.campaign-card--sidebar__price-after {
+  font-size: rem(32);
+  line-height: 1;
+  padding-left: rem(16);
+}

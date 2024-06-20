@@ -1,0 +1,181 @@
+@use "global" as *;
+
+.tab-info__items {
+  display: flex;
+  gap: rem(19);
+  justify-content: space-between;
+  @include mq(md){
+    gap: rem(96);
+  }
+}
+
+.tab-info__list {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.tab-info__header {
+  display: block;
+  background-color: #DDF0F1;
+  color: $skyBlue;
+  padding:  rem(10);
+  font-size: rem(14);
+  line-height: 1.4;
+  transition: 0.3s;
+  @include mq(md){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(8);
+    font-size: rem(24);
+  }
+}
+
+.tab-info__header:hover {
+  background-color: $skyBlue;
+  color: $white;
+}
+
+.tab-info__header.is-active {
+  background-color: $skyBlue;
+  color: $white;
+}
+
+.tab-info__header .whale{
+  @include mq(md){
+    display: inline-block;
+    mask-image: url(../images/common/whale.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+    background-color: $skyBlue;
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.tab-info__header:hover .whale{
+  @include mq(md){
+    background-color: $white;
+  }
+}
+
+.tab-info__header.is-active .whale{
+  background-color: $white;
+}
+
+.tab-info__header .shark{
+  @include mq(md){
+    display: inline-block;
+    mask-image: url(../images/common/shark.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+    background-color: $skyBlue;
+    width: rem(63);
+    height: rem(63);
+  }
+}
+
+.tab-info__header:hover .shark{
+  @include mq(md){
+    background-color: $white;
+  }
+}
+
+.tab-info__header.is-active .shark{
+  background-color: $white;
+}
+
+.tab-info__header .small-fish{
+  @include mq(md){
+    display: inline-block;
+    mask-image: url(../images/common/small-fish.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+    background-color: $skyBlue;
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.tab-info__header:hover .small-fish{
+  @include mq(md){
+    background-color: $white;
+  }
+}
+
+.tab-info__header.is-active .small-fish{
+  background-color: $white;
+}
+
+/* タブコンテンツ */
+.tab-info__content {
+  display: none;
+}
+
+.tab-info__content.is-active {
+  display: inline;
+  border: 1px solid $skyBlue;
+  padding: rem(24);
+  margin-top: rem(16);
+  @include mq(md){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(24);
+  }
+}
+
+.tab-info__text {
+  @include mq(md){
+    width: calc((100% - 48px) / 2);
+  }
+}
+
+.tab-info__title {
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: 1;
+  padding-bottom: rem(8);
+  border-bottom: 1px solid $skyBlue;
+  color: $navyBlue;
+}
+
+.tab-info__message {
+  margin-top: rem(8);
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+}
+
+.tab-info__image {
+  margin-top: rem(8);
+  @include mq(md){
+    width: calc((100% - 48px) / 2);
+    margin-top: 0;
+  }
+}
+
+.tab-info__image img {
+  aspect-ratio: 297 / 189;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  @include mq(md){
+    aspect-ratio: 492 / 313;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
