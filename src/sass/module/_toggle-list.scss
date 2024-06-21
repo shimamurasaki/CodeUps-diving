@@ -2,25 +2,23 @@
 
 
 .toggle-list__content {
-  padding-left: 2rem;
+  padding-left: rem(2);
   transition-duration: 0.3s;
 }
 
 .toggle-list__title {
-  font-size: 24px;
+  display: block;
+  font-size: rem(24);
   font-weight: $regular;
   color: $skyBlue;
   position: relative;
   cursor: pointer;
-  transition: 0.3s;
   padding-left: rem(32);
-  display: block;
   margin-top: rem(1);
 }
 
 .toggle-list__title--child {
   @extend .toggle-list__title;
-  padding: rem(16) rem(24);
 }
 
 .toggle-list__title::after {
@@ -32,14 +30,15 @@
   background-repeat: no-repeat;
   background-size: contain;
 	position:absolute;
-	top: 25%;
+	top: 35%;
 	left: rem(-10);
 	transform: translate(50%) ;
 	transition: 0.3s;
+  vertical-align: middle;
 }
 
 .toggle-list__title.is-active::after {
-  top: 25%;
+  top: 35%;
   transform: translate(50%) rotate(90deg);
 	transition: 0.3s;
 }
@@ -53,18 +52,6 @@
 }
 
 .toggle-list__content {
-  display: block;
-  line-height: 0;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition-duration: .3s;
   margin-top: rem(4);
   padding-left: rem(32);
-}
-
-.toggle-list__content.is-open {
-  height: 100%;
-  opacity: 1;
-  display: block;
 }
