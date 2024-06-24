@@ -1,0 +1,81 @@
+@use "global" as *;
+
+.price-box {
+  @include mq(md){
+    display: flex;
+  }
+}
+
+.price-box + .price-box{
+  margin-top: rem(40);
+  @include mq(md){
+    margin-top: rem(80);
+  }
+}
+
+.price-box__header {
+  background-color: $skyBlue;
+  padding: rem(7) 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: rem(8);
+  @include mq(md){
+    flex-direction: column;
+    align-items: center;
+    width: 28.571%;
+  }
+}
+
+.price-box__header p {
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $white;
+}
+
+.price-box__header img {
+  width: rem(24);
+  height: rem(24);
+  @include mq(md){
+    width: rem(64);
+    height: rem(64);
+  }
+}
+
+.price-box table {
+  width: 100%;
+  border-collapse: collapse;
+  @include mq(md){
+    width: 71.429%;
+  }
+}
+
+.price-box td {
+  height: rem(60);
+  border: solid 1px $skyBlue;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $navyBlue;
+  @include mq(md){
+    height: rem(59);
+  }
+}
+
+.price-box td.title {
+  width: 69.5%;
+  text-align: center;
+  @include mq(md){
+    text-align: left;
+    padding-left: rem(15);
+    width: 66.275%;
+  }
+}
+
+.price-box td.money {
+  width: 31.725%;
+  text-align: right;
+  padding-right: rem(16);
+}
+

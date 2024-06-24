@@ -104,7 +104,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
-  //下層ページ‐informationタブ
+  // 下層ページ‐informationタブ
   $('.js-tab-info').on('click', function () {
     //まずは全triggerからclass削除
     $('.js-tab-info').removeClass('is-active');
@@ -118,27 +118,61 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     $('#' + id).addClass('is-active')
   });
 
-  // クエリパラメーターを取得して表示するコンテンツを切り替える
+  // クエリパラメータを取得し、デフォルト値を設定
   const params = new URLSearchParams(window.location.search);
-  const tab = params.get('tab');
-  if (tab) {
-      document.querySelector(`information${tab}`).classList.add('is-active');
-  } else {
-      document.querySelector('.js-tab-box').classList.add('is-active');
-  }
+  console.log("const params = new URLSearchParams(window.location.search)は何を示してる？ >>> " + params);
 
-  //モーダル
-  $(".gallery__contents img").click(function () {
-    $(".gallery__display").html($(this).prop('outerHTML'));
-    $(".gallery__display").fadeIn(200);
-    // 背景を固定してスクロールさせない
-    $('html, body').css('overflow', 'hidden');
+  const defaultTab = 'information1';
+  const tabParam = params.get('tab') || defaultTab;
+  console.log("const tab = params.get('tab')の示している内容 >>> " + tabParam);
+
+  // タブ要素とタブボックス要素の取得
+  const tablist = document.querySelectorAll('.js-tab-info');
+  console.log("const tablist = document.querySelectorAll('.js-tab-info')の示している内容 >>> " + tablist);
+
+  const tabbox = document.querySelectorAll('.js-tab-box');
+  console.log("const tabbox = document.querySelectorAll('.js-tab-box')の示している内容 >>> " + tabbox);
+
+  // 既存のis-activeクラスをリセット
+  tablist.forEach(function (tabElement) {
+    tabElement.classList.remove('is-active');
   });
-  $(".gallery__display, .gallery__display img").click(function () {
-    $(".gallery__display").fadeOut(200);
-    // 背景の固定を解除する
-    $('html, body').removeAttr('style');
+
+  // クエリパラメーターに基づくクラスの追加
+  tablist.forEach(function (tabElement) {
+    const dataId = tabElement.getAttribute('data-id');
+    if (dataId !== null) {
+      console.log("dataId >>> " + dataId);
+      console.log("tabElement >>> " + tabElement);
+      if (tabParam === dataId) {
+        tabElement.classList.add('is-active');
+      }
+    } else {
+      console.warn('data-id属性が存在しません:', tabElement);
+    }
   });
+
+  // タブボックス要素のクラスリセット
+  tabbox.forEach(function (tabElement) {
+    tabElement.classList.remove('is-active');
+  });
+
+  // クエリパラメーターに基づくクラスの追加
+  tabbox.forEach(function (tabElement) {
+    const Id = tabElement.getAttribute('id');
+    if (Id !== null) {
+      console.log("dataId >>> " + Id);
+      console.log("tabElement >>> " + tabElement);
+      if (tabParam === Id) {
+        tabElement.classList.add('is-active');
+      }
+    } else {
+      console.warn('data-id属性が存在しません:', tabElement);
+    }
+  });
+
+
+  
 
   //サイドバー（トグルリスト）
   // 最初の.toggle-list__content.firstを表示し、is-activeクラスを付ける
@@ -257,3 +291,4 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
       
 });
+
