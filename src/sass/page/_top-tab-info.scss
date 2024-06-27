@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.top-tab-info__contents {
+.top-tab-info {
   margin-top: rem(16);
   @include mq(md){
     margin-top: rem(27);

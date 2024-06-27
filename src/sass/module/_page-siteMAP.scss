@@ -1,15 +1,9 @@
 @use "global" as *;
 
 .page-siteMAP__inner {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
   width: 100%;
   @include mq(md){
     max-width: 1180px;
-    padding-left: 25px;
-    padding-right: 25px;
   }
 }
 

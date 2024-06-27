@@ -6,13 +6,6 @@
   }
 }
 
-.price-box + .price-box{
-  margin-top: rem(40);
-  @include mq(md){
-    margin-top: rem(80);
-  }
-}
-
 .price-box__header {
   background-color: $skyBlue;
   padding: rem(7) 0;

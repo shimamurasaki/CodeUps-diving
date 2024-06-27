@@ -104,6 +104,19 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
+  //モーダル
+  $(".gallery__contents img").click(function () {
+    $(".gallery__display").html($(this).prop('outerHTML'));
+    $(".gallery__display").fadeIn(200);
+    // 背景を固定してスクロールさせない
+    $('html, body').css('overflow', 'hidden');
+  });
+  $(".gallery__display, .gallery__display img").click(function () {
+    $(".gallery__display").fadeOut(200);
+    // 背景の固定を解除する
+    $('html, body').removeAttr('style');
+  });
+
   // 下層ページ‐informationタブ
   $('.js-tab-info').on('click', function () {
     //まずは全triggerからclass削除
@@ -172,29 +185,23 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
   });
 
 
-  
-
   //サイドバー（トグルリスト）
-  // 最初の.toggle-list__content.firstを表示し、is-activeクラスを付ける
   $('.toggle-list__content.first').show().prev('.jsToggleTitle').addClass('is-active');
-  // .jsToggleTitleがクリックされた時の処理
-  $('.jsToggleTitle').on('click', function(){
-    // 同じ階層の.toggle-list__contentを探す
-    var content = $(this).next('.toggle-list__content');
-    // 開いている場合は閉じる、閉じている場合は開く
-    content.slideToggle();
-    // クリックされた.jsToggleTitleにis-activeクラスをトグルする
-    $(this).toggleClass("is-active");
+  $(document).ready(function() {
+    $('.jsToggleTitle').click(function() {
+      $(this).toggleClass('is-active');
+      $(this).next('.toggle-list__content').slideToggle();
+    });
   });
-  // 二つ目の.toggle-list__contentを閉じる
-  $('.toggle-list__content').not('.first').hide();
 
 
   // FAQアコーディオン
-  $('.jsAccordionContent.first').show();
-  $('.jsAccordionTitle').on('click', function(){
-    $(this).next().slideToggle();
-    $(this).toggleClass("is-active");
+  $(document).ready(function(){
+    $('.js-accordion-content:first').show();
+    $('.js-accordion-title').on('click', function(){
+      $(this).next().slideToggle();
+      $(this).toggleClass('is-active');
+    });
   });
 
   // お問い合わせフォームエラーメッセージ
