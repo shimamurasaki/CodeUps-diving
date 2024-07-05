@@ -1,9 +1,9 @@
 @use "global" as *;
 
-.price-boxes__item + .price-boxes__item {
-  margin-top: rem(40);
+.price-boxes {
+  display: grid;
+  gap: rem(40);
   @include mq(md){
-    margin-top: rem(80);
+    gap: rem(80);
   }
 }
-
