@@ -3,9 +3,11 @@
 .nav-contents__box {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  @include mq(md){
+    overflow-y: scroll;
+  }
 }
 .nav-contents__box::-webkit-scrollbar {
   display:none;

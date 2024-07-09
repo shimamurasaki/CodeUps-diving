@@ -162,6 +162,7 @@ const jsBabel = () => {
 const browserSyncOption = {
   notify: false,
   server: "../dist/",
+  proxy:"codeupswordpress.local",
 };
 const browserSyncFunc = () => {
   browserSync.init(browserSyncOption);
@@ -188,3 +189,5 @@ exports.default = series(series(cssSass, jsBabel, imgImagemin, htmlCopy), parall
 
 // 本番用タスク
 exports.build = series(clean, cssSass, jsBabel, imgImagemin, htmlCopy);
+
+

@@ -6,7 +6,7 @@
 }
 
 .wp-pagenavi__prev,
-.wp-pagenavi__number,
+.wp-pagenavi span,
 .wp-pagenavi__next {
   display: inline-flex;
   justify-content: center;
@@ -25,26 +25,26 @@
 }
 
 .wp-pagenavi__prev:hover,
-.wp-pagenavi__number:hover,
+.wp-pagenavi span:hover,
 .wp-pagenavi__next:hover {
   background-color: $skyBlue;
   color: $white;
 }
 
-.wp-pagenavi__number a {
+.wp-pagenavi a {
   display: block;
 }
 
-.wp-pagenavi__number + .wp-pagenavi__number {
+.wp-pagenavi span + .wp-pagenavi span {
   margin-left: rem(12);
 }
 
-.wp-pagenavi__number.current {
+.wp-pagenavi span.current {
   background-color: $skyBlue;
   color: #FFF;
 }
 
-.wp-pagenavi__number.pc-only {
+.wp-pagenavi span .pc-only {
   display: none;
   @include mq(md){
     display: inline-flex;
