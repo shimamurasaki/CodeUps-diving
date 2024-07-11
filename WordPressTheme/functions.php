@@ -91,3 +91,37 @@ function wpcf7_autop_return_false() {
   return false;
 }
 
+
+// Contact Form 7にキャンペーンのタイトルを挿入
+add_filter( 'wpcf7_form_tag_data_option', 'custom_campaign_select_values', 10, 3 );
+function custom_campaign_select_values( $values, $options, $args ) {
+    if ( in_array( 'campaignSelect', $options ) ) {
+        // キャンペーンの投稿タイトルを取得
+        $args = array(
+            'post_type' => 'campaign',  // キャンペーン投稿タイプ
+            'posts_per_page' => -1,     // 全ての投稿を取得
+            'fields' => 'ids',          // IDのみを取得
+        );
+
+        $query = new WP_Query( $args );
+
+        $titles = array();
+        if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {
+                $query->the_post();
+                $title = get_the_title();
+                $titles[get_the_ID()] = $title; // IDをキーにしてタイトルを保存
+            }
+        }
+        wp_reset_postdata();
+
+        // 重複を排除してタイトルの配列を作成
+        $unique_titles = array_unique( $titles );
+
+        // タイトルの配列を値として設定
+        $values = array_combine( array_values( $unique_titles ), array_values( $unique_titles ) ); // キーと値が同じ配列を作成
+    }
+
+    return $values;
+}
+

@@ -25,7 +25,18 @@
     <div class="sub-blog__content">
       <div class="home-blog__content">
         <div class="card-list card-list--2col">
-          <?php if (have_posts()): while (have_posts()): the_post(); ?>
+          <?php 
+          // 現在のページ番号を取得。ページが指定されていない場合は1ページ目を表示する
+          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+          // WP_Queryを使用してカスタムクエリを作成
+          $args = array(
+            'posts_per_page' => 10,
+            'paged' => $paged
+          );
+          $custom_query = new WP_Query($args);
+
+          if ($custom_query->have_posts()): while ($custom_query->have_posts()): $custom_query->the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="card-list__item card-list--2col__item">
               <div class="blog-card">
                 <div class="blog-card__image blog-card--home__image">
@@ -43,12 +54,17 @@
               </div> 
             </a>
           <?php endwhile; endif; ?>
+
+          <!-- リセットポストデータ -->
+          <?php wp_reset_postdata(); ?>
         </div><!-- blog__item -->
 
         <!-- WPページナビゲーション -->
         <div class="page-navi">
           <div class="page-navi__inner">
-            <?php wp_pagenavi(); ?>
+            <div class="wp-pagenavi">
+              <?php wp_pagenavi(array('query' => $custom_query)); ?>
+            </div>
           </div>
         </div>
 
@@ -60,4 +76,7 @@
     </div>
   </div>
 </div>
+
+
+
 <?php get_footer(); ?>

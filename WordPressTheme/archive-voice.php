@@ -37,7 +37,19 @@
     <div class="archive-voice__contents top-archive-voice">
       <div class="archive-voice__content">
         <div class="sheet-list">
-        <?php if (have_posts()): while (have_posts()): the_post(); ?>
+        <?php 
+          // 現在のページ番号を取得。ページが指定されていない場合は1ページ目を表示する
+          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+          // WP_Queryを使用してカスタムクエリを作成
+          $args = array(
+            'post_type' => 'voice',  // カスタム投稿タイプを指定
+            'posts_per_page' => 6,  // 表示件数を6に設定
+            'paged' => $paged
+          );
+          $custom_query = new WP_Query($args);
+
+          if ($custom_query->have_posts()): while ($custom_query->have_posts()): $custom_query->the_post(); ?>
           <div class="sheet-list__item">
             <div class="guest-card">
               <div class="guest-card__contents">
@@ -64,6 +76,8 @@
             </div>
           </div>
         <?php endwhile; endif; ?>
+        <!-- リセットポストデータ -->
+        <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </div> 
@@ -73,32 +87,7 @@
 <!-- WPページナビゲーション -->
 <div class="page-navi">
   <div class="page-navi__inner">
-    <div class="wp-pagenavi">
-      <div class="wp-pagenavi__prev">
-        <a class="page smaller" href="#"></a>
-      </div>
-      <div class="wp-pagenavi__number current">
-        <a class="page smaller" href="#">1</a>
-      </div>
-      <div class="wp-pagenavi__number">
-        <a class="page smaller" href="#">2</a>
-      </div>
-      <div class="wp-pagenavi__number">
-        <a class="page smaller" href="#">3</a>
-      </div>
-      <div class="wp-pagenavi__number">
-        <a class="page smaller" href="#">4</a>
-      </div>
-      <div class="wp-pagenavi__number pc-only">
-        <a class="page smaller" href="#">5</a>
-      </div>
-      <div class="wp-pagenavi__number pc-only">
-        <a class="page smaller" href="#">6</a>
-      </div>
-      <div class="wp-pagenavi__next">
-        <a class="page smaller" href="#"></a>
-      </div>
-    </div>
+  <?php wp_pagenavi(array('query' => $custom_query)); ?>
   </div>
 </div>
 <?php get_footer(); ?>
