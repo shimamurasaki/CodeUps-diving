@@ -1,43 +1,44 @@
 <?php get_header(); ?>
 
 <section class="mv">
+  <!-- BEM設計手法に基づくクラス名の使用 -->
   <div class="mv__inner">
     <div class="mv__header">
       <h1 class="mv__title">diving</h1>
       <p class="mv__subtitle">into the ocean</p>
     </div>
-    <!-- Swiper -->
+    <!-- Swiperコンテナ -->
     <div class="swiper mv__swiper js-mv-swiper">
-      <div class="swiper-wrapper mv__images">
-        <div class="swiper-slide mv__img">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc-hero_1.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sp-hero_1.jpg" alt="ウミガメ">
-          </picture>
-        </div>
-        <div class="swiper-slide mv__img">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc-hero_2.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sp-hero_2.jpg" alt="ウミガメとの出会い">
-          </picture>
-        </div>     
-        <div class="swiper-slide mv__img">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc-hero_3.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sp-hero_3.jpg" alt="青い空と海">
-          </picture>
-        </div>
-        <div class="swiper-slide mv__img">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/pc-hero_4.jpg" media="(min-width: 768px)">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sp-hero_4.jpg" alt="きれいな砂浜">
-          </picture>
-        </div>
+    <div class="swiper-wrapper mv__images">
+      <?php
+      // SCF（Smart Custom Fields）からmv-sliderフィールドの値を取得
+      $mvSlider = SCF::get('mv-slider');
+      // 取得したスライダーのデータをループ処理
+      foreach ($mvSlider as $fields) {
+        // PCおよびSP用のスライダー画像IDを取得
+        $sp_id = $fields['slider-sp'];
+        $pc_id = $fields['slider-pc'];
+        // 画像IDから画像URLを取得
+        $sp_url = wp_get_attachment_url($sp_id);
+        $pc_url = wp_get_attachment_url($pc_id);
+      ?>
+      <div class="swiper-slide mv__img">
+        <!-- pictureタグを使用して、レスポンシブ画像を表示 -->
+        <picture>
+          <!-- 768px以上の幅の画面ではPC用画像を表示 -->
+          <source srcset="<?php echo esc_url($pc_url); ?>" media="(min-width: 768px)">
+          <!-- デフォルトでSP用画像を表示 -->
+          <img src="<?php echo esc_url($sp_url); ?>" alt="Slider Image">
+        </picture>
       </div>
-    </div>
-    <!-- Swiper -->
+      <?php } ?>
+    </div> <!-- .swiper-wrapper -->
+  </div> <!-- .swiper -->
+
+    <!-- Swiperコンテナ終了 -->
   </div>
 </section>
+
 
 <section class="campaign top-campaign" id="campaign">
   <div class="campaign__inner inner">
@@ -459,7 +460,7 @@
     <div class="price__contents">
       <div class="price__image colorbox">
         <picture>
-          <source media="(min-width: 768px)" srcset="/assets/images/common/price-pc.jpg">
+          <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" alt="海中のウミガメ">
         </picture>
       </div>

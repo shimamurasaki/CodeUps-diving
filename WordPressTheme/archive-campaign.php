@@ -21,16 +21,33 @@
   </div>
 </div>
 
-
 <div class="page-campaign top-sub-contents">
   <div class="page-campaign__inner inner">
     <div class="page-campaign__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-        <li class="tab-menu__item current">ALL</li>
-        <li class="tab-menu__item">ライセンス講習</li>
-        <li class="tab-menu__item">ファンダイビング</li>
-        <li class="tab-menu__item">体験ダイビング</li>
+          <li class="tab-menu__item current"><a href="<?php echo home_url(); ?>">ALL</a></li>
+          <?php 
+          $args = array(
+              'taxonomy' => 'campaign-cat', // タクソノミー名
+              'hide_empty' => false, // 投稿のないタームも取得
+          );
+          $categories = get_terms( $args ); // ターム一覧を取得
+          if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) : // タクソノミーが存在する場合のみ表示
+              foreach ( $categories as $cat ) :
+                  // グローバル変数 $term を使用して現在のタームをチェック
+                  global $term;
+                  $is_current = ( isset( $term ) && $term === $cat->slug ) ? 'current' : '';
+          ?>
+                  <li class="tab-menu__item <?php echo $is_current; ?>">
+                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'campaign-cat' ); ?>">
+                          <?php echo $cat->name; ?>
+                      </a>
+                  </li>
+          <?php
+              endforeach;
+          endif;
+          ?>
       </ul>
     </div>
 
@@ -59,9 +76,15 @@
               <div class="page-campaign-card__content">
                 <div class="page-campaign-card__content-header">
                   <div class="page-campaign-card__tag">
-                  <?php $cat = get_the_category();
-                    $cat = $cat[0]->cat_name; ?>
-                    <p><?php echo $cat ?></p>
+                  <?php 
+                    // 投稿に関連付けられたタクソノミーのタームを取得
+                    $terms = get_the_terms(get_the_ID(), 'campaign-cat');
+                    if ($terms && !is_wp_error($terms)) {
+                        // 最初のターム名を取得して表示
+                        $term_name = $terms[0]->name;
+                        echo '<p>' . esc_html($term_name) . '</p>';
+                    }
+                  ?>
                   </div>
                   <div class="page-campaign-card__content-title">
                     <p><?php the_title(); ?></p>
@@ -104,4 +127,5 @@
     </div>
   </div>
 </div>
+
 <?php get_footer(); ?>

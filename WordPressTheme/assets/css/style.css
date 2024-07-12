@@ -952,6 +952,16 @@ a {
 	line-height: 1.5;
 }
 
+input.wpcf7-not-valid, textarea.wpcf7-not-valid {
+	background: rgba(201,72,0,0.2);
+	color: #FFF;
+	border: 1px solid #C94800;
+}
+
+input.wpcf7-not-valid::placeholder {
+	color: #FFF;
+}
+
 .form__item {
 	border-bottom: 1px dotted #408F95;
 	padding-bottom: 1.5rem;

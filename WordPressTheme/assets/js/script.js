@@ -65,38 +65,64 @@ jQuery(function ($) {
     clickable: true
   });
 
-  //背景色の後に画像やテキストが表示されるエフェクト
-  //要素の取得とスピードの設定
-  var box = $('.colorbox'),
-    speed = 700;
-
-  //.colorboxの付いた全ての要素に対して下記の処理を行う
-  box.each(function () {
-    $(this).append('<div class="color"></div>');
-    var color = $(this).find($('.color')),
-      image = $(this).find('img');
-    var counter = 0;
-    image.css('opacity', '0');
-    color.css('width', '0%');
-    //inviewを使って背景色が画面に現れたら処理をする
-    color.on('inview', function () {
-      if (counter == 0) {
-        $(this).delay(200).animate({
-          'width': '100%'
-        }, speed, function () {
-          image.css('opacity', '1');
-          $(this).css({
-            'left': '0',
-            'right': 'auto'
+  $(document).ready(function () {
+    // 背景色の後に画像やテキストが表示されるエフェクト
+    // 要素の取得とスピードの設定
+    var box = $('.colorbox'),
+        speed = 700;
+  
+    // Intersection Observerのオプションを設定
+    var options = {
+      root: null, // ビューポートを基準に
+      rootMargin: '0px',
+      threshold: 0.1 // 10%表示されたときに発火
+    };
+  
+    // Intersection Observerのコールバック関数
+    var callback = function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !$(entry.target).hasClass('animated')) {
+          var color = $(entry.target).find('.color'),
+              image = $(entry.target).find('img');
+  
+          // アニメーションの実行
+          color.delay(200).animate({
+            'width': '100%'
+          }, speed, function () {
+            image.css('opacity', '1');
+            color.css({
+              'left': '0',
+              'right': 'auto'
+            });
+            color.animate({
+              'width': '0%'
+            }, speed, function () {
+              // アニメーションが完了したらクラスを追加
+              $(entry.target).addClass('animated');
+            });
           });
-          $(this).animate({
-            'width': '0%'
-          }, speed);
-        });
-        counter = 1;
-      }
+        }
+      });
+    };
+  
+    // Intersection Observerのインスタンスを作成
+    var observer = new IntersectionObserver(callback, options);
+  
+    // .colorboxの付いた全ての要素に対して下記の処理を行う
+    box.each(function () {
+      $(this).append('<div class="color"></div>');
+      var color = $(this).find('.color'),
+          image = $(this).find('img');
+  
+      // 初期状態の設定
+      image.css('opacity', '0');
+      color.css('width', '0%');
+  
+      // Intersection Observerに要素を監視させる
+      observer.observe(this);
     });
   });
+  
 
   //topボタン
   var topBtn = $('.top-up');
@@ -208,6 +234,7 @@ jQuery(function ($) {
       $(this).toggleClass('is-active');
     });
   });
+  
 
   
 });
