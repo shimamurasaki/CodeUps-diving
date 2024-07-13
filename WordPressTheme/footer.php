@@ -4,7 +4,7 @@
     <div class="contact__box">
       <div class="contact__info">
         <div class="contact__logo">
-          <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/logo-blue.png" alt="CodeUps">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo-blue.png" alt="CodeUps">
         </div>
         <div class="contact__access">
           <div class="contact__access-text">
@@ -25,7 +25,7 @@
         </div>
         <p class="contact__text">ご予約・お問い合わせはコチラ</p>
         <div class="contact__button">
-          <a href="/contact/" class="common-button">Contact us<span></span></a>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
 <?php endif; ?>
 
 <div class="top-up">
-    <a href="#top" class="top-up__circle">
+    <a href="<?php echo esc_url(home_url('/')); ?>" class="top-up__circle">
       <div class="top-up__yazirusi">
         <div class="top-up__line01"></div>
         <div class="line02"></div>
@@ -48,16 +48,16 @@
   <div class="footer__inner inner">
     <div class="footer__info">
       <div class="footer__logo">
-        <a href="/top/" class="footer__logoLink">
-          <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/logo.svg" alt="CodeUps">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="footer__logoLink">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps">
         </a>
       </div>
       <div class="footer__snsIcon">
         <a href="#" class="footer__snsLink">
-          <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/facebook.png" alt="CodeUps">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.png" alt="CodeUps">
         </a>
         <a href="#" class="footer__snsLink">
-          <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/instagram.png" alt="CodeUps">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.png" alt="CodeUps">
         </a>
       </div>
     </div>
@@ -68,19 +68,19 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/campaign/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/campaign/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>キャンペーン</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/campaign/">ライセンス取得</a></dd>
-                <dd class="nav-contents__text"><a href="/campaign/">貸切体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/campaign/">ナイトダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">ライセンス取得</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">貸切体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">ナイトダイビング</a></dd>
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/about-us">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/about-us/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>私たちについて</p>
                   </a>
                 </dt>
@@ -90,19 +90,19 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/information/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/information/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>ダイビング情報</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/information?tab=information1">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="/information?tab=information2">ファンダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/information?tab=information3">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>?tab=information1">ライセンス講習</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>?tab=information2">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>?tab=information3">体験ダイビング</a></dd>
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/blog/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/blog/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>ブログ</p>
                   </a>
                 </dt>
@@ -114,8 +114,8 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/voice/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/voice/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>お客様の声</p>
                   </a>
                 </dt>
@@ -123,21 +123,21 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/price/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/price/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>料金一覧</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/price/">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="/price/">ファンダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/price/">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ライセンス講習</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
               </dl>
             </div>
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/faq/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/faq/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>よくある質問</p>
                   </a>
                 </dt>
@@ -145,8 +145,8 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/sitemap/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/sitemap/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>サイトマップ</p>
                   </a>
                 </dt>
@@ -154,8 +154,8 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/privacypolicy/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/privacypolicy/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>プライバシー<br class="u-mobile">ポリシー</p>
                   </a>
                 </dt>
@@ -163,8 +163,8 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/terms-of-service/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/terms-of-service/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>利用規約</p>
                   </a>
                 </dt>
@@ -172,8 +172,8 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/contact/">
-                    <img src="<?php echo get_theme_file_uri(); ?>./assets/images/common/hitode.png" alt="ヒトデ">
+                  <a href="<?php echo esc_url(home_url('/contact/')); ?>">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/hitode.png" alt="ヒトデ">
                     <p>お問い合わせ</p>
                   </a>
                 </dt>
