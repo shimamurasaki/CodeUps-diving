@@ -34,7 +34,7 @@
 <?php endif; ?>
 
 <div class="top-up">
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="top-up__circle">
+    <a href="#top" class="top-up__circle">
       <div class="top-up__yazirusi">
         <div class="top-up__line01"></div>
         <div class="line02"></div>

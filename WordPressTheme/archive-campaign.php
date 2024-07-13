@@ -26,7 +26,7 @@
     <div class="page-campaign__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-          <li class="tab-menu__item current"><a href="<?php echo home_url(); ?>">ALL</a></li>
+          <li class="tab-menu__item current"><a href="<?php echo home_url();?>">ALL</a></li>
           <?php 
           $args = array(
               'taxonomy' => 'campaign-cat', // タクソノミー名
@@ -106,7 +106,7 @@
                     <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
                   </div>
                   <div class="page-campaign-card__button">
-                    <a href="/contact/" class="common-button">Contact us<span></span></a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
                   </div>
                 </div>
               </div>

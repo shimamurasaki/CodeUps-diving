@@ -20,7 +20,7 @@
   <header class="header">
     <div class="header__inner">
       <div class="header__logo">
-        <a href="<?php echo esc_url(home_url('/')); ?><?php echo esc_url(home_url('/')); ?>" class="header__logoLink">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logoLink">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="CodeUps">
         </a>
       </div>

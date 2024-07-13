@@ -20,7 +20,7 @@
           <p>申し訳ありません。<br>お探しのページが見つかりません。</p>
         </div>
         <div class="page-404__button">
-          <a href="" class="common-button--white">Page TOP<span></span></a>
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="common-button--white">Page TOP<span></span></a>
         </div>
       </div>
     </div>

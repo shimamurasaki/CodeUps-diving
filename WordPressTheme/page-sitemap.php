@@ -30,18 +30,18 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/campaign/">
+                  <a href="<?php echo esc_url(home_url('/campaign/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>キャンペーン</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/campaign/">ライセンス取得</a></dd>
-                <dd class="nav-contents__text"><a href="/campaign/">貸切体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/campaign/">ナイトダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">ライセンス取得</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">貸切体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/campaign/')); ?>">ナイトダイビング</a></dd>
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/about-us/">
+                  <a href="<?php echo esc_url(home_url('/about-us/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>私たちについて</p>
                   </a>
@@ -52,18 +52,18 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/information/">
+                  <a href="<?php echo esc_url(home_url('/information/')); ?>//">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>ダイビング情報</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/information/?tab=information1">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="/information/?tab=information2">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/information/?tab=information3">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information1">ライセンス講習</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information2">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information3">ファンダイビング</a></dd>
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/blog/">
+                  <a href="<?php echo esc_url(home_url('/blog/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>ブログ</p>
                   </a>
@@ -76,7 +76,7 @@
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/voice/">
+                  <a href="<?php echo esc_url(home_url('/voice/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>お客様の声</p>
                   </a>
@@ -85,20 +85,20 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/price/">
+                  <a href="<?php echo esc_url(home_url('/price/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>料金一覧</p>
                   </a>
                 </dt>
-                <dd class="nav-contents__text"><a href="/price/">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="/price/">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="/price/">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ライセンス講習</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ファンダイビング</a></dd>
               </dl>
             </div>
             <div class="nav-contents__items">
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/faq/">
+                  <a href="<?php echo esc_url(home_url('/faq/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>よくある質問</p>
                   </a>
@@ -107,7 +107,7 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/site-map/">
+                  <a href="<?php echo esc_url(home_url('/site-map/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>サイトマップ</p>
                   </a>
@@ -116,7 +116,7 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/privacypolicy/">
+                  <a href="<?php echo esc_url(home_url('/privacypolicy/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>プライバシー<br class="u-mobile">ポリシー</p>
                   </a>
@@ -125,7 +125,7 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/terms-of-service/">
+                  <a href="<?php echo esc_url(home_url('/terms-of-service/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>利用規約</p>
                   </a>
@@ -134,7 +134,7 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="/contact/">
+                  <a href="<?php echo esc_url(home_url('/contact/')); ?>">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>お問い合わせ</p>
                   </a>

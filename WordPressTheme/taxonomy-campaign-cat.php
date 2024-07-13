@@ -55,30 +55,30 @@
     <div class="page-campaign__contents top-page-campaign">
     <div class="page-campaign__content">
         <div class="page-campaign__card-list">
-        <?php 
-        // 現在のページ番号を取得。ページが指定されていない場合は1ページ目を表示する
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            <?php 
+            // 現在のページ番号を取得。ページが指定されていない場合は1ページ目を表示する
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        // 現在のタクソノミーのスラッグを取得
-        $current_term = get_queried_object();
-        $current_slug = $current_term->slug;
+            // 現在のタクソノミーのスラッグを取得
+            $current_term = get_queried_object();
+            $current_slug = $current_term->slug;
 
-        // WP_Queryを使用してカスタムクエリを作成
-        $args = array(
-            'post_type' => 'campaign',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'campaign-cat',
-                    'field'    => 'slug',
-                    'terms'    => $current_slug,
+            // WP_Queryを使用してカスタムクエリを作成
+            $args = array(
+                'post_type' => 'campaign',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'campaign-cat',
+                        'field'    => 'slug',
+                        'terms'    => $current_slug,
+                    ),
                 ),
-            ),
-            'posts_per_page' => 4,  // 表示件数を4に設定
-            'paged' => $paged,
-        );
-        $custom_query = new WP_Query($args);
+                'posts_per_page' => 4,  // 表示件数を4に設定
+                'paged' => $paged,
+            );
+            $custom_query = new WP_Query($args);
 
-        if ($custom_query->have_posts()): while ($custom_query->have_posts()): $custom_query->the_post(); ?>
+            if ($custom_query->have_posts()): while ($custom_query->have_posts()): $custom_query->the_post(); ?>
             <div class="page-campaign__content-item">
                 <div class="page-campaign-card">
                     <div class="page-campaign-card__image">

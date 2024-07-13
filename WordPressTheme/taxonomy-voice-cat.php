@@ -26,7 +26,7 @@
     <div class="archive-voice__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-          <li class="tab-menu__item current"><a href="<?php echo home_url(); ?>">ALL</a></li>
+          <li class="tab-menu__item"><a href="<?php echo home_url();?>/voice/">ALL</a></li>
           <?php 
           $args = array(
               'taxonomy' => 'voice-cat', // タクソノミー名
@@ -59,11 +59,22 @@
           // 現在のページ番号を取得。ページが指定されていない場合は1ページ目を表示する
           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
+          // 現在のタクソノミーのスラッグを取得
+          $current_term = get_queried_object();
+          $current_slug = $current_term->slug;
+
           // WP_Queryを使用してカスタムクエリを作成
           $args = array(
-            'post_type' => 'voice',  // カスタム投稿タイプを指定
-            'posts_per_page' => 6,  // 表示件数を4に設定
-            'paged' => $paged
+              'post_type' => 'voice',
+              'tax_query' => array(
+                  array(
+                      'taxonomy' => 'voice-cat',
+                      'field'    => 'slug',
+                      'terms'    => $current_slug,
+                  ),
+              ),
+              'posts_per_page' => 6,  // 表示件数を4に設定
+              'paged' => $paged,
           );
           $custom_query = new WP_Query($args);
 
@@ -87,7 +98,7 @@
                     </div>
                   </div>
                   <div class="guest-card__title">
-                    <p><?php the_title(); ?></p>
+                    <p><?php echo esc_html(get_the_title()); ?></p>
                   </div>
                 </div>
                 <div class="guest-card__image">

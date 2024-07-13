@@ -257,7 +257,7 @@
     </div>
     <!-- Swiper -->
     <div class="campaign__button">
-      <a href="./page-campaign.html" class="common-button">View more<span></span></a>
+      <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="common-button">View more<span></span></a>
     </div>
   </div>
 </section>
@@ -286,7 +286,7 @@
         <div class="about-content">
           <p class="about__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
           <div class="about__button">
-            <a href="./page-aboutus.html" class="common-button">View more<span></span></a>
+            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="common-button">View more<span></span></a>
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@
           <p class="information__text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
         </div>
         <div class="information__button">
-          <a href="./page-information.html" class="common-button">View more<span></span></a>
+          <a href="<?php echo esc_url(home_url('/information/')); ?>" class="common-button">View more<span></span></a>
         </div>
       </div>
     </div>
@@ -380,7 +380,7 @@
       </div><!-- blog__item -->
     </div><!-- blog__list -->
     <div class="blog__button">
-      <a href="./home-blog.html" class="common-button">View more<span></span></a>
+      <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="common-button">View more<span></span></a>
     </div>
   </div>
 </section>
@@ -444,7 +444,7 @@
       </div><!-- sheet-list -->
     </div><!-- voice__items -->
     <div class="voice__button">
-      <a href="./archive-voice.html" class="common-button">View more<span></span></a>
+      <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="common-button">View more<span></span></a>
     </div>
   </div>
 </section>
@@ -512,7 +512,7 @@
       </div><!-- price__content -->
     </div><!-- price__contents -->
     <div class="price__button">
-      <a href="./page-price.html" class="common-button">View more<span></span></a>
+      <a href="<?php echo esc_url(home_url('/price/')); ?>" class="common-button">View more<span></span></a>
     </div>
   </div>
 </section>

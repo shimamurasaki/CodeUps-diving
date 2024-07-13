@@ -55,7 +55,7 @@
       </div>
       <?php endwhile; ?>
       <div class="review-card__button">
-        <a href="/voice/" class="common-button">View more<span></span></a>
+        <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="common-button">View more<span></span></a>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
         <?php endwhile; ?>
       </div>
       <div class="sidebar-campaign__button">
-        <a href="/campaign/" class="common-button">View more<span></span></a>
+        <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="common-button">View more<span></span></a>
       </div>
     </div>
   </div>
