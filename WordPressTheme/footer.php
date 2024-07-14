@@ -1,4 +1,4 @@
-<?php if (!is_page(['contact', 'thanks', '404-2'])): ?>
+<?php if (!is_page(['contact', 'thanks']) && !is_404()): ?>
 <section class="contact top-contact" id="contact">
   <div class="contact__inner inner">
     <div class="contact__box">
@@ -34,17 +34,17 @@
 <?php endif; ?>
 
 <div class="top-up">
-    <a href="#top" class="top-up__circle">
-      <div class="top-up__yazirusi">
-        <div class="top-up__line01"></div>
-        <div class="line02"></div>
-        <div class="top-up__line02"></div>
-      </div>
-    </a>
-  </div>
+  <a href="#top" class="top-up__circle">
+    <div class="top-up__yazirusi">
+      <div class="top-up__line01"></div>
+      <div class="line02"></div>
+      <div class="top-up__line02"></div>
+    </div>
+  </a>
+</div>
 </main>
 
-<footer class="footer <?php if (is_page(['404-2'])) echo 'no-top-footer'; ?> top-footer">
+<footer class="footer <?php if (is_404()) echo 'no-top-footer'; ?> top-footer">
   <div class="footer__inner inner">
     <div class="footer__info">
       <div class="footer__logo">
@@ -61,7 +61,7 @@
         </a>
       </div>
     </div>
-    <div class="footter__nav">
+    <div class="footer__nav">
       <div class="nav-contents">
         <div class="nav-contents__box">
           <div class="nav-contents__left">
