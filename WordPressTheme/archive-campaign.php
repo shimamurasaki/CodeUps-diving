@@ -29,7 +29,7 @@
           <li class="tab-menu__item current"><a href="<?php echo home_url();?>">ALL</a></li>
           <?php 
           $args = array(
-              'taxonomy' => 'campaign-cat', // タクソノミー名
+              'taxonomy' => 'campaign_category', // タクソノミー名
               'hide_empty' => false, // 投稿のないタームも取得
           );
           $categories = get_terms( $args ); // ターム一覧を取得
@@ -40,7 +40,7 @@
                   $is_current = ( isset( $term ) && $term === $cat->slug ) ? 'current' : '';
           ?>
                   <li class="tab-menu__item <?php echo $is_current; ?>">
-                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'campaign-cat' ); ?>">
+                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'campaign_category' ); ?>">
                           <?php echo $cat->name; ?>
                       </a>
                   </li>
@@ -78,7 +78,7 @@
                   <div class="page-campaign-card__tag">
                   <?php 
                     // 投稿に関連付けられたタクソノミーのタームを取得
-                    $terms = get_the_terms(get_the_ID(), 'campaign-cat');
+                    $terms = get_the_terms(get_the_ID(), 'campaign_category');
                     if ($terms && !is_wp_error($terms)) {
                         // 最初のターム名を取得して表示
                         $term_name = $terms[0]->name;

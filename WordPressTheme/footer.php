@@ -53,10 +53,10 @@
         </a>
       </div>
       <div class="footer__snsIcon">
-        <a href="#" class="footer__snsLink">
+        <a href="https://www.facebook.com/" target="_blank" class="footer__snsLink">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.png" alt="CodeUps">
         </a>
-        <a href="#" class="footer__snsLink">
+        <a href="https://www.instagram.com/" target="_blank" class="footer__snsLink">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.png" alt="CodeUps">
         </a>
       </div>
@@ -131,7 +131,7 @@
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ライセンス講習</a></dd>
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ファンダイビング</a></dd>
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">スペシャルダイビング</a></dd>
               </dl>
             </div>
             <div class="nav-contents__items">

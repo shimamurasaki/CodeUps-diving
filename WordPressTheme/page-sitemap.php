@@ -58,8 +58,8 @@
                   </a>
                 </dt>
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information1">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information2">体験ダイビング</a></dd>
-                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information3">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information2">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/information/')); ?>/?tab=information3">体験ダイビング</a></dd>
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
@@ -91,8 +91,9 @@
                   </a>
                 </dt>
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ライセンス講習</a></dd>
-                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
                 <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">ファンダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">体験ダイビング</a></dd>
+                <dd class="nav-contents__text"><a href="<?php echo esc_url(home_url('/price/')); ?>">スペシャルダイビング</a></dd>
               </dl>
             </div>
             <div class="nav-contents__items">
@@ -107,7 +108,7 @@
               </dl>
               <dl class="nav-contents__item">
                 <dt class="nav-contents__title">
-                  <a href="<?php echo esc_url(home_url('/site-map/')); ?>">
+                  <a href="#">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/navy_hitode.png" alt="ヒトデ">
                     <p>サイトマップ</p>
                   </a>

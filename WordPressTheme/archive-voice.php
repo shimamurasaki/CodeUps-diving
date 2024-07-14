@@ -29,7 +29,7 @@
           <li class="tab-menu__item current"><a href="<?php echo home_url(); ?>">ALL</a></li>
           <?php 
           $args = array(
-              'taxonomy' => 'voice-cat', // タクソノミー名
+              'taxonomy' => 'voice_category', // タクソノミー名
               'hide_empty' => false, // 投稿のないタームも取得
           );
           $categories = get_terms( $args ); // ターム一覧を取得
@@ -40,7 +40,7 @@
                   $is_current = ( isset( $term ) && $term === $cat->slug ) ? 'current' : '';
           ?>
                   <li class="tab-menu__item <?php echo $is_current; ?>">
-                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'voice-cat' ); ?>">
+                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'voice_category' ); ?>">
                           <?php echo $cat->name; ?>
                       </a>
                   </li>
@@ -73,11 +73,19 @@
               <div class="guest-card__contents">
                 <div class="guest-card__content">
                   <div class="guest-card__header">
-                    <p class="guest-card__info"><?php the_tags( '', '', '' ); ?></p>
+                    <?php 
+                      // 投稿に関連付けられたタクソノミーのタームを取得
+                      $terms = get_the_terms(get_the_ID(), 'user');
+                      if ($terms && !is_wp_error($terms)) {
+                          // 最初のターム名を取得して表示
+                          $term_name = $terms[0]->name;
+                          echo '<p class="guest-card__info">' . esc_html($term_name) . '</p>';
+                      }
+                    ?>
                     <div class="guest-card__tag">
                       <?php 
                       // 投稿に関連付けられたタクソノミーのタームを取得
-                      $terms = get_the_terms(get_the_ID(), 'voice-cat');
+                      $terms = get_the_terms(get_the_ID(), 'voice_category');
                       if ($terms && !is_wp_error($terms)) {
                           // 最初のターム名を取得して表示
                           $term_name = $terms[0]->name;
