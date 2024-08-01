@@ -155,6 +155,7 @@ jQuery(function ($) {
     });
   });
   
+  
 
   //モーダル
   $(".gallery__contents img").click(function () {
@@ -251,7 +252,5 @@ jQuery(function ($) {
       $(this).toggleClass('is-active');
     });
   });
-  
-
   
 });

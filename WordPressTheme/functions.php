@@ -41,10 +41,11 @@ function my_setup() {
 }
 add_action('after_setup_theme', 'my_setup');
 
-//アーカイブの表示件数変更
+// アーカイブの表示件数変更
 function change_posts_per_page($query) {
-    if (is_admin() || ! $query->is_main_query())
+    if (is_admin() || !$query->is_main_query()) {
         return;
+    }
     if ($query->is_archive('voice')) { // カスタム投稿タイプを指定
         $query->set('posts_per_page', '8'); // 表示件数を指定
     }
@@ -114,15 +115,96 @@ function custom_campaign_select_values($values, $options, $args) {
     return $values;
 }
 
-// 固定ページのビジュアルエディタを無効にする関数を定義
-function remove_wysiwyg() {
-    // 固定ページ (page) からビジュアルエディタを削除
-    remove_post_type_support('page', 'editor');
+// campaignとvoiceの投稿件数を制御
+function custom_campaign_posts_query($query) {
+    // メインクエリのみを対象とする
+    if ($query->is_main_query() && !is_admin()) {
+        // 特定の投稿タイプやタクソノミーに対して条件を追加
+        if (is_post_type_archive('campaign') || is_tax('campaign_category')) {
+            // 表示する投稿件数を設定
+            $query->set('posts_per_page', 4); // 表示する件数を設定
+        }
+        if (is_post_type_archive('voice') || is_tax('voice_category')) {
+            // 表示する投稿件数を設定
+            $query->set('posts_per_page', 6); // 表示する件数を設定
+        }
+    }
+}
+add_action('pre_get_posts', 'custom_campaign_posts_query');
 
-    // 他の投稿タイプからエディタを削除する場合は以下の形式で追加
-    // 例: カスタム投稿タイプ 'your_custom_post_type' からエディタを削除
-    // remove_post_type_support('your_custom_post_type', 'editor');
+// 記事閲覧数を取得する
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
 }
 
-// 'init' アクションに remove_wysiwyg 関数をフック
-add_action('init', 'remove_wysiwyg');
+// 記事閲覧数を保存する
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+// headに出力されるタグを削除(閲覧数を重複してカウントするのを防止するため)
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// クローラーのアクセス判別
+function is_bot() {
+    // ボットのユーザーエージェントリストを定義
+    $bots = [
+        'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'Sogou',
+        'Exabot', 'facebot', 'ia_archiver'
+    ];
+
+    // ユーザーエージェントがボットリストに含まれているかチェック
+    foreach ($bots as $bot) {
+        if (stripos($_SERVER['HTTP_USER_AGENT'], $bot) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// 年と月を分けて取り出し、階層的に表示する
+function get_custom_archives() {
+    global $wpdb;
+    $results = $wpdb->get_results("
+        SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(ID) as post_count
+        FROM $wpdb->posts
+        WHERE post_status = 'publish' AND post_type = 'post'
+        GROUP BY year, month
+        ORDER BY post_date DESC
+    ");
+
+    $archives = [];
+    foreach ($results as $result) {
+        $year = $result->year;
+        $month = $result->month;
+
+        if (!isset($archives[$year])) {
+            $archives[$year] = [];
+        }
+
+        $archives[$year][] = [
+            'month' => $month,
+            'post_count' => $result->post_count,
+            'url' => get_month_link($year, $month)
+        ];
+    }
+
+    return $archives;
+}
+

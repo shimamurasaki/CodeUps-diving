@@ -45,17 +45,16 @@
     </h2>
     <div class="sidebar__content">
         <?php
-        // 投稿を取得するためのパラメータを設定
+        // 最新の3件の投稿を取得するためのパラメータを設定
         $args = array(
             'post_type' => 'voice', // カスタム投稿タイプ名
-            'posts_per_page' => 3, // 取得する投稿の件数
-            'meta_key' => 'post_views_count', // 閲覧数メタキー
-            'orderby' => 'meta_value_num', // 閲覧数で並び替え
+            'posts_per_page' => 1, // 取得する投稿の件数
+            'orderby' => 'date', // 日付で並び替え
             'order' => 'DESC', // 降順
         );
-        $my_query = new WP_Query($args);
+        $latest_query = new WP_Query($args);
         ?>
-        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+        <?php while ($latest_query->have_posts()) : $latest_query->the_post(); ?>
         <div class="review-card">
             <div class="review-card__image">
                 <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
@@ -81,7 +80,8 @@
         </div>
         <?php wp_reset_postdata(); // クエリのリセット ?>
     </div>
-  </div>
+</div>
+
 
 
   <div class="sidebar__box">
@@ -126,28 +126,29 @@
   </div>
 
   <div class="sidebar__box">
-    <h2 class="sidebar__header">
-      <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ
-    </h2>
-    <div class="sidebar__content">
-      <div class="toggle-list">
-        <?php
-        $archives = get_custom_archives();
-        foreach ($archives as $year => $months) :
-        ?>
-          <p class="toggle-list__title jsToggleTitle"><?php echo $year; ?></p>
-          <div class="toggle-list__content">
-            <?php foreach ($months as $month_data) : ?>
-              <p class="toggle-list__title--child">
-                <a href="<?php echo esc_url($month_data['url']); ?>">
-                  <?php echo $month_data['month'] . '月'; ?>
-                </a>
-              </p>
-            <?php endforeach; ?>
-          </div>
-        <?php endforeach; ?>
-      </div>
+  <h2 class="sidebar__header">
+    <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ
+  </h2>
+  <div class="sidebar__content">
+    <div class="toggle-list">
+      <?php
+      $archives = get_custom_archives();
+      foreach ($archives as $year => $months) :
+      ?>
+        <p class="toggle-list__title jsToggleTitle"><?php echo $year; ?></p>
+        <div class="toggle-list__content">
+          <?php foreach ($months as $month_data) : ?>
+            <p class="toggle-list__title--child">
+              <a href="<?php echo esc_url($month_data['url']); ?>">
+                <?php echo $month_data['month'] . '月'; ?>
+              </a>
+            </p>
+          <?php endforeach; ?>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
+</div>
+
 
 </aside>
