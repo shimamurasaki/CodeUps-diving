@@ -125,19 +125,36 @@ jQuery(function ($) {
   
 
   //topボタン
-  var topBtn = $('.top-up');
-  topBtn.hide();
-
-  // ボタンの表示設定
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 80) {
-      // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
-    } else {
-      // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
-    }
+  $(document).ready(function () {
+    var topBtn = $('.top-up');
+    var footer = $('#footer');
+    topBtn.hide();
+  
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 80) {
+        topBtn.fadeIn();
+      } else {
+        topBtn.fadeOut();
+      }
+  
+      // フッターの上でボタンを止める
+      var scrollPos = $(this).scrollTop();
+      var windowHeight = $(window).height();
+      var footerTop = footer.offset().top;
+  
+      if (scrollPos + windowHeight > footerTop) {
+        var offset = scrollPos + windowHeight - footerTop + 10; // 10はボタンのbottomからの距離
+        topBtn.css({
+          bottom: offset + 'px'
+        });
+      } else {
+        topBtn.css({
+          bottom: '10px'
+        });
+      }
+    });
   });
+  
 
   //モーダル
   $(".gallery__contents img").click(function () {

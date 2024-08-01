@@ -44,7 +44,7 @@
   </div>
 </main>
 
-<footer class="footer <?php if (is_page(['404-2'])) echo 'no-top-footer'; ?> top-footer">
+<footer id="footer" class="footer <?php if (is_page(['404-2'])) echo 'no-top-footer'; ?> top-footer">
   <div class="footer__inner inner">
     <div class="footer__info">
       <div class="footer__logo">

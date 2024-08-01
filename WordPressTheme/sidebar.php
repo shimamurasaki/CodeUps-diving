@@ -1,22 +1,28 @@
-<div class="sidebar">
+<aside class="sidebar">
 
-  <div class="sidebar__box">
-    <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>人気記事</h2>
-    <div class="sidebar__content">
-      <?php
-        $args = array(
-          'post_type'      => 'post',
-          'posts_per_page' => 3 // 3記事表示
-        );
-        $my_query = new WP_Query( $args );
-        if ( $my_query->have_posts() ) :
-      ?>
-      <div class="popularity-blog">
-      <?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+<div class="sidebar__box">
+  <h2 class="sidebar__header">
+    <span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>人気記事
+  </h2>
+  <div class="sidebar__content">
+    <?php
+      // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
+      $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 3, // 3記事表示
+        'meta_key'       => 'cf_popular_posts', // クリック数のカスタムフィールド
+        'orderby'        => 'meta_value_num', // カスタムフィールドの値で並び替え
+        'order'          => 'DESC' // 降順で表示
+      );
+      $my_query = new WP_Query($args);
+      if ($my_query->have_posts()) :
+    ?>
+    <div class="popularity-blog">
+      <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
         <a href="<?php the_permalink(); ?>" class="popularity-blog__link">
           <div class="popularity-blog__card">
             <div class="popularity-blog__image">
-            <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
             </div>
             <div class="popularity-blog__title">
               <time datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
@@ -25,10 +31,12 @@
           </div>
         </a>
       <?php endwhile; ?>
-      </div>
-      <?php endif; wp_reset_postdata(); ?>
     </div>
+    <?php endif; wp_reset_postdata(); ?>
   </div>
+</div>
+
+
 
   <div class="sidebar__box">
     <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>口コミ</h2>
@@ -36,8 +44,9 @@
       <?php
         $args = array(
           'post_type' => 'voice', //カスタム投稿タイプ名
-          'posts_per_page' => 1,//取得する投稿の件数
-          'offset' => 4,//4番目の記事
+          'posts_per_page' => 1,// 表示する記事の数
+          'orderby'        => 'date', // 日付で並び替え
+          'order'          => 'DESC' // 降順で最新の投稿から表示
         );
         $my_query = new WP_Query( $args );
       ?>
@@ -67,7 +76,9 @@
         <?php
           $args = array(
             'post_type' => 'campaign', //カスタム投稿タイプ名
-            'posts_per_page' => 2,//取得する投稿の件数
+            'posts_per_page' => 2,// 表示する記事の数
+            'orderby'        => 'date', // 日付で並び替え
+            'order'          => 'DESC' // 降順で最新の投稿から表示
           );
           $my_query = new WP_Query( $args );
         ?>
@@ -100,29 +111,28 @@
   </div>
 
   <div class="sidebar__box">
-    <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>アーカイブ</h2>
+    <h2 class="sidebar__header">
+      <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ
+    </h2>
     <div class="sidebar__content">
       <div class="toggle-list">
-        <p class="toggle-list__title jsToggleTitle">2023</p>
-        <div class="toggle-list__content">
-          <p class="toggle-list__title--child">3月</p>
-          <div class="toggle-list__content"></div>
-          <p class="toggle-list__title--child">2月</p>
-          <div class="toggle-list__content"></div>
-          <p class="toggle-list__title--child">1月</p>
-          <div class="toggle-list__content"></div>
-        </div>
-        <p class="toggle-list__title jsToggleTitle">2022</p>
-        <div class="toggle-list__content">
-          <p class="toggle-list__title--child">3月</p>
-          <div class="toggle-list__content"></div>
-          <p class="toggle-list__title--child">2月</p>
-          <div class="toggle-list__content"></div>
-          <p class="toggle-list__title--child">1月</p>
-          <div class="toggle-list__content"></div>
-        </div>
+        <?php
+        $archives = get_custom_archives();
+        foreach ($archives as $year => $months) :
+        ?>
+          <p class="toggle-list__title jsToggleTitle"><?php echo $year; ?></p>
+          <div class="toggle-list__content">
+            <?php foreach ($months as $month_data) : ?>
+              <p class="toggle-list__title--child">
+                <a href="<?php echo esc_url($month_data['url']); ?>">
+                  <?php echo $month_data['month'] . '月'; ?>
+                </a>
+              </p>
+            <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
 
-</div>
+</aside>

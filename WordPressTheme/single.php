@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <!-- 下層ページのメインビュー -->
+
 <section class="sub-mv">
   <div class="sub-mv__inner">
     <div class="sub-mv__img">
@@ -31,7 +32,7 @@
           <h1 class="single-blog__title"><?php the_title(); ?></h1>
         </div>
         <div class="single-blog__image">
-        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+          <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
         </div>
         <div class="single-blog__entry">
           <?php the_content(); ?>
@@ -64,7 +65,6 @@
 
       <!-- サイドバー -->
       <?php get_sidebar(); ?>
-      </div>
     </div>
   </div>
 </div>

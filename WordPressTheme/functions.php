@@ -2,59 +2,54 @@
 
 function custom_enqueue_scripts() {
     // Google Fonts
-    echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
-    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-    echo '<link href="https://fonts.googleapis.com/css2?family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap" rel="stylesheet">';
-    
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap', array(), null);
+
     // Swiper CSS
     wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-    
+
     // Custom CSS
     wp_enqueue_style('custom-style', get_theme_file_uri('/assets/css/style.css'));
 
     // jQuery
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), null, true);
-    
+
     // jQuery inView Plugin
     wp_enqueue_script('jquery-inview', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js', array('jquery'), null, true);
-    
+
     // Swiper JS
     wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
-    
+
     // Custom JS
     wp_enqueue_script('custom-script', get_theme_file_uri('/assets/js/script.js'), array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
 
-
 function my_setup() {
-	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
-	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
-	add_theme_support( 'title-tag' ); /* タイトルタグ自動生成 */
-	add_theme_support(
-		'html5',
-		array( /* HTML5のタグで出力 */
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		)
-	);
+    add_theme_support('post-thumbnails'); /* アイキャッチ */
+    add_theme_support('automatic-feed-links'); /* RSSフィード */
+    add_theme_support('title-tag'); /* タイトルタグ自動生成 */
+    add_theme_support(
+        'html5',
+        array( /* HTML5のタグで出力 */
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        )
+    );
 }
-add_action( 'after_setup_theme', 'my_setup' );
-
+add_action('after_setup_theme', 'my_setup');
 
 //アーカイブの表示件数変更
 function change_posts_per_page($query) {
-    if ( is_admin() || ! $query->is_main_query() )
+    if (is_admin() || ! $query->is_main_query())
         return;
-    if ( $query->is_archive('voice') ) { //カスタム投稿タイプを指定
-        $query->set( 'posts_per_page', '8' ); //表示件数を指定
+    if ($query->is_archive('voice')) { // カスタム投稿タイプを指定
+        $query->set('posts_per_page', '8'); // 表示件数を指定
     }
 }
-add_action( 'pre_get_posts', 'change_posts_per_page' );
-
+add_action('pre_get_posts', 'change_posts_per_page');
 
 // 管理画面のメニュー「投稿」を「ブログ」に変更する
 function change_post_menu_label() {
@@ -65,7 +60,6 @@ function change_post_menu_label() {
     $submenu['edit.php'][10][0] = '新しいブログ'; // サブメニュー「新規追加」を「新しいブログ」に変更
 }
 add_action('admin_menu', 'change_post_menu_label');
-
 
 // 管理画面の「投稿」ページのタイトルを変更する
 function change_post_object_label() {
@@ -84,18 +78,13 @@ function change_post_object_label() {
 }
 add_action('init', 'change_post_object_label');
 
-
 // Contact Form 7で自動挿入されるPタグ、brタグを削除
-add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-function wpcf7_autop_return_false() {
-  return false;
-}
-
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 // Contact Form 7にキャンペーンのタイトルを挿入
-add_filter( 'wpcf7_form_tag_data_option', 'custom_campaign_select_values', 10, 3 );
-function custom_campaign_select_values( $values, $options, $args ) {
-    if ( in_array( 'campaignSelect', $options ) ) {
+add_filter('wpcf7_form_tag_data_option', 'custom_campaign_select_values', 10, 3);
+function custom_campaign_select_values($values, $options, $args) {
+    if (in_array('campaignSelect', $options)) {
         // キャンペーンの投稿タイトルを取得
         $args = array(
             'post_type' => 'campaign',  // キャンペーン投稿タイプ
@@ -103,11 +92,11 @@ function custom_campaign_select_values( $values, $options, $args ) {
             'fields' => 'ids',          // IDのみを取得
         );
 
-        $query = new WP_Query( $args );
+        $query = new WP_Query($args);
 
         $titles = array();
-        if ( $query->have_posts() ) {
-            while ( $query->have_posts() ) {
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
                 $query->the_post();
                 $title = get_the_title();
                 $titles[get_the_ID()] = $title; // IDをキーにしてタイトルを保存
@@ -116,12 +105,54 @@ function custom_campaign_select_values( $values, $options, $args ) {
         wp_reset_postdata();
 
         // 重複を排除してタイトルの配列を作成
-        $unique_titles = array_unique( $titles );
+        $unique_titles = array_unique($titles);
 
         // タイトルの配列を値として設定
-        $values = array_combine( array_values( $unique_titles ), array_values( $unique_titles ) ); // キーと値が同じ配列を作成
+        $values = array_combine(array_values($unique_titles), array_values($unique_titles)); // キーと値が同じ配列を作成
     }
 
     return $values;
 }
+
+// タイトルの配列を値として設定年と月を分けて取り出し、階層的に表示する
+function get_custom_archives() {
+    global $wpdb;
+    $results = $wpdb->get_results("
+        SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(ID) as post_count
+        FROM $wpdb->posts
+        WHERE post_status = 'publish' AND post_type = 'post'
+        GROUP BY year, month
+        ORDER BY post_date DESC
+    ");
+
+    $archives = [];
+    foreach ($results as $result) {
+        $year = $result->year;
+        $month = $result->month;
+
+        if (!isset($archives[$year])) {
+            $archives[$year] = [];
+        }
+
+        $archives[$year][] = [
+            'month' => $month,
+            'post_count' => $result->post_count,
+            'url' => get_month_link($year, $month)
+        ];
+    }
+
+    return $archives;
+}
+
+// カスタム投稿タイプ campaign の投稿件数を 4 件に制御
+function set_custom_campaign_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query() && (is_post_type_archive('campaign') || is_tax('campaign_category'))) {
+        $query->set('posts_per_page', 4);
+    }
+
+    if (!is_admin() && $query->is_main_query() && (is_post_type_archive('voice') || is_tax('voice_category'))) {
+        $query->set('posts_per_page', 6);
+    }
+}
+add_action('pre_get_posts', 'set_custom_campaign_posts_per_page');
 
