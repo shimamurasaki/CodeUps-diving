@@ -114,6 +114,7 @@ function custom_campaign_select_values($values, $options, $args) {
     return $values;
 }
 
+<<<<<<< HEAD
 // タイトルの配列を値として設定年と月を分けて取り出し、階層的に表示する
 function get_custom_archives() {
     global $wpdb;
@@ -201,3 +202,17 @@ function is_bot() {
     }
     return false;
   }
+=======
+// 固定ページのビジュアルエディタを無効にする関数を定義
+function remove_wysiwyg() {
+    // 固定ページ (page) からビジュアルエディタを削除
+    remove_post_type_support('page', 'editor');
+
+    // 他の投稿タイプからエディタを削除する場合は以下の形式で追加
+    // 例: カスタム投稿タイプ 'your_custom_post_type' からエディタを削除
+    // remove_post_type_support('your_custom_post_type', 'editor');
+}
+
+// 'init' アクションに remove_wysiwyg 関数をフック
+add_action('init', 'remove_wysiwyg');
+>>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019

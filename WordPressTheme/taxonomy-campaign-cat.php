@@ -1,20 +1,11 @@
 <?php get_header(); ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
 <!-- 下層ページのメインビュー -->
 <section class="sub-mv">
   <div class="sub-mv__inner">
     <div class="sub-mv__img">
       <picture>
-<<<<<<< HEAD
-        <source srcset="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-campaign_pc-hero.jpg')); ?>" media="(min-width: 768px)">
-        <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sub-campaign_sp-hero.jpg')); ?>" alt="海の中の色鮮やかな魚たち">
-=======
         <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-campaign_pc-hero.jpg" media="(min-width: 768px)">
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-campaign_sp-hero.jpg" alt="海の中の色鮮やかな魚たち">
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
       </picture>  
     </div>
     <div class="sub-mv__header">
@@ -35,30 +26,10 @@
     <div class="page-campaign__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-<<<<<<< HEAD
-        <li class="tab-menu__item"><a href="<?php echo esc_url(home_url()); ?>">ALL</a></li>
-        <?php 
-        $args = array(
-            'taxonomy' => 'campaign_category', // タクソノミー名
-            'hide_empty' => false, // 投稿のないタームも取得
-        );
-        $categories = get_terms($args); // ターム一覧を取得
-        if (!is_wp_error($categories) && !empty($categories)) : // タクソノミーが存在する場合のみ表示
-            foreach ($categories as $cat) :
-                // 現在のタームをチェック
-                $is_current = (is_tax('campaign_category', $cat->slug)) ? 'current' : '';
-        ?>
-                <li class="tab-menu__item <?php echo esc_attr($is_current); ?>">
-                    <a href="<?php echo esc_url(get_term_link($cat)); ?>">
-                        <?php echo esc_html($cat->name); ?>
-                    </a>
-                </li>
-        <?php endforeach; endif; ?>
-=======
           <li class="tab-menu__item"><a href="<?php echo home_url(); ?>/campaign/">ALL</a></li>
           <?php 
           $args = array(
-              'taxonomy' => 'campaign_category', // タクソノミー名
+              'taxonomy' => 'campaign-cat', // タクソノミー名
               'hide_empty' => false, // 投稿のないタームも取得
           );
           $categories = get_terms( $args ); // ターム一覧を取得
@@ -69,7 +40,7 @@
                   $is_current = ( isset( $term ) && $term === $cat->slug ) ? 'current' : '';
           ?>
                   <li class="tab-menu__item <?php echo $is_current; ?>">
-                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'campaign_category' ); ?>">
+                      <a href="<?php echo $is_current ? 'javascript:void(0);' : get_term_link( $cat->slug, 'campaign-cat' ); ?>">
                           <?php echo $cat->name; ?>
                       </a>
                   </li>
@@ -77,71 +48,11 @@
               endforeach;
           endif;
           ?>
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
       </ul>
     </div>
 
     <!-- タブコンテンツ -->
     <div class="page-campaign__contents top-page-campaign">
-<<<<<<< HEAD
-      <div class="page-campaign__content">
-        <div class="page-campaign__card-list">
-            <?php 
-            // メインクエリに投稿が存在するか確認
-            if (have_posts()): 
-                while (have_posts()): the_post(); ?>
-                    <div class="page-campaign__content-item">
-                        <div class="page-campaign-card">
-                            <div class="page-campaign-card__image">
-                                <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
-                            </div>
-                            <div class="page-campaign-card__content">
-                                <div class="page-campaign-card__content-header">
-                                    <div class="page-campaign-card__tag">
-                                        <?php 
-                                        // 投稿に関連付けられたタクソノミーのタームを取得
-                                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                                        if ($terms && !is_wp_error($terms)) {
-                                            // 最初のターム名を取得して表示
-                                            $term_name = $terms[0]->name;
-                                            echo '<p>' . esc_html($term_name) . '</p>';
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="page-campaign-card__content-title">
-                                        <p><?php the_title(); ?></p>
-                                    </div>
-                                </div>
-                                <div class="page-campaign-card__price-pop">
-                                    <p class="page-campaign-card__price-text">全部コミコミ(お一人様)</p>
-                                    <div class="page-campaign-card__price-box">
-                                        <p class="page-campaign-card__price-before">¥<?php echo esc_html(get_field('actual-price')); ?></p>
-                                        <p class="page-campaign-card__price-after">¥<?php echo esc_html(get_field('campaign-price')); ?></p>
-                                    </div>
-                                </div>
-                                <div class="u-desktop">
-                                    <div class="page-campaign-card__message">
-                                        <p><?php the_content(); ?></p>
-                                    </div>
-                                    <div class="page-campaign-card__comment">
-                                        <p class="page-campaign-card__date"><?php echo esc_html(get_field('reservation-period__campaign')); ?></p>
-                                        <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
-                                    </div>
-                                    <div class="page-campaign-card__button">
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; 
-            endif; 
-            // リセットポストデータ
-            wp_reset_postdata(); ?>
-        </div>
-      </div>
-    </div>
-=======
     <div class="page-campaign__content">
         <div class="page-campaign__card-list">
             <?php 
@@ -157,7 +68,7 @@
                 'post_type' => 'campaign',
                 'tax_query' => array(
                     array(
-                        'taxonomy' => 'campaign_category',
+                        'taxonomy' => 'campaign-cat',
                         'field'    => 'slug',
                         'terms'    => $current_slug,
                     ),
@@ -178,7 +89,7 @@
                             <div class="page-campaign-card__tag">
                                 <?php 
                                 // 投稿に関連付けられたタクソノミーのタームを取得
-                                $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                                $terms = get_the_terms(get_the_ID(), 'campaign-cat');
                                 if ($terms && !is_wp_error($terms)) {
                                     // 最初のターム名を取得して表示
                                     $term_name = $terms[0]->name;
@@ -219,23 +130,14 @@
     </div>
 </div>
 
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
 
     <!-- WPページナビゲーション -->
     <div class="page-navi">
       <div class="page-navi__inner">
-<<<<<<< HEAD
-        <?php wp_pagenavi(); ?>
-=======
       <?php wp_pagenavi(array('query' => $custom_query)); ?>
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
       </div>
     </div>
   </div>
 </div>
 
-<<<<<<< HEAD
 <?php get_footer(); ?>
-=======
-<?php get_footer(); ?>
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
