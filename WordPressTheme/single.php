@@ -25,7 +25,11 @@
 <div class="sub-blog top-sub-contents">
   <div class="sub-blog__inner inner">
     <div class="sub-blog__content">
-      <?php if (have_posts()): while (have_posts()): the_post(); ?>
+      <?php if (have_posts()): while (have_posts()): the_post();
+      if( !is_user_logged_in() && !is_bot() ) { //クローラーとログイン時のアクセスを閲覧数カウントから除外
+        setPostViews( get_the_ID() );
+      }
+      ?>
       <div class="single-blog">
         <div class="single-blog__header">
           <time datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>

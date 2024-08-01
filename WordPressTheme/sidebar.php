@@ -1,42 +1,40 @@
 <aside class="sidebar">
 
-<div class="sidebar__box">
-  <h2 class="sidebar__header">
-    <span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>人気記事
-  </h2>
-  <div class="sidebar__content">
-    <?php
-      // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
-      $args = array(
-        'post_type'      => 'post',
-        'posts_per_page' => 3, // 3記事表示
-        'meta_key'       => 'cf_popular_posts', // クリック数のカスタムフィールド
-        'orderby'        => 'meta_value_num', // カスタムフィールドの値で並び替え
-        'order'          => 'DESC' // 降順で表示
-      );
-      $my_query = new WP_Query($args);
-      if ($my_query->have_posts()) :
-    ?>
-    <div class="popularity-blog">
-      <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-        <a href="<?php the_permalink(); ?>" class="popularity-blog__link">
-          <div class="popularity-blog__card">
-            <div class="popularity-blog__image">
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+  <div class="sidebar__box">
+    <h2 class="sidebar__header">
+      <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>人気記事
+    </h2>
+    <div class="sidebar__content">
+      <?php
+        // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
+        $args = array(
+          'post_type'      => 'post',
+          'posts_per_page' => 3, // 3記事表示
+          'meta_key'       => 'post_views_count', // クリック数のカスタムフィールド
+          'orderby'        => 'meta_value_num', // カスタムフィールドの値で並び替え
+          'order'          => 'DESC' // 降順で表示
+        );
+        $my_query = new WP_Query($args);
+        if ($my_query->have_posts()) :
+      ?>
+      <div class="popularity-blog">
+        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="popularity-blog__link">
+            <div class="popularity-blog__card">
+              <div class="popularity-blog__image">
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+              </div>
+              <div class="popularity-blog__title">
+                <time datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
+                <p><?php the_title(); ?></p>
+              </div>
             </div>
-            <div class="popularity-blog__title">
-              <time datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
-              <p><?php the_title(); ?></p>
-            </div>
-          </div>
-        </a>
-      <?php endwhile; ?>
+          </a>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; wp_reset_postdata(); ?>
     </div>
-    <?php endif; wp_reset_postdata(); ?>
   </div>
-</div>
-
-
 
   <div class="sidebar__box">
     <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>口コミ</h2>
