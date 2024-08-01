@@ -549,9 +549,13 @@ a {
 	height: auto;
 }
 
-.card-list__item + .card-list__item {
-	margin-top: 2.5rem;
+.card-list {
+	grid-gap: 2.5rem; 
+	display: grid;
+	gap: 2.5rem;
+	grid-template-columns: 1fr;
 }
+
 
 .colorbox {
 	position: relative;
@@ -3073,14 +3077,7 @@ html {
 }
 
 .card-list {
-	grid-gap: 2.5rem;
-	display: grid;
-	gap: 2.5rem;
 	grid-template-columns: repeat(3, 1fr);
-}
-
-.card-list__item + .card-list__item {
-	margin-top: 0;
 }
 
 .contact__inner {
