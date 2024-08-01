@@ -228,11 +228,7 @@
       </div><!-- card-list -->
     </div><!-- blog__items -->
     <div class="blog__button">
-<<<<<<< HEAD
-      <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="common-button">View more<span></span></a>
-=======
       <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="common-button">View more<span></span></a>
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
     </div>
   </div>
 </section>

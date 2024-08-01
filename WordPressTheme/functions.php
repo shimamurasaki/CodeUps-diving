@@ -114,95 +114,6 @@ function custom_campaign_select_values($values, $options, $args) {
     return $values;
 }
 
-<<<<<<< HEAD
-// タイトルの配列を値として設定年と月を分けて取り出し、階層的に表示する
-function get_custom_archives() {
-    global $wpdb;
-    $results = $wpdb->get_results("
-        SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(ID) as post_count
-        FROM $wpdb->posts
-        WHERE post_status = 'publish' AND post_type = 'post'
-        GROUP BY year, month
-        ORDER BY post_date DESC
-    ");
-
-    $archives = [];
-    foreach ($results as $result) {
-        $year = $result->year;
-        $month = $result->month;
-
-        if (!isset($archives[$year])) {
-            $archives[$year] = [];
-        }
-
-        $archives[$year][] = [
-            'month' => $month,
-            'post_count' => $result->post_count,
-            'url' => get_month_link($year, $month)
-        ];
-    }
-
-    return $archives;
-}
-
-// カスタム投稿タイプ campaign の投稿件数を 4 件に制御
-function set_custom_campaign_posts_per_page($query) {
-    if (!is_admin() && $query->is_main_query() && (is_post_type_archive('campaign') || is_tax('campaign_category'))) {
-        $query->set('posts_per_page', 4);
-    }
-
-    if (!is_admin() && $query->is_main_query() && (is_post_type_archive('voice') || is_tax('voice_category'))) {
-        $query->set('posts_per_page', 6);
-    }
-}
-add_action('pre_get_posts', 'set_custom_campaign_posts_per_page');
-
-
-/* 人気記事一覧
----------------------------------------------------------- */
-//記事閲覧数を取得する
-function getPostViews($postID){
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-      delete_post_meta($postID, $count_key);
-      add_post_meta($postID, $count_key, '0');
-      return "0 View";
-    }
-    return $count.' Views';
-  }
-  //記事閲覧数を保存する
-  function setPostViews($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-      $count = 0;
-      delete_post_meta($postID, $count_key);
-      add_post_meta($postID, $count_key, '0');
-    }else{
-      $count++;
-      update_post_meta($postID, $count_key, $count);
-    }
-  }
-  //headに出力されるタグを削除(閲覧数を重複してカウントするのを防止するため)
-  remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-
-  //クローラーのアクセス判別
-function is_bot() {
-    $ua = $SERVER[HTTP_USER_AGENT];
-    $bot = array(
-      "googlebot",
-      "msnbot",
-      "yahoo"
-    );
-    foreach( $bot as $bot ) {
-      if (stripos( $ua, $bot ) !== false){
-        return true;
-      }
-    }
-    return false;
-  }
-=======
 // 固定ページのビジュアルエディタを無効にする関数を定義
 function remove_wysiwyg() {
     // 固定ページ (page) からビジュアルエディタを削除
@@ -215,4 +126,3 @@ function remove_wysiwyg() {
 
 // 'init' アクションに remove_wysiwyg 関数をフック
 add_action('init', 'remove_wysiwyg');
->>>>>>> 099cc8b6fce15b4e411017d351e810cd8d876019
