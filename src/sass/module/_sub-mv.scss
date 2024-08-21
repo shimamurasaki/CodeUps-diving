@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.sub-mv__inner {
+  position: relative;
+  @include mq(md){
+    height: rem(548);
+  }
+}
+
+.sub-mv__img img {
+  height: rem(460);
+  aspect-ratio: 375 / 460;
+  object-fit: cover;
+  @include mq(md){
+    height: rem(548);
+    aspect-ratio: 548 / 1440;
+  }
+}
+
+.sub-mv__header {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $white;
+  text-align: center;
+  @include mq(md){
+    top: 59%;
+  }
+}
+
+.sub-mv__title {
+  font-size: rem(40);
+  font-weight: $medium;
+  font-family: $sub-english-font-family;
+  color: $white;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  @include mq(md){
+    font-size: rem(80);
+    line-height: 1.25;
+  }
+}
+
+.sub-mv__title--faq {
+  @extend .sub-mv__title;
+  text-transform: uppercase;
+}
+
+.sub-mv__title::first-letter {
+  text-transform: uppercase;
+}

@@ -1,0 +1,37 @@
+@use "global" as *;
+
+/* タブメニュー */
+.tab-menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(16) rem(21);
+  @include mq(md){
+    gap: rem(16) rem(32);
+  }
+}
+
+.tab-menu__item {
+  width: calc((100% - rem(21)) / 2);
+  max-width: rem(162);
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid $skyBlue;
+  display: block;
+  padding: rem(3);
+  background-color: $white;
+  color: $skyBlue;
+  font-size: rem(14);
+  line-height: 1.714;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.tab-menu__item.current {
+  background-color: $skyBlue;
+  color: $white;
+}
+
+.tab-menu__item:hover {
+  background-color: $skyBlue;
+  color: $white;
+}

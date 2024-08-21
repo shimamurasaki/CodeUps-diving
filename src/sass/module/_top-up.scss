@@ -1,0 +1,62 @@
+@use "global" as *;
+
+.top-up {
+  z-index: 1000;
+  position: fixed;
+  bottom: rem(15);
+  right: rem(15);
+  @include mq(md){
+    bottom: rem(20);
+    right: rem(20);
+  }
+}
+
+.top-up a:hover {
+  opacity: 0.8;
+}
+
+.top-up__circle {
+  display: inline-block;
+  width: rem(48);
+  height: rem(48);
+  border-radius: 50%;
+  border: 1px solid $skyBlue;
+  background-color: $white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  @include mq(md){
+    width: rem(80);
+    height: rem(80);
+  }
+}
+
+.top-up__yazirusi {
+  width: rem(28);
+  transform: rotate(270deg);
+  position: absolute;
+  top: 50%;
+  left: rem(10);
+  @include mq(md){
+    width: rem(40);
+    left: rem(20);
+  }
+}
+
+.top-up__line01 {
+  height: rem(1);
+  background-color: $skyBlue;
+}
+
+.top-up__line02 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: right bottom;
+  width: rem(10);
+  height: rem(1);
+  background-color: $skyBlue;
+  transform: rotate(45deg);
+}
+
+
+

@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.breadcrumb__inner {
+  font-size: rem(14);
+  color: $navyBlue;
+  font-weight: $regular;
+  letter-spacing: 0.05em;
+  @include mq(md){
+    letter-spacing: 0.05em;
+  }
+}
+
+.breadcrumb__inner--white {
+  @extend .breadcrumb__inner;
+  color: $white;
+}

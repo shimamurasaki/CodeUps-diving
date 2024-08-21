@@ -1,0 +1,314 @@
+@use "global" as *;
+
+.form__item {
+	padding-bottom: rem(24);
+	border-bottom: 1px dotted $skyBlue;
+	@include mq(md){
+    display: flex;
+		align-items: start;
+		padding-bottom: rem(40);
+  }
+}
+
+.form__item + .form__item {
+	margin-top: rem(40);
+}
+
+.form__item dt {
+	font-size: rem(16);
+  font-weight: $bold;
+  color: $navyBlue;
+	line-height: 1;
+	@include mq(md){
+    width: 30%;
+  }
+}
+
+.form__required-tag {
+	color: $white;
+  font-size: rem(12);
+  font-weight: $regular;
+  padding: rem(2) rem(18);
+  background-color: #C94800;
+	margin-left: rem(8);
+	line-height: 1;
+}
+
+.form__item dd {
+	@include mq(md){
+    width: 68%;
+		margin-left: rem(10);
+  }
+}
+
+input::placeholder {
+	color: #DDF0F1;
+	font-size: rem(16);
+	font-weight: $regular;
+}
+
+.form__checkbox{
+	margin-top: rem(16);
+	@include mq(md){
+    margin-top: 0;
+  }
+}
+
+.form__checkbox label{
+	display: block;
+}
+
+.form__privacyCheck {
+	margin-top: rem(40);
+	display: flex;
+	justify-content: center;
+	@include mq(md){
+    margin-top: rem(80);
+  }
+}
+
+.form__button {
+	text-align: center;
+	margin-top: rem(24);
+	@include mq(md){
+    margin-top: rem(40);
+  }
+}
+
+.form__error {
+  display: none;
+	justify-content: center;
+}
+
+.form__error p {
+  font-size: rem(14);
+  color: #C94800;
+  text-align: left;
+	text-indent: -1em;
+  padding-left: 1em;
+}
+
+.form__input.error input,
+.form__textarea.error textarea,
+.form__checkbox.error input {
+  border: 1px solid #C94800;
+  background-color: rgba(201, 72, 0, 0.2);
+}
+
+.form__input.error input::placeholder {
+  color: #fff;
+}
+
+/*デフォルト色の指定*/
+$border-cr-default: $skyBlue; //デフォルト時のボーダーの色
+$border-cr: $navyBlue; //inputのhover or focus時の色
+$back-cr: $white;//input（テキスト系）の背景色
+
+/*サイズ等の指定*/
+$fz: rem(16);//入力するときのfont-size
+$padding-und: rem(10);//paddingの指定（上下） inputの内側の余白で使う
+$padding-lnr: rem(10);//paddingの指定（左右） inputの内側の余白で使う
+$border-r: rem(6);//border-radius（テキスト系）
+
+/*ボタン系の指定*/
+$fz-btn: rem(14);//送信ボタンのfont-size
+$back-cr-btn: transparent linear-gradient(90deg, #7633a4 0%, #250d65 100%) 0% 0% no-repeat padding-box;//ボタンの背景色
+$font-cr-btn: white;//ボタンのフォントカラー
+$padding-und-btn: rem(20);//paddingの指定（上下） btnの内側の余白で使う
+$padding-lnr-btn: rem(72);//paddingの指定（左右） btnの内側の余白で使う
+$border-r-btn: rem(50);
+
+/*チェックボックスの指定*/
+$check-fz: rem(16);//フォントサイズ
+$check-fz-ag: rem(14);//フォントサイズ
+$check-size: rem(14);//外枠の幅高さ
+$check-size-ag: rem(22);//外枠の幅高さ
+$check-bg-cr: $white;//外枠の背景色
+$check-border-cr: $skyBlue;//外枠の色
+$check-bg-cr-inner: #C94800;//チェックマークの背景色
+$check-space: rem(8);//チェックマークと文字の距離
+$check-space-ag: rem(16);//チェックマークと文字の距離
+$check-space-betweenRadio: rem(20);//ラジオボタンの間の距離
+$check-weight: 2px;//チェックマークの線の太さ(px)
+
+/*テキストエリアの指定*/
+$textarea-height: rem(200);
+
+[type="text"],
+[type="search"],
+[type="tel"],
+[type="url"],
+[type="email"],
+[type="password"],
+[type="date"],
+textarea {
+	/*↓リセットCSS */
+	border: none;
+	background-image: none;
+	font-family: inherit;
+	/*↓カスタム */
+  margin-top: rem(16);
+	font-size: $fz;
+	padding: rem(8) rem(16);
+	width: 100%;
+	background: $back-cr;
+	border: 1px solid $border-cr-default;
+	/*↓↓↓↓不要ならコメントアウト or 削除 */
+	// &:hover {  //ホバーしたときの色
+	// 	border: 1px solid $border-cr;
+	// }
+	/*↓↓選択されているときの色*/
+	&:focus {
+		border: 1px solid $border-cr;
+	}
+	@include mq(md){
+    margin-top: 0;
+  }
+}
+[type="tel"] {
+  width: 100%;
+}
+
+[type="checkbox"] {
+	display: none;
+
+	+ .info {
+		display: inline-block;
+		position: relative;
+		padding: 0 0 0 calc($check-size + $check-space);
+		font-size: $check-fz;
+		font-weight: $regular;
+		color: $navyBlue;
+		line-height: 1;
+		cursor: pointer;
+		transition: 0.3s ease;
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			background: $check-bg-cr;
+			border: 1px solid $check-border-cr;
+			width: $check-size;
+			height: $check-size;
+			display: block;
+		}
+
+		&::after {
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+	}
+
+	&:checked + .info {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			opacity: 1;
+			/*チェックマークじゃない場合は以下を変更する*/
+			transform: translateY(-50%) rotate(-45deg);
+			width: calc($check-size * 0.9);
+			height: calc($check-size * 0.5);
+			margin-top: -0.1em;
+			margin-left: 0.1em;
+			border-left: $check-weight solid $check-bg-cr-inner;
+			border-bottom: $check-weight solid $check-bg-cr-inner;
+		}
+	}
+}
+
+[type="checkbox"] {
+	display: none;
+
+	+ .agree {
+		display: inline-block;
+		position: relative;
+		padding: 0 0 0 calc($check-size-ag + $check-space-ag);
+		font-size: $check-fz-ag;
+		font-weight: $regular;
+		color: $navyBlue;
+		line-height: 1;
+		cursor: pointer;
+		transition: 0.3s ease;
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			background: $check-bg-cr;
+			border: 1px solid $check-border-cr;
+			width: $check-size-ag;
+			height: $check-size-ag;
+			display: block;
+		}
+
+		&::after {
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+	}
+
+	&:checked + .agree {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			opacity: 1;
+			/*チェックマークじゃない場合は以下を変更する*/
+			transform: translateY(-50%) rotate(-45deg);
+			width: calc($check-size-ag * 0.9);
+			height: calc($check-size-ag * 0.5);
+			margin-top: -0.1em;
+			margin-left: 0.1em;
+			border-left: $check-weight solid $check-bg-cr-inner;
+			border-bottom: $check-weight solid $check-bg-cr-inner;
+		}
+	}
+}
+
+select {
+	/*↓リセットCSS */
+	border-radius: 0;
+	font-family: inherit;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	/*↓カスタム */
+  margin-top: rem(10);
+	font-size: rem(12);
+	padding: $padding-und $padding-lnr;
+	background-color: $back-cr;
+  border: 1px solid $border-cr-default;
+	/*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
+	appearance: none;
+	/*↓デフォルトではないアイコンを使う場合は入力する*/
+	background-image: url(../images/common/Polygon.png);
+	background-position: right rem(5) top rem(12);
+	background-repeat: no-repeat;
+	background-size: rem(12);
+	&:focus {
+		border: 1px solid $border-cr;
+	}
+	@include mq(md){
+    margin-top: 0;
+  }
+}
+
+option {
+	width: 100%;
+}
+
+textarea {
+	height: $textarea-height;
+  width: 100%;
+}

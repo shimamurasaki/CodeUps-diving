@@ -1,0 +1,6 @@
+@use "global" as *;
+
+.faq-boxes {
+  display: grid;
+  gap: rem(40);
+}

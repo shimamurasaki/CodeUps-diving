@@ -31,34 +31,52 @@
   </div>
 
   <div class="sidebar__box">
-    <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>口コミ</h2>
+    <h2 class="sidebar__header">
+        <span>
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト">
+        </span>
+        口コミ
+    </h2>
     <div class="sidebar__content">
-      <?php
+        <?php
+        // 投稿を取得するためのパラメータを設定
         $args = array(
-          'post_type' => 'voice', //カスタム投稿タイプ名
-          'posts_per_page' => 1,//取得する投稿の件数
-          'offset' => 4,//4番目の記事
+            'post_type' => 'voice', // カスタム投稿タイプ名
+            'posts_per_page' => 3, // 取得する投稿の件数
+            'meta_key' => 'post_views_count', // 閲覧数メタキー
+            'orderby' => 'meta_value_num', // 閲覧数で並び替え
+            'order' => 'DESC', // 降順
         );
-        $my_query = new WP_Query( $args );
-      ?>
-      <?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-      <div class="review-card">
-        <div class="review-card__image">
-        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+        $my_query = new WP_Query($args);
+        ?>
+        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+        <div class="review-card">
+            <div class="review-card__image">
+                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+            </div>
+            <div class="review-card__tag">
+                <?php
+                // 投稿に関連付けられたタクソノミーのタームを取得
+                $terms = get_the_terms(get_the_ID(), 'user');
+                if ($terms && !is_wp_error($terms)) {
+                    // 最初のターム名を取得して表示
+                    $term_name = $terms[0]->name;
+                    echo '<p class="guest-card__info">' . esc_html($term_name) . '</p>';
+                }
+                ?>
+            </div>
+            <div class="review-card__title">
+                <p><?php the_title(); ?></p>
+            </div>
         </div>
-        <div class="review-card__tag">
-          <p><?php the_tags( '', '', '' ); ?></p>
+        <?php endwhile; ?>
+        <div class="review-card__button">
+            <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="common-button">View more<span></span></a>
         </div>
-        <div class="review-card__title">
-          <p><?php the_title(); ?></p>
-        </div>
-      </div>
-      <?php endwhile; ?>
-      <div class="review-card__button">
-        <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="common-button">View more<span></span></a>
-      </div>
+        <?php wp_reset_postdata(); // クエリのリセット ?>
     </div>
   </div>
+
 
   <div class="sidebar__box">
     <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>キャンペーン</h2>

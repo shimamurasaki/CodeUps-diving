@@ -1,0 +1,98 @@
+@use "global" as *;
+
+.wp-pagenavi {
+  display: flex;
+  justify-content: center;
+}
+
+.wp-pagenavi__prev,
+.wp-pagenavi__number,
+.wp-pagenavi__next {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(38);
+  height: rem(38);
+  background-color: #FFF;
+  border: 1px solid $skyBlue;
+  color: $skyBlue;
+  font-size: rem(16);
+  font-weight: bold;
+  font-family: $sub-english-font-family;
+  transition: 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.wp-pagenavi__prev:hover,
+.wp-pagenavi__number:hover,
+.wp-pagenavi__next:hover {
+  background-color: $skyBlue;
+  color: $white;
+}
+
+.wp-pagenavi__number a {
+  display: block;
+}
+
+.wp-pagenavi__number + .wp-pagenavi__number {
+  margin-left: rem(12);
+}
+
+.wp-pagenavi__number.current {
+  background-color: $skyBlue;
+  color: #FFF;
+}
+
+.wp-pagenavi__number.pc-only {
+  display: none;
+  @include mq(md){
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.wp-pagenavi__prev {
+  margin-right: rem(40);
+}
+
+.wp-pagenavi__prev::before {
+  content: '';
+  width: rem(10);
+  height: rem(10);
+  border: 0;
+  border-top: solid 1px $skyBlue;
+  border-right: solid 1px $skyBlue;
+  transform: rotate(225deg);
+  position: absolute;
+  left: rem(15);
+}
+
+.wp-pagenavi__prev:hover::before {
+  content: '';
+  border-top: solid 1px $white;
+  border-right: solid 1px $white;
+}
+
+.wp-pagenavi__next {
+  margin-left: rem(40);
+}
+
+.wp-pagenavi__next::before {
+  content: '';
+  width: rem(10);
+  height: rem(10);
+  border: 0;
+  border-top: solid 1px $skyBlue;
+  border-right: solid 1px $skyBlue;
+  transform: rotate(45deg);
+  position: absolute;
+  right: rem(15);
+}
+
+.wp-pagenavi__next:hover::before {
+  content: '';
+  border-top: solid 1px $white;
+  border-right: solid 1px $white;
+}

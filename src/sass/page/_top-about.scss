@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.top-about {
+  margin-top: rem(70);
+  @include mq(md) {
+    margin-top: rem(140);
+    margin: auto;
+    position: relative;
+  }
+}
+
+.top-about__item {
+  margin-top: rem(24);
+}
