@@ -18,14 +18,14 @@
       ?>
       <div class="popularity-blog">
         <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-          <a href="<?php the_permalink(); ?>" class="popularity-blog__link">
+          <a href="<?php echo esc_url(get_permalink()); ?>" class="popularity-blog__link">
             <div class="popularity-blog__card">
               <div class="popularity-blog__image">
-                <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php echo esc_attr(get_the_title()); ?>のアイキャッチ画像">
               </div>
               <div class="popularity-blog__title">
-                <time datetime="<?php the_time('c'); ?>"><?php the_time('Y.m.d'); ?></time>
-                <p><?php the_title(); ?></p>
+                <time datetime="<?php the_time('c'); ?>"><?php echo esc_html(get_the_time('Y.m.d')); ?></time>
+                <p><?php echo esc_html(get_the_title()); ?></p>
               </div>
             </div>
           </a>
@@ -34,6 +34,7 @@
       <?php endif; wp_reset_postdata(); ?>
     </div>
   </div>
+
 
   <div class="sidebar__box">
     <h2 class="sidebar__header">
@@ -44,19 +45,6 @@
     </h2>
     <div class="sidebar__content">
         <?php
-<<<<<<< HEAD
-        // 投稿を取得するためのパラメータを設定
-        $args = array(
-            'post_type' => 'voice', // カスタム投稿タイプ名
-            'posts_per_page' => 3, // 取得する投稿の件数
-            'meta_key' => 'post_views_count', // 閲覧数メタキー
-            'orderby' => 'meta_value_num', // 閲覧数で並び替え
-            'order' => 'DESC', // 降順
-        );
-        $my_query = new WP_Query($args);
-        ?>
-        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-=======
         // 最新の3件の投稿を取得するためのパラメータを設定
         $args = array(
             'post_type' => 'voice', // カスタム投稿タイプ名
@@ -67,7 +55,6 @@
         $latest_query = new WP_Query($args);
         ?>
         <?php while ($latest_query->have_posts()) : $latest_query->the_post(); ?>
->>>>>>> 7ccd6fe715b60e381322ca013a271d39329205fb
         <div class="review-card">
             <div class="review-card__image">
                 <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
