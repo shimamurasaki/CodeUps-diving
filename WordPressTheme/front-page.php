@@ -131,10 +131,10 @@
     <div class="about__item top-about__item">
       <div class="about__images">
         <div class="about__left">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_1.jpg" alt="屋根の上にいるシーサー">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/about_1.jpg' ); ?>" alt="屋根の上にいるシーサー">
         </div>
         <div class="about__right">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_2.jpg" alt="海の中の色鮮やかな魚たち">
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/about_2.jpg' ); ?>" alt="海の中の色鮮やかな魚たち">
         </div>
       </div>
       <div class="about__contents">
@@ -161,8 +161,8 @@
       </div>
     </div>
     <div class="information__contents">
-      <div class="information__image colorbox">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information.jpg" alt="海の中を泳ぐ魚たち">
+      <div class="information__image">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/information.jpg' ); ?>" alt="海の中を泳ぐ魚たち">
       </div>
       <div class="information__content">
         <div class="information__info">
@@ -190,7 +190,6 @@
         <?php
         // ブログ記事を取得
         $args = array(
-          'post_type' => 'post', // 投稿タイプを指定
           'posts_per_page' => 3  // 表示する記事数
         );
         $blog_query = new WP_Query($args);
@@ -209,7 +208,7 @@
                 </div>
                 <div class="blog-card__content">
                   <div class="blog-card__header">
-                    <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="blog-card__date"><?php echo get_the_date('Y.m/d'); ?></time>
+                    <time datetime="<?php the_time('c'); ?>" class="blog-card__date"><?php the_time('Y.m/d'); ?></time>
                     <p class="blog-card__title"><?php the_title(); ?></p>
                   </div>
                 </div>
@@ -293,7 +292,7 @@
                       <p><?php the_title(); ?></p>
                     </div>
                   </div>
-                  <div class="guest-card__image colorbox">
+                  <div class="guest-card__image">
                     <?php if (has_post_thumbnail()) : ?>
                       <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
                     <?php else : ?>
@@ -331,7 +330,7 @@
       </div>
     </div>
     <div class="price__contents">
-      <div class="price__image colorbox">
+      <div class="price__image">
         <picture>
           <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" alt="海中のウミガメ">

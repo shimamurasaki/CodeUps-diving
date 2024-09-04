@@ -54,6 +54,11 @@ input::placeholder {
   }
 }
 
+.form__checkbox .wpcf7-form-control {
+	display: flex;
+	flex-direction: column;
+}
+
 .form__checkbox label{
 	display: block;
 }

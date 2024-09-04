@@ -92,7 +92,7 @@
                               </div>
                               <div class="guest-card__image">
                                 <?php if (has_post_thumbnail()) : ?>
-                                  <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                                  <img src="<?php esc_url(the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                                 <?php else : ?>
                                   <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/default.jpg')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                                 <?php endif; ?>

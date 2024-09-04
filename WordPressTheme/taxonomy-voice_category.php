@@ -64,7 +64,7 @@
                                       <div class="guest-card__info">
                                       <?php 
                                       // 現在の投稿に紐付けられた'term'を取得
-                                      $user_terms = get_the_terms(get_the_ID(), 'user'); 
+                                      $user_terms = the_terms(get_the_ID(), 'user'); 
                                       if ($user_terms && !is_wp_error($user_terms)) :
                                           foreach ($user_terms as $term) : ?>
                                               <p><?php echo esc_html($term->name); ?></p>
@@ -76,7 +76,7 @@
                                       <div class="guest-card__tag">
                                       <?php 
                                       // 現在の投稿に紐付けられた'term'を取得
-                                      $voice_terms = get_the_terms(get_the_ID(), 'voice_category'); 
+                                      $voice_terms = the_terms(get_the_ID(), 'voice_category'); 
                                       if ($voice_terms && !is_wp_error($voice_terms)) :
                                           foreach ($voice_terms as $term) : ?>
                                               <p><?php echo esc_html($term->name); ?></p>
@@ -92,9 +92,9 @@
                               </div>
                               <div class="guest-card__image">
                                 <?php if (has_post_thumbnail()) : ?>
-                                  <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                                  <img src="<?php esc_url(the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                                 <?php else : ?>
-                                  <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/default.jpg')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                                  <img src="<?php esc_url(theme_file_uri('/assets/images/common/default.jpg')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                                 <?php endif; ?>
                               </div>
                           </div>

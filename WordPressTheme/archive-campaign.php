@@ -56,43 +56,39 @@
                     <div class="page-campaign__content-item">
                         <div class="page-campaign-card">
                             <div class="page-campaign-card__image">
-                                <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                              <img src="<?php esc_url(the_post_thumbnail_url(get_the_ID(), 'full')); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                             </div>
                             <div class="page-campaign-card__content">
-                                <div class="page-campaign-card__content-header">
-                                    <div class="page-campaign-card__tag">
-                                        <?php 
-                                        // 投稿に関連付けられたタクソノミーのタームを取得
-                                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                                        if ($terms && !is_wp_error($terms)) {
-                                            // 最初のターム名を取得して表示
-                                            $term_name = $terms[0]->name;
-                                            echo '<p>' . esc_html($term_name) . '</p>';
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="page-campaign-card__content-title">
-                                        <p><?php the_title(); ?></p>
-                                    </div>
+                              <div class="page-campaign-card__content-header">
+                                <div class="page-campaign-card__tag">
+                                  <?php 
+                                  $terms = the_terms(get_the_ID(), 'campaign_category');
+                                  if ($terms && !is_wp_error($terms)) : ?>
+                                      <p><?php echo esc_html($terms[0]->name); ?></p>
+                                  <?php endif; ?>
                                 </div>
-                                <div class="page-campaign-card__price-pop">
-                                    <p class="page-campaign-card__price-text">全部コミコミ(お一人様)</p>
-                                    <div class="page-campaign-card__price-box">
-                                        <p class="page-campaign-card__price-before">¥<?php echo esc_html(get_field('actual-price')); ?></p>
-                                        <p class="page-campaign-card__price-after">¥<?php echo esc_html(get_field('campaign-price')); ?></p>
-                                    </div>
+                                <div class="page-campaign-card__content-title">
+                                  <p><?php the_title(); ?></p>
                                 </div>
+                              </div>
+                              <div class="page-campaign-card__price-pop">
+                                <p class="page-campaign-card__price-text">全部コミコミ(お一人様)</p>
+                                <div class="page-campaign-card__price-box">
+                                  <p class="page-campaign-card__price-before">¥<?php echo esc_html(get_field('actual-price')); ?></p>
+                                  <p class="page-campaign-card__price-after">¥<?php echo esc_html(get_field('campaign-price')); ?></p>
+                                </div>
+                              </div>
                                 <div class="u-desktop">
-                                    <div class="page-campaign-card__message">
-                                        <p><?php the_content(); ?></p>
-                                    </div>
-                                    <div class="page-campaign-card__comment">
-                                        <p class="page-campaign-card__date"><?php echo esc_html(get_field('reservation-period__campaign')); ?></p>
-                                        <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
-                                    </div>
-                                    <div class="page-campaign-card__button">
-                                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
-                                    </div>
+                                  <div class="page-campaign-card__message">
+                                      <p><?php the_content(); ?></p>
+                                  </div>
+                                  <div class="page-campaign-card__comment">
+                                      <p class="page-campaign-card__date"><?php echo esc_html(get_field('reservation-period__campaign')); ?></p>
+                                      <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
+                                  </div>
+                                  <div class="page-campaign-card__button">
+                                      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
+                                  </div>
                                 </div>
                             </div>
                         </div>

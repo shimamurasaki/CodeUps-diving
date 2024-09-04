@@ -8,7 +8,6 @@
       <?php
         // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
         $args = array(
-          'post_type'      => 'post',
           'posts_per_page' => 3, // 3記事表示
           'meta_key'       => 'post_views_count', // クリック数のカスタムフィールド
           'orderby'        => 'meta_value_num', // カスタムフィールドの値で並び替え
