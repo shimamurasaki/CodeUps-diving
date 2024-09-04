@@ -900,16 +900,9 @@ a {
 	gap: 2.5rem;
 }
 
-.top-footer {
-	margin-top: 6.25rem;
-}
-
-.no-top-footer {
-	margin-top: -1px!important;
-}
-
 .footer {
 	background-color: #408F95;
+	margin-top: 6.25rem;
 	padding-bottom: 3.5rem;
 	padding-top: 3rem;
 }
@@ -950,16 +943,6 @@ a {
 	font-family: "Gotu", sans-serif;
 	font-size: 0.75rem;
 	line-height: 1.5;
-}
-
-input.wpcf7-not-valid, textarea.wpcf7-not-valid {
-	background: rgba(201,72,0,0.2);
-	color: #FFF;
-	border: 1px solid #C94800;
-}
-
-input.wpcf7-not-valid::placeholder {
-	color: #FFF;
 }
 
 .form__item {
@@ -1004,7 +987,7 @@ input::placeholder {
 	margin-top: 1rem;
 }
 
-.form__checkbox wpcf7-list-item-label {
+.form__checkbox label {
 	display: block;
 }
 
@@ -1019,93 +1002,24 @@ input::placeholder {
 	text-align: center;
 }
 
-.wpcf7-spinner {
-	display: none!important;
+.form__error {
+	display: none;
+	justify-content: center;
 }
 
-input[type="submit"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-size: 0.875rem;
-  font-family: "Gotu", sans-serif;
-  line-height: 1.571;
-  width: 12.625rem;
-  padding: 1.125rem 3.375rem 1rem 0;
-  border: 1px solid #408F95;
-  background-color: #408F95;
-  color: #FFF;
-  position: relative;
-  cursor: pointer;
-	z-index: 1;
+.form__error p {
+	color: #C94800;
+	font-size: 0.875rem;
+	padding-left: 1em;
+	text-align: left;
+	text-indent: -1em;
 }
 
-.submit-button span {
-  display: inline-block;
-  position: absolute;
-  width: 2.5rem;
-  height: 0.375rem;
-  border-bottom: 1px solid #FFF;
-  border-right: 1px solid #FFF;
-  transform: skew(45deg);
-  margin-left: 0.3125rem;
-  margin-top: 0.3125rem;
-  z-index: 5;
-	top: 0;
-  right: 0;
-  bottom: 0;
-  left: 3rem;
-  margin: auto;
-}
-
-.submit-button:hover span {
-  border-bottom: 1px solid #408F95;
-  border-right: 1px solid #408F95;
-}
-
-.submit-button:hover input[type="submit"] {
-  color: #408F95;
-	background-color: #FFF;
-}
-
-input[type="submit"]:hover::after {
-  transform: scale(1, 1);
-}
-
-.submit-button {
-  display: inline-block; /*インラインブロック要素にする*/
-  position: relative;
-}
-
-.submit-button::before {
-  content: "";
-  display: inline-block;
-  border: 1px solid #408F95;
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-  right: -0.25rem;
-  bottom: -0.25rem;
-  z-index: -1;
-}
-
-.submit-button::after {
-  background-color: #FFF;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  transform: scale(0, 1);
-  transform-origin: left top;
-  transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
-  z-index: -1;
-}
-
-.form__content {
-	margin-top: 2.5rem;
+.form__input.error input,
+.form__textarea.error textarea,
+.form__checkbox.error input {
+	background-color: rgba(201, 72, 0, 0.2);
+	border: 1px solid #C94800;
 }
 
 .form__input.error input::-moz-placeholder {
@@ -1160,7 +1074,11 @@ textarea:focus {
 	width: 100%;
 }
 
-[type=checkbox] + .wpcf7-list-item-label {
+[type=checkbox] {
+	display: none;
+}
+
+[type=checkbox] + .info {
 	color: #0d2936;
 	cursor: pointer;
 	display: inline-block;
@@ -1172,7 +1090,7 @@ textarea:focus {
 	transition: 0.3s ease;
 }
 
-[type=checkbox] + .wpcf7-list-item-label::before {
+[type=checkbox] + .info::before {
 	background: #fff;
 	border: 1px solid #408F95;
 	content: "";
@@ -1183,15 +1101,14 @@ textarea:focus {
 	top: 50%;
 	transform: translateY(-50%);
 	width: 0.875rem;
-	pointer-events: none; /* この要素がクリックイベントを受け取らないようにする */
 }
 
-[type=checkbox] + .wpcf7-list-item-label::after {
+[type=checkbox] + .info::after {
 	opacity: 0;
 	transition: 0.3s ease;
 }
 
-[type=checkbox]:checked + .wpcf7-list-item-label::after {
+[type=checkbox]:checked + .info::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	content: "";
@@ -1205,7 +1122,56 @@ textarea:focus {
 	top: 50%; /*チェックマークじゃない場合は以下を変更する*/
 	transform: translateY(-50%) rotate(-45deg);
 	width: 0.7875rem;
-	pointer-events: none; /* この要素がクリックイベントを受け取らないようにする */
+}
+
+[type=checkbox] {
+	display: none;
+}
+
+[type=checkbox] + .agree {
+	color: #0d2936;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1;
+	padding: 0 0 0 2.375rem;
+	position: relative;
+	transition: 0.3s ease;
+}
+
+[type=checkbox] + .agree::before {
+	background: #fff;
+	border: 1px solid #408F95;
+	content: "";
+	display: block;
+	height: 1.375rem;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.375rem;
+}
+
+[type=checkbox] + .agree::after {
+	opacity: 0;
+	transition: 0.3s ease;
+}
+
+[type=checkbox]:checked + .agree::after {
+	border-bottom: 2px solid #C94800;
+	border-left: 2px solid #C94800;
+	content: "";
+	display: block;
+	height: 0.6875rem;
+	left: 0;
+	margin-left: 0.1em;
+	margin-top: -0.1em;
+	opacity: 1;
+	position: absolute;
+	top: 50%; /*チェックマークじゃない場合は以下を変更する*/
+	transform: translateY(-50%) rotate(-45deg);
+	width: 1.2375rem;
 }
 
 select { /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
@@ -1741,7 +1707,7 @@ textarea {
 
 .page-404__content {
 	color: #fff;
-	font-family: "Lato", sans-serif;
+	font-family: sub-english-font-family;
 	font-weight: 400;
 	text-align: center;
 }
@@ -1914,13 +1880,10 @@ textarea {
 }
 
 .page-campaign__card-list {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.page-campaign__content {
-	justify-content: center;
-  display: flex;
+	align-items: center;
+	display: grid;
+	justify-items: center;
+	place-items: center;
 }
 
 .page-campaign__content-item + .page-campaign__content-item {
@@ -2783,12 +2746,11 @@ textarea {
 .wp-pagenavi {
 	display: flex;
 	justify-content: center;
-	gap: 1.5rem;
 }
 
-.wp-pagenavi .page,
-.wp-pagenavi .previouspostslink,
-.wp-pagenavi .nextpostslink {
+.wp-pagenavi__prev,
+.wp-pagenavi__number,
+.wp-pagenavi__next {
 	align-items: center;
 	background-color: #FFF;
 	border: 1px solid #408F95;
@@ -2805,38 +2767,72 @@ textarea {
 	width: 2.375rem;
 }
 
-.wp-pagenavi .page:hover{
+.wp-pagenavi__prev:hover,
+.wp-pagenavi__number:hover,
+.wp-pagenavi__next:hover {
 	background-color: #408F95;
 	color: #fff;
 }
 
-.wp-pagenavi a {
+.wp-pagenavi__number a {
 	display: block;
 }
 
-.wp-pagenavi .current {
-	align-items: center;
+.wp-pagenavi__number + .wp-pagenavi__number {
+	margin-left: 0.75rem;
+}
+
+.wp-pagenavi__number.current {
 	background-color: #408F95;
-	border: 1px solid #408F95;
 	color: #FFF;
-	cursor: pointer;
-	display: inline-flex;
-	font-family: "Lato", sans-serif;
-	font-size: 1rem;
-	font-weight: bold;
-	height: 2.375rem;
-	justify-content: center;
-	position: relative;
-	transition: 0.3s ease;
-	width: 2.375rem;
 }
 
-.page-navi a[title="ページ 5"] {
+.wp-pagenavi__number.pc-only {
 	display: none;
 }
 
-.page-navi a[title="ページ 6"] {
-	display: none;
+.wp-pagenavi__prev {
+	margin-right: 2.5rem;
+}
+
+.wp-pagenavi__prev::before {
+	border: 0;
+	border-right: solid 1px #408F95;
+	border-top: solid 1px #408F95;
+	content: "";
+	height: 0.625rem;
+	left: 0.9375rem;
+	position: absolute;
+	transform: rotate(225deg);
+	width: 0.625rem;
+}
+
+.wp-pagenavi__prev:hover::before {
+	border-right: solid 1px #fff;
+	border-top: solid 1px #fff;
+	content: "";
+}
+
+.wp-pagenavi__next {
+	margin-left: 2.5rem;
+}
+
+.wp-pagenavi__next::before {
+	border: 0;
+	border-right: solid 1px #408F95;
+	border-top: solid 1px #408F95;
+	content: "";
+	height: 0.625rem;
+	position: absolute;
+	right: 0.9375rem;
+	transform: rotate(45deg);
+	width: 0.625rem;
+}
+
+.wp-pagenavi__next:hover::before {
+	border-right: solid 1px #fff;
+	border-top: solid 1px #fff;
+	content: "";
 }
 
 @media screen and (min-width: 768px) {
@@ -3199,11 +3195,8 @@ html {
 	padding: 2.4375rem;
 }
 
-.top-footer {
-	margin-top: 10rem;
-}
-
 .footer {
+	margin-top: 10rem;
 	padding: 5rem 0;
 }
 
@@ -3580,14 +3573,9 @@ select {
 }
 
 .page-campaign__card-list {
-	display: grid;
 	grid-column-gap: 2.5rem;
 	grid-row-gap: 5rem;
 	grid-template-columns: repeat(2, 1fr);
-}
-
-.page-campaign__content {
-  display: inline-block;
 }
 
 .page-campaign__content-item + .page-campaign__content-item {
@@ -3951,18 +3939,10 @@ select {
 	margin-top: 5rem;
 }
 
-.page-navi a[title="ページ 5"],
-.page-navi a[title="ページ 6"] {
-	display: flex;
+.wp-pagenavi__number.pc-only {
 	align-items: center;
-}
-
-.wp-pagenavi .previouspostslink {
-	margin-right: 2.5rem;
-}
-
-.wp-pagenavi .nextpostslink {
-	margin-left: 2.5rem;
+	display: inline-flex;
+	justify-content: center;
 }
 
 }
