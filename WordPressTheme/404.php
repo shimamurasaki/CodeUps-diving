@@ -2,11 +2,7 @@
 <div class="page-404">
   <div class="page-404__inner inner">
     <!-- パンくずリスト -->
-    <div class="breadcrumb top-breadcrumb">
-      <div class="breadcrumb__inner--white inner">
-        <?php get_template_part('parts/breadcrumb'); ?>
-      </div>
-    </div>
+    <?php get_template_part('parts/breadcrumb'); ?>
 
     <div class="page-404__image">
       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/404_whale.png" alt="">

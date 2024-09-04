@@ -100,10 +100,7 @@
                             </div>
                         </div>
                     </div>
-                <?php endwhile; 
-            endif; 
-            // リセットポストデータ
-            wp_reset_postdata(); ?>
+                <?php endwhile; endif; ?>
         </div>
       </div>
     </div>

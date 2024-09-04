@@ -16,11 +16,7 @@
 </section>
 
 <!-- パンくずリスト -->
-<div class="breadcrumb top-breadcrumb">
-  <div class="breadcrumb__inner inner">
-    <?php get_template_part('parts/breadcrumb'); ?>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb'); ?>
 
 <div class="page-campaign top-sub-contents">
   <div class="page-campaign__inner inner">
@@ -101,10 +97,7 @@
                             </div>
                         </div>
                     </div>
-                <?php endwhile; 
-            endif; 
-            // リセットポストデータ
-            wp_reset_postdata(); ?>
+                <?php endwhile; endif;?>
         </div>
       </div>
     </div>

@@ -106,9 +106,7 @@
               <?php endwhile; 
           else : ?>
               <p>現在お客様の声はありません。</p>
-          <?php endif; 
-          // リセットポストデータ
-          wp_reset_postdata(); ?>
+          <?php endif;?>
         </div>
       </div>
     </div>
