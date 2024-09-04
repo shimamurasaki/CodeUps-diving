@@ -15,11 +15,7 @@
 </section>
 
 <!-- パンくずリスト -->
-<div class="breadcrumb top-breadcrumb">
-  <div class="breadcrumb__inner inner">
-    <?php get_template_part('parts/breadcrumb'); ?>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb'); ?>
 
 <div class="page-siteMAP top-sub-contents">
   <div class="page-siteMAP__inner inner">

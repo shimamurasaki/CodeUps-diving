@@ -18,11 +18,7 @@
 </section>
 
 <!-- パンくずリスト -->
-<div class="breadcrumb top-breadcrumb">
-  <div class="breadcrumb__inner inner">
-    <?php get_template_part('parts/breadcrumb'); ?>  <!-- パンくずリストのテンプレートを読み込む -->
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb'); ?>
 
 <div class="sub-blog top-sub-contents">
   <div class="sub-blog__inner inner">

@@ -15,11 +15,7 @@
 </section>
 
 <!-- パンくずリスト -->
-<div class="breadcrumb top-breadcrumb">
-  <div class="breadcrumb__inner inner">
-    <?php get_template_part('parts/breadcrumb'); ?>
-  </div>
-</div>
+<?php get_template_part('parts/breadcrumb'); ?>
 
 <div class="page-price top-sub-contents">
   <div class="page-price__inner inner">
