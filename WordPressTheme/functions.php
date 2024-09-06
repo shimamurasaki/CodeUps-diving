@@ -11,10 +11,10 @@ function custom_enqueue_scripts() {
     wp_enqueue_style('custom-style', get_theme_file_uri('/assets/css/style.css'));
 
     // jQuery
-    wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), null, true);
+    wp_enqueue_script( 'jquery-js', '//code.jquery.com/jquery-3.6.0.js', array(), '1.1.1', true );
 
     // jQuery inView Plugin
-    wp_enqueue_script('jquery-inview', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inview/1.0.0/jquery.inview.min.js', array('jquery'), null, true);
+    wp_enqueue_script( 'inview-js', get_template_directory_uri() . '/assets/js/jquery.inview.min.js', array( 'jquery' ), '1.1.1', true );
 
     // Swiper JS
     wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);

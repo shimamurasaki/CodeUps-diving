@@ -119,7 +119,6 @@
 </section>
 
 
-
 <section class="about top-about" id="about">
   <div class="about__inner inner">
     <div class="about__header">
@@ -152,6 +151,7 @@
   </div>
 </section>
 
+
 <section class="information top-information" id="information">
   <div class="information__inner inner">
     <div class="information__header">
@@ -161,7 +161,7 @@
       </div>
     </div>
     <div class="information__contents">
-      <div class="information__image">
+      <div class="information__image colorbox js-colorbox">
         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/common/information.jpg' ); ?>" alt="海の中を泳ぐ魚たち">
       </div>
       <div class="information__content">
@@ -176,6 +176,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="blog blog-bg" id="blog">
   <div class="blog__inner inner">
@@ -292,7 +293,7 @@
                       <p><?php the_title(); ?></p>
                     </div>
                   </div>
-                  <div class="guest-card__image">
+                  <div class="guest-card__image colorbox js-colorbox">
                     <?php if (has_post_thumbnail()) : ?>
                       <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
                     <?php else : ?>
@@ -330,7 +331,7 @@
       </div>
     </div>
     <div class="price__contents">
-      <div class="price__image">
+      <div class="price__image colorbox js-colorbox">
         <picture>
           <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" alt="海中のウミガメ">
