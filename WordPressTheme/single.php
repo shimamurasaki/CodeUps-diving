@@ -40,39 +40,39 @@
 
         <!-- WPページナビゲーション -->
         <?php 
-    // 前の投稿を取得
-    $prev = get_previous_post(); 
-    // 前の投稿のパーマリンクを取得（前の投稿が存在する場合）
-    $prev_url = $prev ? get_permalink($prev->ID) : '#'; 
-    // 次の投稿を取得
-    $next = get_next_post(); 
-    // 次の投稿のパーマリンクを取得（次の投稿が存在する場合）
-    $next_url = $next ? get_permalink($next->ID) : '#'; 
-?>
-
-<div class="page-navi inner">
-  <div class="wp-pagenavi">
-    <div class="wp-pagenavi__prev">
-      <!-- 前の投稿が存在する場合リンクを表示 -->
-      <?php if($prev): ?>
-        <a class="page smaller" href="<?php echo esc_url($prev_url); ?>">＜</a>
-      <?php endif; ?>
-    </div>
-    <div class="wp-pagenavi__next">
-      <!-- 次の投稿が存在する場合リンクを表示 -->
-      <?php if($next): ?>
-        <a class="page smaller" href="<?php echo esc_url($next_url); ?>">＞</a>
-      <?php endif; ?>
-    </div>
-  </div>
-</div>
-
+            // 前の投稿を取得
+            $prev = get_previous_post(); 
+            // 前の投稿のパーマリンクを取得（前の投稿が存在する場合）
+            $prev_url = $prev ? get_permalink($prev->ID) : '#'; 
+            // 次の投稿を取得
+            $next = get_next_post(); 
+            // 次の投稿のパーマリンクを取得（次の投稿が存在する場合）
+            $next_url = $next ? get_permalink($next->ID) : '#'; 
+        ?>
+        <div class="page-navi inner">
+          <div class="wp-pagenavi">
+            <div class="wp-pagenavi__prev">
+              <!-- 前の投稿が存在する場合リンクを表示 -->
+              <?php if($prev): ?>
+                <a class="page smaller" href="<?php echo esc_url($prev_url); ?>">＜</a>
+              <?php endif; ?>
+            </div>
+            <div class="wp-pagenavi__next">
+              <!-- 次の投稿が存在する場合リンクを表示 -->
+              <?php if($next): ?>
+                <a class="page smaller" href="<?php echo esc_url($next_url); ?>">＞</a>
+              <?php endif; ?>
+            </div>
+          </div>
+        </div>
         <?php endwhile; endif; ?>
-
       </div>
 
       <!-- サイドバー -->
-      <?php get_sidebar(); ?>
+      <div class="sub-blog__sidebar">
+        <?php get_sidebar(); ?>  <!-- サイドバー部分のテンプレートを読み込む -->
+      </div>
+
     </div>
   </div>
 </div>

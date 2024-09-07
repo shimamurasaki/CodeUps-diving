@@ -20,12 +20,12 @@
 <div class="page-faq top-sub-contents">
   <div class="page-faq__inner inner">
     <div class="page-faq__accordion faq-boxes">
-    <?php $faq = SCF::get('faq'); foreach ($faq as $fields ) { ?>  
+    <?php $faq = SCF::get('faq'); foreach ($faq as $fields ) : ?>  
       <div class="faq-boxes__item faq-box">
         <h2 class="faq-box__question js-accordion-title"><?php echo esc_html( $fields['faq-question'] ); ?></h2>
         <div class="faq-box__answer js-accordion-content"><?php echo esc_html( $fields['faq-answer'] ); ?></div>
       </div>
-    <?php } ?>
+    <?php endforeach; ?>
     </div>
   </div>
 </div>

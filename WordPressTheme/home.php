@@ -22,8 +22,8 @@
 
 <div class="sub-blog top-sub-contents">
   <div class="sub-blog__inner inner">
-    <div class="sub-blog__content">
-      <div class="home-blog__content">
+    <div class="sub-blog__contents">
+      <div class="sub-blog__content">
         <div class="card-list card-list--2col">
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="card-list__item card-list--2col__item">
@@ -44,24 +44,23 @@
                 <div class="blog-card__text">
                   <p><?php the_excerpt(); ?></p>
                 </div>
-              </div> 
+              </div>
             </a>
           <?php endwhile; else : ?>
             <p>投稿が見つかりませんでした。</p>
           <?php endif; ?>
         </div><!-- .card-list -->
-
         <!-- WPページナビゲーション -->
-        <div class="page-navi">
+        <div class="sub-blog__page-navi page-navi">
           <div class="page-navi__inner">
             <?php wp_pagenavi(); ?>
           </div>
         </div>
-
       </div>
-
       <!-- サイドバー -->
-      <?php get_sidebar(); ?>  <!-- サイドバー部分のテンプレートを読み込む -->
+      <div class="sub-blog__sidebar">
+        <?php get_sidebar(); ?>  <!-- サイドバー部分のテンプレートを読み込む -->
+      </div>
     </div>
   </div>
 </div>

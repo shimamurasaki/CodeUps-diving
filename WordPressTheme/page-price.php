@@ -27,12 +27,12 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price_whale.png" alt="">
         </div>
         <table>
-          <?php $license = SCF::get('license'); foreach ($license as $fields ) { ?>
+          <?php $license = SCF::get('license'); foreach ($license as $fields ) : ?>
             <tr>
               <td class="title"><?php echo esc_html( $fields['license-content'] ); ?></td>
               <td class="money">¥<?php echo esc_html( $fields['license-price'] ); ?></td>
             </tr>
-          <?php } ?>
+          <?php endforeach; ?>
         </table>
       </div>
 
@@ -42,12 +42,12 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price_whale.png" alt="">
         </div>
         <table>
-        <?php $trialDiving = SCF::get('trial-diving'); foreach ($trialDiving as $fields ) { ?>
+        <?php $trialDiving = SCF::get('trial-diving'); foreach ($trialDiving as $fields ) : ?>
             <tr>
               <td class="title"><?php echo esc_html( $fields['trial-diving-content'] ); ?></td>
               <td class="money">¥<?php echo esc_html( $fields['trial-diving-price'] ); ?></td>
             </tr>
-          <?php } ?>
+          <?php endforeach; ?>
         </table>
       </div>
 
@@ -57,12 +57,12 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price_whale.png" alt="">
         </div>
         <table>
-        <?php $funDiving = SCF::get('fun-diving'); foreach ($funDiving as $fields ) { ?>
+        <?php $funDiving = SCF::get('fun-diving'); foreach ($funDiving as $fields ) : ?>
             <tr>
               <td class="title"><?php echo esc_html( $fields['fun-diving-content'] ); ?></td>
               <td class="money">¥<?php echo esc_html( $fields['fun-diving-price'] ); ?></td>
             </tr>
-        <?php } ?>
+        <?php endforeach; ?>
         </table>
       </div>
 
@@ -72,12 +72,12 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-price_whale.png" alt="">
         </div>
         <table>
-        <?php $specialDiving = SCF::get('special-diving'); foreach ($specialDiving as $fields ) { ?>
+        <?php $specialDiving = SCF::get('special-diving'); foreach ($specialDiving as $fields ) : ?>
             <tr>
               <td class="title"><?php echo esc_html( $fields['special-diving-content'] ); ?></td>
               <td class="money">¥<?php echo esc_html( $fields['special-diving-price'] ); ?></td>
             </tr>
-        <?php } ?>
+        <?php endforeach; ?>
         </table>
       </div>
       

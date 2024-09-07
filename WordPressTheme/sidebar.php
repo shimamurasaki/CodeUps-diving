@@ -127,29 +127,29 @@
   </div>
 
   <div class="sidebar__box">
-  <h2 class="sidebar__header">
-    <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ
-  </h2>
-  <div class="sidebar__content">
-    <div class="toggle-list">
-      <?php
-      $archives = get_custom_archives();
-      foreach ($archives as $year => $months) :
-      ?>
-        <p class="toggle-list__title jsToggleTitle"><?php echo $year; ?></p>
-        <div class="toggle-list__content">
-          <?php foreach ($months as $month_data) : ?>
-            <p class="toggle-list__title--child">
-              <a href="<?php echo esc_url($month_data['url']); ?>">
-                <?php echo $month_data['month'] . '月'; ?>
-              </a>
-            </p>
-          <?php endforeach; ?>
-        </div>
-      <?php endforeach; ?>
+    <h2 class="sidebar__header">
+      <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ
+    </h2>
+    <div class="sidebar__content">
+      <div class="toggle-list">
+        <?php
+        $archives = get_custom_archives();
+        foreach ($archives as $year => $months) :
+        ?>
+          <p class="toggle-list__title jsToggleTitle"><?php echo $year; ?></p>
+          <div class="toggle-list__content">
+            <?php foreach ($months as $month_data) : ?>
+              <p class="toggle-list__title--child">
+                <a href="<?php echo esc_url($month_data['url']); ?>">
+                  <?php echo $month_data['month'] . '月'; ?>
+                </a>
+              </p>
+            <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
-</div>
 
 
 </aside>

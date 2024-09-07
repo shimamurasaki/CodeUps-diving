@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.sub-blog__contents {
+  display: flex;
+}
+
 .sub-blog__content {
   display: flex;
   flex-direction: column;
@@ -13,3 +17,6 @@
   }
 }
 
+.sub-blog__sidebar {
+  width: rem(294);
+}

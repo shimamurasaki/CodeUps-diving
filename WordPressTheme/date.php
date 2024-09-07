@@ -23,41 +23,38 @@
 <div class="sub-blog top-sub-contents">
   <div class="sub-blog__inner inner">
     <div class="sub-blog__content">
-      <div class="home-blog__content">
-        <div class="card-list card-list--2col">
-          <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <a href="<?php the_permalink(); ?>" class="card-list__item card-list--2col__item">
-              <div class="blog-card">
-                <div class="blog-card__image blog-card--home__image">
-                  <?php if (has_post_thumbnail()) : ?>
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
-                  <?php else : ?>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>のアイキャッチ画像">
-                  <?php endif; ?>
+      <div class="card-list card-list--2col">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="card-list__item card-list--2col__item">
+            <div class="blog-card">
+              <div class="blog-card__image blog-card--home__image">
+                <?php if (has_post_thumbnail()) : ?>
+                  <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                <?php else : ?>
+                  <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/common/default.jpg" alt="<?php the_title(); ?>のアイキャッチ画像">
+                <?php endif; ?>
+              </div>
+              <div class="blog-card__content">
+                <div class="blog-card__header">
+                  <time datetime="<?php the_time('c'); ?>" class="blog-card__date"><?php the_time('Y.m/d'); ?></time>
+                  <p class="blog-card__title"><?php the_title(); ?></p>
                 </div>
-                <div class="blog-card__content">
-                  <div class="blog-card__header">
-                    <time datetime="<?php the_time('c'); ?>" class="blog-card__date"><?php the_time('Y.m/d'); ?></time>
-                    <p class="blog-card__title"><?php the_title(); ?></p>
-                  </div>
-                </div>
-                <div class="blog-card__text">
-                  <p><?php the_excerpt(); ?></p>
-                </div>
-              </div> 
-            </a>
-          <?php endwhile; else : ?>
-            <p>投稿が見つかりませんでした。</p>
-          <?php endif; ?>
-        </div><!-- .card-list -->
+              </div>
+              <div class="blog-card__text">
+                <p><?php the_excerpt(); ?></p>
+              </div>
+            </div> 
+          </a>
+        <?php endwhile; else : ?>
+          <p>投稿が見つかりませんでした。</p>
+        <?php endif; ?>
+      </div><!-- .card-list -->
 
-        <!-- WPページナビゲーション -->
-        <div class="page-navi">
-          <div class="page-navi__inner">
-            <?php wp_pagenavi(); ?>
-          </div>
+      <!-- WPページナビゲーション -->
+      <div class="page-navi">
+        <div class="page-navi__inner">
+          <?php wp_pagenavi(); ?>
         </div>
-
       </div>
 
       <!-- サイドバー -->

@@ -341,45 +341,45 @@
         <div class="price__list">
           <div class="price__list-items">
             <p class="price__list-title">ライセンス講習</p>
-            <?php $license = SCF::get('license' , 11); foreach ($license as $fields ) { ?>
+            <?php $license = SCF::get('license' , 11); foreach ($license as $fields ) : ?>
             <ul class="price__list-item">
               <li><?php echo esc_html( $fields['license-content'] ); ?></li>
               <li class="price__money">¥<?php echo esc_html( $fields['license-price'] ); ?></li>
             </ul>
-            <?php } ?>
+            <?php endforeach; ?>
           </div>
         </div>
         <div class="price__list">
           <div class="price__list-items">
             <p class="price__list-title">体験ダイビング</p>
-            <?php $trialDiving = SCF::get('trial-diving' , 11); foreach ($trialDiving as $fields ) { ?>
+            <?php $trialDiving = SCF::get('trial-diving' , 11); foreach ($trialDiving as $fields ) : ?>
             <ul class="price__list-item">
               <li><?php echo esc_html( $fields['trial-diving-content'] ); ?></li>
               <li class="price__money">¥<?php echo esc_html( $fields['trial-diving-price'] ); ?></li>
             </ul>
-            <?php } ?>
+            <?php endforeach; ?>
           </div>
         </div>
         <div class="price__list">
           <div class="price__list-items">
             <p class="price__list-title">ファンダイビング</p>
-            <?php $funDiving = SCF::get('fun-diving' , 11); foreach ($funDiving as $fields ) { ?>
+            <?php $funDiving = SCF::get('fun-diving' , 11); foreach ($funDiving as $fields ) : ?>
             <ul class="price__list-item">
               <li><?php echo esc_html( $fields['fun-diving-content'] ); ?></li>
               <li class="price__money">¥<?php echo esc_html( $fields['fun-diving-price'] ); ?></li>
             </ul>
-            <?php } ?>
+            <?php endforeach; ?>
           </div>
         </div>
         <div class="price__list">
           <div class="price__list-items">
             <p class="price__list-title">スペシャルダイビング</p>
-            <?php $specialDiving = SCF::get('special-diving' , 11); foreach ($specialDiving as $fields ) { ?>
+            <?php $specialDiving = SCF::get('special-diving' , 11); foreach ($specialDiving as $fields ) : ?>
             <ul class="price__list-item">
               <li><?php echo esc_html( $fields['special-diving-content'] ); ?></li>
               <li class="price__money">¥<?php echo esc_html( $fields['special-diving-price'] ); ?></li>
             </ul>
-            <?php } ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div><!-- price__content -->
