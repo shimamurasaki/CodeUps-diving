@@ -50,18 +50,18 @@
               // 次の投稿のパーマリンクを取得（次の投稿が存在する場合）
               $next_url = $next ? get_permalink($next->ID) : '#';
           ?>
-          <div class="page-navi inner">
-            <div class="wp-pagenavi">
-              <div class="wp-pagenavi__prev">
+          <div class="page-navi">
+            <div class="page-navi__inner inner">
+              <div class="page-navi__prev">
                 <!-- 前の投稿が存在する場合リンクを表示 -->
                 <?php if($prev): ?>
-                  <a class="page smaller" href="<?php echo esc_url($prev_url); ?>"></a>
+                  <a class="previouspostslink" href="<?php echo esc_url($prev_url); ?>"></a>
                 <?php endif; ?>
               </div>
-              <div class="wp-pagenavi__next">
+              <div class="page-navi__next">
                 <!-- 次の投稿が存在する場合リンクを表示 -->
                 <?php if($next): ?>
-                  <a class="page smaller" href="<?php echo esc_url($next_url); ?>"></a>
+                  <a class="nextpostslink" href="<?php echo esc_url($next_url); ?>"></a>
                 <?php endif; ?>
               </div>
             </div>

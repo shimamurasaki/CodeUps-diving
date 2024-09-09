@@ -1090,7 +1090,8 @@ textarea:focus {
 	display: none;
 }
 
-.wpcf7-list-item [type=checkbox] + .info {
+.wpcf7-list-item [type=checkbox] + .info,
+.wpcf7-list-item [type=checkbox] + .agree {
 	color: #0d2936;
 	cursor: pointer;
 	display: inline-block;
@@ -1102,7 +1103,8 @@ textarea:focus {
 	transition: 0.3s ease;
 }
 
-.wpcf7-list-item [type=checkbox] + .info::before {
+.wpcf7-list-item [type=checkbox] + .info::before,
+.wpcf7-list-item [type=checkbox] + .agree::before {
 	background: #fff;
 	border: 1px solid #408F95;
 	content: "";
@@ -1115,12 +1117,14 @@ textarea:focus {
 	width: 0.875rem;
 }
 
-.wpcf7-list-item [type=checkbox] + .info::after {
+.wpcf7-list-item [type=checkbox] + .info::after,
+.wpcf7-list-item [type=checkbox] + .agree::after {
 	opacity: 0;
 	transition: 0.3s ease;
 }
 
-.wpcf7-list-item [type=checkbox]:checked + .info::after {
+.wpcf7-list-item [type=checkbox]:checked + .info::after,
+.wpcf7-list-item [type=checkbox]:checked + .agree::after {
 	border-bottom: 2px solid #C94800;
 	border-left: 2px solid #C94800;
 	content: "";
@@ -1131,59 +1135,9 @@ textarea:focus {
 	margin-top: -0.1em;
 	opacity: 1;
 	position: absolute;
-	top: 50%; /*チェックマークじゃない場合は以下を変更する*/
+	top: 50%;
 	transform: translateY(-50%) rotate(-45deg);
 	width: 0.7875rem;
-}
-
-.wpcf7-list-item [type=checkbox] {
-	display: none;
-}
-
-.wpcf7-list-item [type=checkbox] + .agree {
-	color: #0d2936;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 0.875rem;
-	font-weight: 400;
-	line-height: 1;
-	padding: 0 0 0 2.375rem;
-	position: relative;
-	transition: 0.3s ease;
-}
-
-.wpcf7-list-item [type=checkbox] + .agree::before {
-	background: #fff;
-	border: 1px solid #408F95;
-	content: "";
-	display: block;
-	height: 1.375rem;
-	left: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 1.375rem;
-}
-
-.wpcf7-list-item [type=checkbox] + .agree::after {
-	opacity: 0;
-	transition: 0.3s ease;
-}
-
-.wpcf7-list-item [type=checkbox]:checked + .agree::after {
-	border-bottom: 2px solid #C94800;
-	border-left: 2px solid #C94800;
-	content: "";
-	display: block;
-	height: 0.6875rem;
-	left: 0;
-	margin-left: 0.1em;
-	margin-top: -0.1em;
-	opacity: 1;
-	position: absolute;
-	top: 50%; /*チェックマークじゃない場合は以下を変更する*/
-	transform: translateY(-50%) rotate(-45deg);
-	width: 1.2375rem;
 }
 
 select { /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
@@ -1209,10 +1163,6 @@ select { /*↓デフォルトのアイコンを消す場合はコメントアウ
 
 select:focus {
 	border: 1px solid #0d2936;
-}
-
-option {
-	width: 100%;
 }
 
 textarea {
@@ -1922,6 +1872,11 @@ textarea {
 
 .page-navi {
 	margin-top: 5rem;
+}
+
+.page-navi__prev,
+.page-navi__next {
+	display: inline-block;
 }
 
 .page-price {
@@ -2807,7 +2762,7 @@ textarea {
 	display: block;
 }
 
-.current {
+.wp-pagenavi .current {
 	align-items: center;
 	background-color: #408F95;
 	border: 1px solid #408F95;

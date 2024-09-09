@@ -175,145 +175,89 @@ textarea {
 }
 
 .wpcf7-list-item [type="checkbox"] {
-	display: none;
+  display: none;
 
-	+ .info {
-		display: inline-block;
-		position: relative;
-		padding: 0 0 0 calc($check-size + $check-space);
-		font-size: $check-fz;
-		font-weight: $regular;
-		color: $navyBlue;
-		line-height: 1;
-		cursor: pointer;
-		transition: 0.3s ease;
+  + .info, + .agree {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 calc($check-size + $check-space); // ここは「.agree」だけ異なるので個別指定が必要
+    font-size: $check-fz;
+    font-weight: $regular;
+    color: $navyBlue;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
 
-		&::before {
-			position: absolute;
-			content: "";
-			top: 50%;
-			left: 0;
-			transform: translateY(-50%);
-			background: $check-bg-cr;
-			border: 1px solid $check-border-cr;
-			width: $check-size;
-			height: $check-size;
-			display: block;
-		}
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background: $check-bg-cr;
+      border: 1px solid $check-border-cr;
+      width: $check-size;
+      height: $check-size;
+      display: block;
+    }
 
-		&::after {
-			opacity: 0;
-			transition: 0.3s ease;
-		}
-	}
+    &::after {
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+  }
 
-	&:checked + .info {
-		&::after {
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: 0;
-			display: block;
-			opacity: 1;
-			/*チェックマークじゃない場合は以下を変更する*/
-			transform: translateY(-50%) rotate(-45deg);
-			width: calc($check-size * 0.9);
-			height: calc($check-size * 0.5);
-			margin-top: -0.1em;
-			margin-left: 0.1em;
-			border-left: $check-weight solid $check-bg-cr-inner;
-			border-bottom: $check-weight solid $check-bg-cr-inner;
-		}
-	}
+  &:checked + .info::after,
+  &:checked + .agree::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    opacity: 1;
+    transform: translateY(-50%) rotate(-45deg);
+    width: calc($check-size * 0.9);
+    height: calc($check-size * 0.5);
+    margin-top: -0.1em;
+    margin-left: 0.1em;
+    border-left: $check-weight solid $check-bg-cr-inner;
+    border-bottom: $check-weight solid $check-bg-cr-inner;
+  }
 }
 
-.wpcf7-list-item [type="checkbox"] {
-	display: none;
-
-	+ .agree {
-		display: inline-block;
-		position: relative;
-		padding: 0 0 0 calc($check-size-ag + $check-space-ag);
-		font-size: $check-fz-ag;
-		font-weight: $regular;
-		color: $navyBlue;
-		line-height: 1;
-		cursor: pointer;
-		transition: 0.3s ease;
-
-		&::before {
-			position: absolute;
-			content: "";
-			top: 50%;
-			left: 0;
-			transform: translateY(-50%);
-			background: $check-bg-cr;
-			border: 1px solid $check-border-cr;
-			width: $check-size-ag;
-			height: $check-size-ag;
-			display: block;
-		}
-
-		&::after {
-			opacity: 0;
-			transition: 0.3s ease;
-		}
-	}
-
-	&:checked + .agree {
-		&::after {
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: 0;
-			display: block;
-			opacity: 1;
-			/*チェックマークじゃない場合は以下を変更する*/
-			transform: translateY(-50%) rotate(-45deg);
-			width: calc($check-size-ag * 0.9);
-			height: calc($check-size-ag * 0.5);
-			margin-top: -0.1em;
-			margin-left: 0.1em;
-			border-left: $check-weight solid $check-bg-cr-inner;
-			border-bottom: $check-weight solid $check-bg-cr-inner;
-		}
-	}
-}
 
 select {
-	/*↓リセットCSS */
-	border-radius: 0;
-	font-family: inherit;
-	color: inherit;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	/*↓カスタム */
+  /*↓リセットCSS */
+  border-radius: 0;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  /*↓カスタム */
   margin-top: rem(10);
-	font-size: rem(12);
-	padding: $padding-und $padding-lnr;
-	background-color: $back-cr;
+  font-size: rem(12);
+  padding: $padding-und $padding-lnr;
+  background-color: $back-cr;
   border: 1px solid $border-cr-default;
-	/*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
-	appearance: none;
-	/*↓デフォルトではないアイコンを使う場合は入力する*/
-	background-image: url(../images/common/Polygon.png);
-	background-position: right rem(5) top rem(12);
-	background-repeat: no-repeat;
-	background-size: rem(12);
-	&:focus {
-		border: 1px solid $border-cr;
-	}
-	@include mq(md){
+  /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
+  appearance: none;
+  /*↓デフォルトではないアイコンを使う場合は入力する*/
+  background-image: url(../images/common/Polygon.png);
+  background-position: right rem(5) top rem(12);
+  background-repeat: no-repeat;
+  background-size: rem(12);
+  
+  &:focus {
+    border: 1px solid $border-cr;
+  }
+  
+  @include mq(md) {
     margin-top: 0;
   }
 }
 
-option {
-	width: 100%;
-}
-
 textarea {
-	height: $textarea-height;
+  height: $textarea-height;
   width: 100%;
 }

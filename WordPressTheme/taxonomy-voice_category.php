@@ -23,7 +23,9 @@
     <div class="archive-voice__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-        <li class="tab-menu__item"><a href="<?php echo esc_url(home_url()); ?>">ALL</a></li>
+        <li class="tab-menu__item">
+        <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">ALL</a>
+        </li>
         <?php 
         $args = array(
             'taxonomy' => 'voice_category', // タクソノミー名
@@ -64,9 +66,7 @@
                                       if ($user_terms && !is_wp_error($user_terms)) :
                                           foreach ($user_terms as $term) : ?>
                                               <p><?php echo esc_html($term->name); ?></p>
-                                          <?php endforeach;
-                                      else : ?>
-                                          <p>ユーザーのタームが見つかりません。</p>
+                                          <?php endforeach;?>
                                       <?php endif; ?>
                                       </div>
                                       <div class="guest-card__tag">
@@ -76,9 +76,7 @@
                                       if ($voice_terms && !is_wp_error($voice_terms)) :
                                           foreach ($voice_terms as $term) : ?>
                                               <p><?php echo esc_html($term->name); ?></p>
-                                          <?php endforeach;
-                                      else : ?>
-                                          <p>カテゴリーのタームが見つかりません。</p>
+                                          <?php endforeach;?>
                                       <?php endif; ?>
                                       </div>
                                   </div>

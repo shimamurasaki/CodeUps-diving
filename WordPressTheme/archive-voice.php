@@ -23,7 +23,9 @@
     <div class="archive-voice__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-        <li class="tab-menu__item current"><a href="<?php echo esc_url(home_url()); ?>">ALL</a></li>
+        <li class="tab-menu__item current">
+          <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>">ALL</a>
+        </li>
         <?php 
         $args = array(
             'taxonomy' => 'voice_category', // タクソノミー名
