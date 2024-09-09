@@ -20,12 +20,20 @@
 <div class="page-faq top-sub-contents">
   <div class="page-faq__inner inner">
     <div class="page-faq__accordion faq-boxes">
-    <?php $faq = SCF::get('faq'); foreach ($faq as $fields ) : ?>  
-      <div class="faq-boxes__item faq-box">
-        <h2 class="faq-box__question js-accordion-title"><?php echo esc_html( $fields['faq-question'] ); ?></h2>
-        <div class="faq-box__answer js-accordion-content"><?php echo esc_html( $fields['faq-answer'] ); ?></div>
-      </div>
-    <?php endforeach; ?>
+      <?php 
+        $faq = SCF::get('faq'); // SCFからFAQデータを取得
+        if ($faq) {
+          foreach ($faq as $fields) :
+              // 質問と答えの両方が存在するか確認
+              if ($fields['faq-question'] && $fields['faq-answer']) : ?>
+                  <div class="faq-boxes__item faq-box">
+                      <h2 class="faq-box__question js-accordion-title"><?php echo esc_html( $fields['faq-question'] ); ?></h2>
+                      <div class="faq-box__answer js-accordion-content"><?php echo esc_html( $fields['faq-answer'] ); ?></div>
+                  </div>
+              <?php endif;
+          endforeach;
+        } 
+      ?>
     </div>
   </div>
 </div>

@@ -6,17 +6,22 @@
 
 .sub-blog__contents {
   display: flex;
+  flex-direction: column;
+  gap: rem(80);
+  @include mq(md){
+    flex-direction: row;
+  }
 }
 
 .sub-blog__content {
   display: flex;
   flex-direction: column;
-  @include mq(md){
-    flex-direction: row;
-    gap: rem(80);
-  }
 }
 
 .sub-blog__sidebar {
-  width: rem(294);
+  width: 100%;
+  margin: 0 auto;
+  @include mq(md){
+    width: rem(294);
+  }
 }

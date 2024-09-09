@@ -53,6 +53,9 @@
 .page-campaign-card__content-header {
   padding-bottom: rem(8);
   border-bottom: 1px solid $skyBlue;
+  display: flex;
+  flex-direction: column;
+  gap: rem(5);
   @include mq(md){
     padding-bottom: rem(6);
   }
@@ -71,7 +74,20 @@
   }
 }
 
-.page-campaign-card__content-title p {
+.page-campaign-card__tag a {
+  display: inline-block;
+  font-size: rem(12);
+  font-weight: $regular;
+  line-height: 1.833;
+  color: $skyBlue;
+  padding: rem(3) rem(11);
+  border: 1px solid $skyBlue;
+  @include mq("md") {
+    padding: rem(6) rem(16);
+  }
+}
+
+.page-campaign-card__content-title {
   display: inline-block;
   font-size: rem(16);
   font-weight: $medium;

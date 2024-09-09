@@ -174,7 +174,7 @@ textarea {
   width: 100%;
 }
 
-[type="checkbox"] {
+.wpcf7-list-item [type="checkbox"] {
 	display: none;
 
 	+ .info {
@@ -227,7 +227,7 @@ textarea {
 	}
 }
 
-[type="checkbox"] {
+.wpcf7-list-item [type="checkbox"] {
 	display: none;
 
 	+ .agree {

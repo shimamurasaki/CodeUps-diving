@@ -23,7 +23,9 @@
     <div class="page-campaign__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-        <li class="tab-menu__item"><a href="<?php echo esc_url(home_url()); ?>">ALL</a></li>
+        <li class="tab-menu__item current">
+          <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">ALL</a>
+        </li>
         <?php 
         $args = array(
             'taxonomy' => 'campaign_category', // タクソノミー名
@@ -60,27 +62,36 @@
                             <div class="page-campaign-card__content">
                                 <div class="page-campaign-card__content-header">
                                     <div class="page-campaign-card__tag">
-                                        <?php 
-                                        // 投稿に関連付けられたタクソノミーのタームを取得
-                                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                                        if ($terms && !is_wp_error($terms)) {
-                                            // 最初のターム名を取得して表示
-                                            $term_name = $terms[0]->name;
-                                            echo '<p>' . esc_html($term_name) . '</p>';
-                                        }
-                                        ?>
+                                    <?php 
+                                    $terms = get_the_terms(get_the_ID(), 'campaign_category'); 
+                                    if ($terms && !is_wp_error($terms)) : 
+                                        $term_name = $terms[0]->name; ?>
+                                        <p><?php echo esc_html($term_name); ?></p>
+                                    <?php endif; ?>
                                     </div>
                                     <div class="page-campaign-card__content-title">
                                         <p><?php the_title(); ?></p>
                                     </div>
                                 </div>
+
+                                <?php 
+                                $actual_price = get_field('actual-price');
+                                $campaign_price = get_field('campaign-price');
+                                // 値が空でないことを確認し、数値にキャストする
+                                if (!empty($actual_price) && !empty($campaign_price)):
+                                    // 数値にキャスト
+                                    $actual_price = (float) $actual_price;
+                                    $campaign_price = (float) $campaign_price;
+                                ?>
                                 <div class="page-campaign-card__price-pop">
                                     <p class="page-campaign-card__price-text">全部コミコミ(お一人様)</p>
                                     <div class="page-campaign-card__price-box">
-                                        <p class="page-campaign-card__price-before">¥<?php echo esc_html(get_field('actual-price')); ?></p>
-                                        <p class="page-campaign-card__price-after">¥<?php echo esc_html(get_field('campaign-price')); ?></p>
+                                        <p class="page-campaign-card__price-before">¥<?php echo esc_html(number_format($actual_price)); ?></p>
+                                        <p class="page-campaign-card__price-after">¥<?php echo esc_html(number_format($campaign_price)); ?></p>
                                     </div>
                                 </div>
+                                <?php endif; ?>
+
                                 <div class="u-desktop">
                                     <div class="page-campaign-card__message">
                                         <p><?php the_content(); ?></p>

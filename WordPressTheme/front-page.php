@@ -35,7 +35,7 @@
     </div> <!-- .swiper-wrapper -->
   </div> <!-- .swiper -->
 
-    <!-- Swiperコンテナ終了 -->
+  <!-- Swiperコンテナ終了 -->
   </div>
 </section>
 
@@ -275,18 +275,16 @@
                         endif; ?>
                       </div>
                       <div class="guest-card__tag">
-                        <?php 
-                        // 現在の投稿に紐付けられた'term'を取得
-                        $terms = get_the_terms(get_the_ID(), 'voice_category'); 
-                        // デバッグ用に取得したタームを出力
-                        error_log(print_r($terms, true));
-                        if ($terms && !is_wp_error($terms)) :
-                            foreach ($terms as $term) : ?>
-                                <p><?php echo esc_html($term->name); ?></p>
-                            <?php endforeach;
-                        else :
-                            echo '<p>タームが見つかりません。</p>';
-                        endif; ?>
+                      <?php 
+                      $terms = get_the_terms(get_the_ID(), 'voice_category'); 
+                      error_log(print_r($terms, true)); 
+                      if ($terms && !is_wp_error($terms)) : 
+                          foreach ($terms as $term) : ?>
+                              <p><?php echo esc_html($term->name); ?></p>
+                          <?php endforeach; 
+                      else : ?>
+                          <p>タームが見つかりません。</p>
+                      <?php endif; ?>
                       </div>
                     </div>
                     <div class="guest-card__title">

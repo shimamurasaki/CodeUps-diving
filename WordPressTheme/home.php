@@ -12,7 +12,7 @@
       </picture>
     </div>
     <div class="sub-mv__header">
-      <h1 class="sub-mv__title">blog</h1>  <!-- ページのタイトル -->
+      <h1 class="sub-mv__title">blog</h1>
     </div>
   </div>
 </section>

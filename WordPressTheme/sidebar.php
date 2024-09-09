@@ -9,8 +9,7 @@
         // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
         $args = array(
           'posts_per_page' => 3, // 3記事表示
-          'meta_key'       => 'post_views_count', // クリック数のカスタムフィールド
-          'orderby'        => 'meta_value_num', // カスタムフィールドの値で並び替え
+          'orderby'        => 'date', 
           'order'          => 'DESC' // 降順で表示
         );
         $my_query = new WP_Query($args);
@@ -60,15 +59,12 @@
                 <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
             </div>
             <div class="review-card__tag">
-                <?php
-                // 投稿に関連付けられたタクソノミーのタームを取得
-                $terms = get_the_terms(get_the_ID(), 'user');
-                if ($terms && !is_wp_error($terms)) {
-                    // 最初のターム名を取得して表示
-                    $term_name = $terms[0]->name;
-                    echo '<p class="guest-card__info">' . esc_html($term_name) . '</p>';
-                }
-                ?>
+            <?php 
+            $terms = get_the_terms(get_the_ID(), 'user'); 
+            if ($terms && !is_wp_error($terms)) {
+                $term_name = $terms[0]->name; ?>
+                <p class="guest-card__info"><?php echo esc_html($term_name); ?></p>
+            <?php } ?>
             </div>
             <div class="review-card__title">
                 <p><?php the_title(); ?></p>
