@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 <!-- 下層ページのメインビュー -->
 
+<?php if( !is_user_logged_in() && !is_bot() ) { setPostViews( get_the_ID() ); } ?>
+
 <section class="sub-mv">
   <div class="sub-mv__inner">
     <div class="sub-mv__img">
@@ -23,10 +25,7 @@
     <div class="sub-blog__contents">
       <div class="sub-blog__content">
         <?php if (have_posts()): while (have_posts()): the_post();
-        if( !is_user_logged_in() && !is_bot() ) { //クローラーとログイン時のアクセスを閲覧数カウントから除外
-          setPostViews( get_the_ID() );
-          $views = get_post_meta(get_the_ID(), 'post_views_count', true);
-        }
+        if( !is_user_logged_in() && !is_bot() ) { setPostViews( get_the_ID() ); }
         ?>
         <div class="single-blog">
           <div class="single-blog__header">
@@ -52,17 +51,13 @@
           ?>
           <div class="page-navi">
             <div class="page-navi__inner inner">
-              <div class="page-navi__prev">
-                <!-- 前の投稿が存在する場合リンクを表示 -->
-                <?php if($prev): ?>
-                  <a class="previouspostslink" href="<?php echo esc_url($prev_url); ?>"></a>
-                <?php endif; ?>
-              </div>
-              <div class="page-navi__next">
-                <!-- 次の投稿が存在する場合リンクを表示 -->
-                <?php if($next): ?>
-                  <a class="nextpostslink" href="<?php echo esc_url($next_url); ?>"></a>
-                <?php endif; ?>
+              <div class="page-navi__">
+              <?php if (get_previous_post()):?>
+                <?php previous_post_link('%link', '<'); ?>
+              <?php endif; ?>
+              <?php if (get_next_post()):?>
+                <?php next_post_link('%link', '>'); ?>
+              <?php endif; ?>
               </div>
             </div>
           </div>

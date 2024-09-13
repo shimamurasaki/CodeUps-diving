@@ -640,6 +640,10 @@ a {
 	color: #408F95;
 }
 
+.common-button:hover .wpcf7-submit {
+	color: #408F95;
+}
+
 .common-button:hover span {
 	border-bottom: 1px solid #408F95;
 	border-right: 1px solid #408F95;
@@ -953,12 +957,14 @@ a {
 }
 
 .form__item {
-	border-bottom: 1px dotted #408F95;
+	border-bottom: 0.0625rem dashed #408F95;
+	display: flex;
+	flex-direction: column;
 	padding-bottom: 1.5rem;
 }
 
 .form__item + .form__item {
-	margin-top: 2.5rem;
+	margin-top: 1.375rem;
 }
 
 .form__item dt {
@@ -1027,9 +1033,9 @@ input::placeholder {
 	text-indent: -1em;
 }
 
-.form__input.error input,
-.form__textarea.error textarea,
-.form__checkbox.error input {
+[type=input].error,
+[type=textarea].error,
+[type=checkbox].error {
 	background-color: rgba(201, 72, 0, 0.2);
 	border: 1px solid #C94800;
 }
@@ -1086,58 +1092,42 @@ textarea:focus {
 	width: 100%;
 }
 
-.wpcf7-list-item [type=checkbox] {
-	display: none;
-}
-
-.wpcf7-list-item [type=checkbox] + .info,
-.wpcf7-list-item [type=checkbox] + .agree {
-	color: #0d2936;
+[type=checkbox] + span {
 	cursor: pointer;
 	display: inline-block;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1;
 	padding: 0 0 0 1.375rem;
 	position: relative;
-	transition: 0.3s ease;
 }
 
-.wpcf7-list-item [type=checkbox] + .info::before,
-.wpcf7-list-item [type=checkbox] + .agree::before {
-	background: #fff;
-	border: 1px solid #408F95;
+[type=checkbox] + span::before {
+	background-color: #fff;
+	border: 0.0625rem solid #408F95;
 	content: "";
 	display: block;
 	height: 0.875rem;
 	left: 0;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 0.3125rem;
 	width: 0.875rem;
 }
 
-.wpcf7-list-item [type=checkbox] + .info::after,
-.wpcf7-list-item [type=checkbox] + .agree::after {
-	opacity: 0;
-	transition: 0.3s ease;
-}
-
-.wpcf7-list-item [type=checkbox]:checked + .info::after,
-.wpcf7-list-item [type=checkbox]:checked + .agree::after {
-	border-bottom: 2px solid #C94800;
-	border-left: 2px solid #C94800;
+[type=checkbox] + span::after {
+	border-bottom: 0.125rem solid #C94800;
+	border-left: 0.125rem solid #C94800;
 	content: "";
 	display: block;
-	height: 0.4375rem;
-	left: 0;
-	margin-left: 0.1em;
-	margin-top: -0.1em;
-	opacity: 1;
+	height: 0.3125rem;
+	left: 0.1875rem;
+	opacity: 0;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%) rotate(-45deg);
-	width: 0.7875rem;
+	top: 0.5rem;
+	transform: rotate(-45deg);
+	transition: 0.3s;
+	width: 0.5625rem;
+}
+
+[type=checkbox]:checked + span::after {
+	opacity: 1;
 }
 
 select { /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/
@@ -1168,6 +1158,25 @@ select:focus {
 textarea {
 	height: 12.5rem;
 	width: 100%;
+}
+
+.wpcf7 form .wpcf7-response-output {
+	border: none;
+	color: #C94800;
+	text-align: center;
+}
+
+.wpcf7-submit {
+	color: #fff;
+}
+
+.wpcf7-spinner {
+	opacity: 0;
+	visibility: inherit;
+}
+
+.wpcf7-not-valid-tip {
+	display: none;
 }
 
 .gallery__contents {
@@ -1860,6 +1869,10 @@ textarea {
 
 .page-contact {
 	position: relative;
+}
+
+.page-contact__error {
+	display: none;
 }
 
 .page-faq {
@@ -2787,38 +2800,8 @@ textarea {
 	margin-right: 1.75rem;
 }
 
-.previouspostslink::before {
-	border: 0;
-	border-right: solid 1px #408F95;
-	border-top: solid 1px #408F95;
-	content: "";
-	height: 0.625rem;
-	left: 0.9375rem;
-	position: absolute;
-	transform: rotate(225deg);
-	width: 0.625rem;
-}
-
-.previouspostslink:hover::before {
-	border-right: solid 1px #fff;
-	border-top: solid 1px #fff;
-	content: "";
-}
-
 .nextpostslink {
 	margin-left: 1.75rem;
-}
-
-.nextpostslink::before {
-	border: 0;
-	border-right: solid 1px #408F95;
-	border-top: solid 1px #408F95;
-	content: "";
-	height: 0.625rem;
-	position: absolute;
-	right: 0.9375rem;
-	transform: rotate(45deg);
-	width: 0.625rem;
 }
 
 .nextpostslink:hover::before {
@@ -3230,9 +3213,15 @@ html {
 }
 
 .form__item {
-	align-items: start;
-	display: flex;
+	-moz-column-gap: 2.4375rem;
+	column-gap: 2.4375rem;
+	flex-direction: row;
+	justify-content: space-between;
 	padding-bottom: 2.5rem;
+}
+
+.form__item + .form__item {
+	margin-top: 2.4375rem;
 }
 
 .form__item dt {

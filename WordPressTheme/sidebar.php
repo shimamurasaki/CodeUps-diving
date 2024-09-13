@@ -5,18 +5,20 @@
       <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>人気記事
     </h2>
     <div class="sidebar__content">
-      <?php
-        // 人気記事をクリック数の多い順に取得するためのクエリ引数を設定
-        $args = array(
-          'posts_per_page' => 3, // 3記事表示
-          'orderby'        => 'date', 
-          'order'          => 'DESC' // 降順で表示
-        );
-        $my_query = new WP_Query($args);
-        if ($my_query->have_posts()) :
-      ?>
+    <?php
+      $loopcounter = 0;
+      $args = array(
+        'post_type' => 'post',
+        'meta_key'=> 'post_views_count',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC',
+        'posts_per_page' => 3
+      );
+      $the_view_query = new WP_Query($args);
+      if($the_view_query->have_posts()):
+    ?>
       <div class="popularity-blog">
-        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+        <?php while($the_view_query->have_posts()): $the_view_query->the_post(); $loopcounter++; ?>
           <a href="<?php echo esc_url(get_permalink()); ?>" class="popularity-blog__link">
             <div class="popularity-blog__card">
               <div class="popularity-blog__image">
@@ -30,7 +32,7 @@
           </a>
         <?php endwhile; ?>
       </div>
-      <?php endif; wp_reset_postdata(); ?>
+    <?php endif; wp_reset_postdata();?>
     </div>
   </div>
 
@@ -79,8 +81,6 @@
 </div>
 
 
-
-
   <div class="sidebar__box">
     <h2 class="sidebar__header"><span><img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sidebar_whale.png" alt="クジライラスト"></span>キャンペーン</h2>
     <div class="sidebar__content">
@@ -122,6 +122,7 @@
     </div>
   </div>
 
+  
   <div class="sidebar__box">
     <h2 class="sidebar__header">
       <span><img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/sidebar_whale.png')); ?>" alt="クジライラスト"></span>アーカイブ

@@ -1,17 +1,23 @@
 @use "global" as *;
 
 .form__item {
-	padding-bottom: rem(24);
-	border-bottom: 1px dotted $skyBlue;
-	@include mq(md){
-    display: flex;
-		align-items: start;
-		padding-bottom: rem(40);
+	display: flex;
+  flex-direction: column;
+  padding-bottom: rem(24);
+  border-bottom: rem(1) dashed $skyBlue;
+  @include mq(md){
+    column-gap: rem(39);
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: rem(40);
   }
 }
 
 .form__item + .form__item {
-	margin-top: rem(40);
+	margin-top: rem(22);
+  @include mq(md){
+    margin-top: rem(39);
+  }
 }
 
 .form__item dt {
@@ -93,9 +99,9 @@ input::placeholder {
   padding-left: 1em;
 }
 
-.form__input.error input,
-.form__textarea.error textarea,
-.form__checkbox.error input {
+[type="input"].error ,
+[type="textarea"].error ,
+[type="checkbox"].error {
   border: 1px solid #C94800;
   background-color: rgba(201, 72, 0, 0.2);
 }
@@ -174,57 +180,44 @@ textarea {
   width: 100%;
 }
 
-.wpcf7-list-item [type="checkbox"] {
-  display: none;
 
-  + .info, + .agree {
-    display: inline-block;
-    position: relative;
-    padding: 0 0 0 calc($check-size + $check-space); // ここは「.agree」だけ異なるので個別指定が必要
-    font-size: $check-fz;
-    font-weight: $regular;
-    color: $navyBlue;
-    line-height: 1;
-    cursor: pointer;
-    transition: 0.3s ease;
-
-    &::before {
-      position: absolute;
-      content: "";
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      background: $check-bg-cr;
-      border: 1px solid $check-border-cr;
-      width: $check-size;
-      height: $check-size;
-      display: block;
-    }
-
-    &::after {
-      opacity: 0;
-      transition: 0.3s ease;
-    }
-  }
-
-  &:checked + .info::after,
-  &:checked + .agree::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    display: block;
-    opacity: 1;
-    transform: translateY(-50%) rotate(-45deg);
-    width: calc($check-size * 0.9);
-    height: calc($check-size * 0.5);
-    margin-top: -0.1em;
-    margin-left: 0.1em;
-    border-left: $check-weight solid $check-bg-cr-inner;
-    border-bottom: $check-weight solid $check-bg-cr-inner;
-  }
+[type="checkbox"] + span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 0 rem(22);
+  position: relative;
 }
 
+[type="checkbox"] + span::before {
+  content: "";
+  position: absolute;
+  top: rem(5);
+  left: 0;
+  background-color: $white;
+  border: rem(1) solid $skyBlue;
+  display: block;
+  width: rem(14);
+  height: rem(14);
+}
+
+[type="checkbox"] + span::after {
+  content: "";
+  position: absolute;
+  top: rem(8);
+  left: rem(3);
+  transform: rotate(-45deg);
+  display: block;
+  width: rem(9);
+  height: rem(5);
+  border-bottom: rem(2) solid #C94800;
+  border-left: rem(2) solid #C94800;
+  transition:  .3s;
+  opacity: 0;
+}
+
+[type="checkbox"]:checked + span::after {
+  opacity: 1;
+}
 
 select {
   /*↓リセットCSS */
@@ -260,4 +253,23 @@ select {
 textarea {
   height: $textarea-height;
   width: 100%;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  border: none;
+  text-align: center;
+  color: #C94800;
+}
+
+.wpcf7-submit {
+  color: $white;
+}
+
+.wpcf7-spinner {
+  visibility: unset;
+  opacity: 0;
+}
+
+.wpcf7-not-valid-tip {
+  display: none;
 }

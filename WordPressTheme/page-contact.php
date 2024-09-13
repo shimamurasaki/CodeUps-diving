@@ -19,9 +19,16 @@
 
 <div class="page-contact top-sub-contents">
   <div class="page-contact__inner inner">
-    <div class="form">
-      <?php echo do_shortcode('[contact-form-7 id="2438d9c" title="お問い合わせ"]'); ?>
-    </div>
+    <p class="form__error">
+      ※必須項目が入力されていません。<br class="u-mobile">入力してください。
+    </p>
+    <p class="form__error">
+      ※必須項目がチェックされていません。<br class="u-mobile">選択してください。
+    </p>
+    <p class="form__error">
+      ※個人情報の取り扱いについて同意がされていません。<br class="u-mobile">チェックしてください。
+    </p>
+    <?php echo do_shortcode('[contact-form-7 id="2438d9c" title="お問い合わせ"]'); ?>
   </div>
 </div>
 <?php get_footer(); ?>

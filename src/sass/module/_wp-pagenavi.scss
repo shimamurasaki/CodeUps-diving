@@ -66,39 +66,39 @@
   margin-right: rem(28);
 }
 
-.previouspostslink::before {
-  content: '';
-  width: rem(10);
-  height: rem(10);
-  border: 0;
-  border-top: solid 1px $skyBlue;
-  border-right: solid 1px $skyBlue;
-  transform: rotate(225deg);
-  position: absolute;
-  left: rem(15);
-}
+// .previouspostslink::before {
+//   content: '';
+//   width: rem(10);
+//   height: rem(10);
+//   border: 0;
+//   border-top: solid 1px $skyBlue;
+//   border-right: solid 1px $skyBlue;
+//   transform: rotate(225deg);
+//   position: absolute;
+//   left: rem(15);
+// }
 
-.previouspostslink:hover::before {
-  content: '';
-  border-top: solid 1px $white;
-  border-right: solid 1px $white;
-}
+// .previouspostslink:hover::before {
+//   content: '';
+//   border-top: solid 1px $white;
+//   border-right: solid 1px $white;
+// }
 
 .nextpostslink {
   margin-left: rem(28);
 }
 
-.nextpostslink::before {
-  content: '';
-  width: rem(10);
-  height: rem(10);
-  border: 0;
-  border-top: solid 1px $skyBlue;
-  border-right: solid 1px $skyBlue;
-  transform: rotate(45deg);
-  position: absolute;
-  right: rem(15);
-}
+// .nextpostslink::before {
+//   content: '';
+//   width: rem(10);
+//   height: rem(10);
+//   border: 0;
+//   border-top: solid 1px $skyBlue;
+//   border-right: solid 1px $skyBlue;
+//   transform: rotate(45deg);
+//   position: absolute;
+//   right: rem(15);
+// }
 
 .nextpostslink:hover::before {
   content: '';

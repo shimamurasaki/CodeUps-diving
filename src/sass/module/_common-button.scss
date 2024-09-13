@@ -59,6 +59,10 @@
   color: $skyBlue;
 }
 
+.common-button:hover .wpcf7-submit {
+  color: $skyBlue;
+}
+
 .common-button:hover span {
   border-bottom: 1px solid $skyBlue;
   border-right: 1px solid $skyBlue;

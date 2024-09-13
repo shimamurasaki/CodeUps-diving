@@ -24,6 +24,7 @@ function custom_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
 
+
 function my_setup() {
     add_theme_support('post-thumbnails'); /* アイキャッチ */
     add_theme_support('automatic-feed-links'); /* RSSフィード */
@@ -41,6 +42,7 @@ function my_setup() {
 }
 add_action('after_setup_theme', 'my_setup');
 
+
 // アーカイブの表示件数変更
 function change_posts_per_page($query) {
     if (is_admin() || !$query->is_main_query()) {
@@ -52,6 +54,7 @@ function change_posts_per_page($query) {
 }
 add_action('pre_get_posts', 'change_posts_per_page');
 
+
 // 管理画面のメニュー「投稿」を「ブログ」に変更する
 function change_post_menu_label() {
     global $menu;
@@ -61,6 +64,7 @@ function change_post_menu_label() {
     $submenu['edit.php'][10][0] = '新しいブログ'; // サブメニュー「新規追加」を「新しいブログ」に変更
 }
 add_action('admin_menu', 'change_post_menu_label');
+
 
 // 管理画面の「投稿」ページのタイトルを変更する
 function change_post_object_label() {
@@ -79,8 +83,10 @@ function change_post_object_label() {
 }
 add_action('init', 'change_post_object_label');
 
+
 // Contact Form 7で自動挿入されるPタグ、brタグを削除
 add_filter('wpcf7_autop_or_not', '__return_false');
+
 
 // Contact Form 7にキャンペーンのタイトルを挿入
 add_filter('wpcf7_form_tag_data_option', 'custom_campaign_select_values', 10, 3);
@@ -115,6 +121,7 @@ function custom_campaign_select_values($values, $options, $args) {
     return $values;
 }
 
+
 // campaignとvoiceの投稿件数を制御
 function custom_campaign_posts_query($query) {
     // メインクエリのみを対象とする
@@ -132,51 +139,6 @@ function custom_campaign_posts_query($query) {
 }
 add_action('pre_get_posts', 'custom_campaign_posts_query');
 
-// 記事閲覧数を取得する
-function getPostViews($postID){
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-        return "0 View";
-    }
-    return $count.' Views';
-}
-
-// 記事閲覧数を保存する
-function setPostViews($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    } else {
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
-}
-
-// headに出力されるタグを削除(閲覧数を重複してカウントするのを防止するため)
-remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-
-// クローラーのアクセス判別
-function is_bot() {
-    // ボットのユーザーエージェントリストを定義
-    $bots = [
-        'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'Sogou',
-        'Exabot', 'facebot', 'ia_archiver'
-    ];
-
-    // ユーザーエージェントがボットリストに含まれているかチェック
-    foreach ($bots as $bot) {
-        if (stripos($_SERVER['HTTP_USER_AGENT'], $bot) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
 
 // 年と月を分けて取り出し、階層的に表示する
 function get_custom_archives() {
@@ -208,3 +170,200 @@ function get_custom_archives() {
     return $archives;
 }
 
+
+// 閲覧数セット
+function setPostViews($postID) {
+	$count_key = 'post_views_count';
+	$count = get_post_meta($postID, $count_key, true);
+
+	if($count==""){
+		$count = 0;
+		delete_post_meta($postID, $count_key);
+		add_post_meta($postID, $count_key, '0');
+	} else {
+		$count++;
+		update_post_meta($postID, $count_key, $count);
+	}
+}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// クローラーカウントしない場合は追加
+function is_bot() {
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	
+	$bot = array(
+		'Googlebot',
+		'Yahoo! Slurp',
+		'Mediapartners-Google',
+		'msnbot',
+		'bingbot',
+		'MJ12bot',
+		'Ezooms',
+		'pirst; MSIE 8.0;',
+		'Google Web Preview',
+		'ia_archiver',
+		'Sogou web spider',
+		'Googlebot-Mobile',
+		'AhrefsBot',
+		'YandexBot',
+		'Purebot',
+		'Baiduspider',
+		'UnwindFetchor',
+		'TweetmemeBot',
+		'MetaURI',
+		'PaperLiBot',
+		'Showyoubot',
+		'JS-Kit',
+		'PostRank',
+		'Crowsnest',
+		'PycURL',
+		'bitlybot',
+		'Hatena',
+		'facebookexternalhit',
+		'NINJA bot',
+		'YahooCacheSystem',
+		'NHN Corp.',
+		'Steeler',
+		'DoCoMo',
+	);
+
+	foreach( $bot as $bot ) {
+		if (stripos( $ua, $bot ) !== false){
+			return true;
+		}
+	}
+	
+	return false;	
+}
+
+// 閲覧数取得
+function getPostViews($postID){
+	$count_key = 'post_views_count';
+	$count = get_post_meta($postID, $count_key, true);
+
+	if($count==""){ //カウントがなければ0をセット
+		delete_post_meta($postID, $count_key);
+		add_post_meta($postID, $count_key, '0');
+		return "0 View";
+	}
+
+	return $count.' Views';
+}
+
+// 管理画面に閲覧数項目を追加する
+function count_add_column( $columns ) {
+    $columns['views'] = '閲覧数';
+    return $columns;
+}
+add_filter( 'manage_posts_columns', 'count_add_column' ); // 投稿ページに追加
+
+
+
+
+// 管理画面カスタマイズ -------------------------------------------------------------------------------------------------------------
+
+// ダッシュボードに追加
+function announce_add_dashboard_widgets() {
+    wp_add_dashboard_widget(
+      'announce_dashboard_widget',
+      'READ ME',
+      'announce_dashboard_widget_function'
+    );
+  }
+  function announce_dashboard_widget_function() {
+    echo '
+    <h2>注意事項</h2>
+    <p>パーマリンクは英語表記でお願いします。</p>
+    <hr>
+    <h2>更新マニュアル</h2>
+    <p>HTMLタグで自由な内容を書けます。ここにpdfファイルへのリンクを貼ることもできます。</p>
+    ';
+  }
+  add_action('wp_dashboard_setup', 'announce_add_dashboard_widgets');
+
+
+  // メニュー非表示
+  function remove_menus() {
+
+    // remove_menu_page( 'index.php' ); // ダッシュボード.
+    // remove_menu_page( 'edit.php' ); // 投稿.
+    remove_menu_page( 'upload.php' ); // メディア.
+    // remove_menu_page( 'edit.php?post_type=page' ); // 固定.
+    remove_menu_page( 'edit-comments.php' ); // コメント.
+    remove_menu_page( 'themes.php' ); // 外観.
+    remove_menu_page( 'plugins.php' ); // プラグイン.
+    remove_menu_page( 'users.php' ); // ユーザー.
+    remove_menu_page( 'tools.php' ); // ツール.
+    remove_menu_page( 'options-general.php' ); // 設定.
+    }
+    add_action( 'admin_menu', 'remove_menus', 999 );
+
+
+    // 表示名変更
+    add_action( 'admin_menu', 'customize_admin_menu_label', 9999 );
+    function customize_admin_menu_label(){
+    global $menu;
+    //print_r($menu);
+    $menu[2][0] = '管理画面TOP';
+    // $menu[5][0] = 'とうこう';
+    // $menu[10][0] = 'めでぃあ';
+    // $menu[20][0] = 'こていぺーじ';
+    // $menu[25][0] = 'こめんと';
+    // $menu[60][0] = 'がいかん';
+    // $menu[65][0] = 'ぷらぐいん';
+    // $menu[70][0] = 'ゆーざー';
+    // $menu[75][0] = 'つーる';
+    // $menu[80][0] = 'せってい';
+    }
+
+
+    // 管理バーの更新通知
+    add_action( 'wp_before_admin_bar_render', 'hide_before_admin_bar_render' ); 
+    function hide_before_admin_bar_render() { 
+    global $wp_admin_bar; $wp_admin_bar->remove_menu( 'updates' ); 
+    }
+
+
+    // WordPress本体のバージョンアップ通知
+    add_filter('pre_site_transient_update_core', '__return_zero'); // 
+    remove_action('wp_version_check', 'wp_version_check'); // 
+    remove_action('admin_init', '_maybe_update_core');
+
+
+    // プラグインアップデートの数値を消す
+    add_action('admin_menu', 'remove_counts'); 
+    function remove_counts(){ 
+    global $menu,$submenu; $menu[65][0] = 'プラグイン'; $submenu['index.php'][10][0] = 'Updates'; 
+    }
+
+
+    // カスタムメニュー追加
+    function add_page_to_admin_menu() {
+    add_menu_page( 'ギャラリー画像', 'ギャラリー画像', 'manage_options', 'post.php?post=70&action=edit', '', 'dashicons-format-gallery', 7);
+    add_menu_page( '料金一覧', '料金一覧', 'manage_options', 'post.php?post=11&action=edit', '', 'dashicons-money-alt', 8);
+    add_menu_page( 'よくある質問', 'よくある質問', 'manage_options', 'post.php?post=784&action=edit', '', 'dashicons-admin-users', 9);
+    }
+    add_action( 'admin_menu', 'add_page_to_admin_menu' );
+
+
+    // 投稿ページの本文入力できないようにする
+    add_action( 'init' , 'my_remove_post_support' );
+    function my_remove_post_support() {
+        remove_post_type_support('campaign','editor'); 
+        remove_post_type_support('voice','editor'); 
+        remove_post_type_support('about-us','editor'); 
+        remove_post_type_support('about-us','editor'); 
+        remove_post_type_support('about-us','editor'); 
+    }
+
+
+    // 固定ページの本文入力できないようにする
+    add_filter('use_block_editor_for_post',function($use_block_editor,$post){
+        if($post->post_type==='page'){
+            if(in_array($post->post_name,['top','about-us','price','faq','sidebar','thanks','contact','sitemap','information','blog'])){ 
+                remove_post_type_support('page','editor');
+                return false;
+            }
+        }
+        return $use_block_editor;
+    },10,2);
