@@ -1012,6 +1012,7 @@ input::placeholder {
 
 .form__privacyCheck {
 	margin-top: 2.5rem;
+	text-align: center;
 }
 
 .form__button {
