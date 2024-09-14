@@ -60,16 +60,19 @@
                               <div class="guest-card__content">
                                   <div class="guest-card__header">
                                       <div class="guest-card__info">
-                                      <?php 
-                                      // 現在の投稿に紐付けられた'term'を取得
-                                      $user_terms = get_the_terms(get_the_ID(), 'user'); 
-                                      if ($user_terms && !is_wp_error($user_terms)) :
-                                          foreach ($user_terms as $term) : ?>
-                                              <p><?php echo esc_html($term->name); ?></p>
-                                          <?php endforeach;
-                                      else : ?>
-                                          <p>ユーザーのタームが見つかりません。</p>
-                                      <?php endif; ?>
+                                        <?php
+                                          // ACFでvoice-infoグループ内のデータを取得
+                                          $voiceInfo = get_field('voice-info');
+                                          // voice-ageとvoice-sexの値を取得
+                                          $voiceAge = isset($voiceInfo['voice-age']) ? $voiceInfo['voice-age'] : '';
+                                          $voiceSex = isset($voiceInfo['voice-sex']) ? $voiceInfo['voice-sex'] : '';
+                                          // 年齢と性別を続けて表示
+                                          if ($voiceAge || $voiceSex) {
+                                              echo '<p>' . esc_html($voiceAge . '代 ' . '(' . $voiceSex. ')') . '</p>';
+                                          } else {
+                                              echo '<p>年齢や性別の情報がありません。</p>';
+                                          }
+                                        ?>
                                       </div>
                                       <div class="guest-card__tag">
                                       <?php 
@@ -97,7 +100,18 @@
                               </div>
                           </div>
                           <div class="guest-card__text">
-                              <p><?php the_content(); ?></p>
+                            <?php
+                            // ACFフィールドからデータを取得
+                            $voiceText = get_field('voice-text');
+                            // 170文字でトリム（マルチバイト文字対応）
+                            if ($voiceText) :
+                                // 日本語対応のため、mb_strimwidthを使って文字数をトリム
+                                $trimmed_content = mb_strimwidth($voiceText, 0, 400, '...');
+                                echo '<p>' . esc_html($trimmed_content) . '</p>';
+                            else :
+                                echo '<p>お客様の声がありません。</p>';
+                            endif;
+                            ?>
                           </div>
                       </div>
                   </div>

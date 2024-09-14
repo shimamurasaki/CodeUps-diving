@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <section class="mv">
-  <!-- BEM設計手法に基づくクラス名の使用 -->
   <div class="mv__inner">
     <div class="mv__header">
       <h1 class="mv__title">diving</h1>
@@ -9,35 +8,34 @@
     </div>
     <!-- Swiperコンテナ -->
     <div class="swiper mv__swiper js-mv-swiper">
-    <div class="swiper-wrapper mv__images">
-      <?php
-      // SCF（Smart Custom Fields）からmv-sliderフィールドの値を取得
-      $mvSlider = SCF::get('mv-slider');
-      // 取得したスライダーのデータをループ処理
-      foreach ($mvSlider as $fields) {
-        // PCおよびSP用のスライダー画像IDを取得
-        $sp_id = $fields['slider-sp'];
-        $pc_id = $fields['slider-pc'];
-        // 画像IDから画像URLを取得
-        $sp_url = wp_get_attachment_url($sp_id);
-        $pc_url = wp_get_attachment_url($pc_id);
-      ?>
-      <div class="swiper-slide mv__img">
-        <!-- pictureタグを使用して、レスポンシブ画像を表示 -->
-        <picture>
-          <!-- 768px以上の幅の画面ではPC用画像を表示 -->
-          <source srcset="<?php echo esc_url($pc_url); ?>" media="(min-width: 768px)">
-          <!-- デフォルトでSP用画像を表示 -->
-          <img src="<?php echo esc_url($sp_url); ?>" alt="Slider Image">
-        </picture>
-      </div>
-      <?php } ?>
-    </div> <!-- .swiper-wrapper -->
-  </div> <!-- .swiper -->
-
-  <!-- Swiperコンテナ終了 -->
+      <div class="swiper-wrapper mv__images">
+        <?php
+        // ACFでPC版・SP版の画像データを取得
+        $pcMvImages = get_field('pc-mv__image'); // PC版の画像配列
+        $spMvImages = get_field('sp-mv__image'); // SP版の画像配列
+        // 画像が存在する場合、最大4つの画像をループ処理で出力
+        for ($i = 1; $i <= 4; $i++) :
+          // PC版とSP版の画像URLを取得
+          $pcImage = isset($pcMvImages['pc-mv__image0'.$i]['url']) ? $pcMvImages['pc-mv__image0'.$i]['url'] : '';
+          $spImage = isset($spMvImages['sp-mv__image0'.$i]['url']) ? $spMvImages['sp-mv__image0'.$i]['url'] : '';
+          // PC版もしくはSP版の画像が存在する場合に表示
+          if ($pcImage || $spImage) : ?>
+            <div class="swiper-slide mv__img">
+              <!-- pictureタグを使用して、レスポンシブ画像を表示 -->
+              <picture>
+                <!-- 768px以上の幅の画面ではPC用画像を表示、PC画像がない場合SP画像を使用 -->
+                <source srcset="<?php echo esc_url($pcImage ? $pcImage : $spImage); ?>" media="(min-width: 768px)">
+                <!-- デフォルトでSP用画像を表示、SP画像がない場合PC画像を使用 -->
+                <img src="<?php echo esc_url($spImage ? $spImage : $pcImage); ?>" alt="Slider Image <?php echo $i; ?>">
+              </picture>
+            </div>
+        <?php endif; endfor; ?>
+      </div> <!-- .swiper-wrapper -->
+    </div> <!-- .swiper -->
+    <!-- Swiperコンテナ終了 -->
   </div>
 </section>
+
 
 
 <section class="campaign top-campaign" id="campaign">
@@ -95,8 +93,8 @@
                   <div class="campaign-card__price-pop">
                     <p class="campaign-card__price-text">全部コミコミ(お一人様)</p>
                     <div class="campaign-card__price-box">
-                      <p class="campaign-card__price-before">¥<?php the_field('actual-price'); ?></p>
-                      <p class="campaign-card__price-after">¥<?php the_field('campaign-price'); ?></p>
+                      <p class="campaign-card__price-before">¥<?php echo number_format(get_field('actual-price')); ?></p>
+                      <p class="campaign-card__price-after">¥<?php echo number_format(get_field('campaign-price')); ?></p>
                     </div>
                   </div>
                 </div>
@@ -261,18 +259,19 @@
                   <div class="guest-card__content">
                     <div class="guest-card__header">
                       <div class="guest-card__info">
-                        <?php 
-                        // 現在の投稿に紐付けられた'term'を取得
-                        $terms = get_the_terms(get_the_ID(), 'user'); 
-                        // デバッグ用に取得したタームを出力
-                        error_log(print_r($terms, true));
-                        if ($terms && !is_wp_error($terms)) :
-                            foreach ($terms as $term) : ?>
-                                <p><?php echo esc_html($term->name); ?></p>
-                            <?php endforeach;
-                        else :
-                            echo '<p>タームが見つかりません。</p>';
-                        endif; ?>
+                        <?php
+                        // ACFでvoice-infoグループ内のデータを取得
+                        $voiceInfo = get_field('voice-info');
+                        // voice-ageとvoice-sexの値を取得
+                        $voiceAge = isset($voiceInfo['voice-age']) ? $voiceInfo['voice-age'] : '';
+                        $voiceSex = isset($voiceInfo['voice-sex']) ? $voiceInfo['voice-sex'] : '';
+                        // 年齢と性別を続けて表示
+                        if ($voiceAge || $voiceSex) {
+                            echo '<p>' . esc_html($voiceAge . '代 ' . '(' . $voiceSex. ')') . '</p>';
+                        } else {
+                            echo '<p>年齢や性別の情報がありません。</p>';
+                        }
+                        ?>
                       </div>
                       <div class="guest-card__tag">
                       <?php 
@@ -300,7 +299,18 @@
                   </div>
                 </div>
                 <div class="guest-card__text">
-                  <p><?php echo wp_trim_words(get_the_content(), 170, ''); ?></p>
+                <?php
+                // ACFフィールドからデータを取得
+                $voiceText = get_field('voice-text');
+                // 170文字でトリム（マルチバイト文字対応）
+                if ($voiceText) :
+                    // 日本語対応のため、mb_strimwidthを使って文字数をトリム
+                    $trimmed_content = mb_strimwidth($voiceText, 0, 400, '...');
+                    echo '<p>' . esc_html($trimmed_content) . '</p>';
+                else :
+                    echo '<p>お客様の声がありません。</p>';
+                endif;
+                ?>
                 </div>
               </div>
             </div><!-- sheet-list__item -->

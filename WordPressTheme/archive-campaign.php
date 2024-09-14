@@ -62,11 +62,18 @@
                             <div class="page-campaign-card__content">
                               <div class="page-campaign-card__content-header">
                                 <div class="page-campaign-card__tag">
-                                  <?php 
-                                  $terms = the_terms(get_the_ID(), 'campaign_category');
-                                  if ($terms && !is_wp_error($terms)) : ?>
-                                      <p><?php echo esc_html($terms[0]->name); ?></p>
-                                  <?php endif; ?>
+                                <?php 
+                                // 現在の投稿に紐付けられた'term'を取得
+                                $terms = get_the_terms(get_the_ID(), 'campaign_category'); 
+                                // デバッグ用に取得したタームを出力
+                                error_log(print_r($terms, true));
+                                if ($terms && !is_wp_error($terms)) :
+                                    foreach ($terms as $term) : ?>
+                                        <p><?php echo esc_html($term->name); ?></p>
+                                    <?php endforeach;
+                                else :
+                                    echo '<p>タームが見つかりません。</p>';
+                                endif; ?>
                                 </div>
                                 <div class="page-campaign-card__content-title">
                                   <p><?php the_title(); ?></p>
@@ -92,12 +99,65 @@
                               <?php endif; ?>
                               
                                 <div class="u-desktop">
-                                  <div class="page-campaign-card__message">
-                                      <p><?php the_content(); ?></p>
-                                  </div>
+                                <div class="page-campaign-card__message">
+                                  <?php
+                                  // ACFフィールドからデータを取得
+                                  $campaignExplanation = get_field('campaign-explanation');
+                                  // 170文字でトリム（マルチバイト文字対応）
+                                  if ($campaignExplanation) :
+                                      // 日本語対応のため、mb_strimwidthを使って文字数をトリム
+                                      $trimmed_content = mb_strimwidth($campaignExplanation, 0, 400, '...');
+                                      echo '<p>' . esc_html($trimmed_content) . '</p>';
+                                  else :
+                                      echo '<p>お客様の声がありません。</p>';
+                                  endif;
+                                  ?>
+                                </div>
+
                                   <div class="page-campaign-card__comment">
-                                      <p class="page-campaign-card__date"><?php echo esc_html(get_field('reservation-period__campaign')); ?></p>
-                                      <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
+                                  <p class="page-campaign-card__date">
+  <?php
+  // ACFで 'reservation-period__box' グループ内のデータを取得
+  $reservationPeriodBox = get_field('reservation-period__box') ?: [];
+  // reservation-period__start と reservation-period__end の値を取得
+  $reservationStart = $reservationPeriodBox['reservation-period__start'] ?? '';
+  $reservationEnd = $reservationPeriodBox['reservation-period__end'] ?? '';
+  // ACFの日付が d/m/Y 形式で保存されていると仮定
+  $dateFormat = 'd/m/Y';
+
+  // 日付が存在する場合にフォーマットして表示
+  if ($reservationStart && $reservationEnd) :
+      // 日付を指定のフォーマットでパース
+      $startDate = DateTime::createFromFormat($dateFormat, $reservationStart);
+      $endDate = DateTime::createFromFormat($dateFormat, $reservationEnd);
+
+      // 日付が正しくパースできたか確認
+      if ($startDate && $endDate) :
+          // 同じ年かどうかをチェック
+          $startYear = $startDate->format('Y');
+          $endYear = $endDate->format('Y');
+
+          if ($startYear === $endYear) :
+              // 年が同じ場合、終了日の年を表示しない
+              echo '<time datetime="' . esc_attr($startDate->format('Y-m-d')) . '">' . esc_html($startDate->format('Y/n/j')) . '</time> - ';
+              echo '<time datetime="' . esc_attr($endDate->format('Y-m-d')) . '">' . esc_html($endDate->format('n/j')) . '</time>';
+          else :
+              // 年が異なる場合、両方の年を表示
+              echo '<time datetime="' . esc_attr($startDate->format('Y-m-d')) . '">' . esc_html($startDate->format('Y/n/j')) . '</time> - ';
+              echo '<time datetime="' . esc_attr($endDate->format('Y-m-d')) . '">' . esc_html($endDate->format('Y/n/j')) . '</time>';
+          endif;
+      else :
+          // パースできなかった場合のエラーメッセージ
+          echo '日付形式が不正です。';
+      endif;
+  else :
+      // データがない場合のメッセージ
+      echo '予約期間が設定されていません。';
+  endif;
+  ?>
+</p>
+
+                                    <p class="page-campaign-card__button-text">ご予約・お問い合わせはコチラ</p>
                                   </div>
                                   <div class="page-campaign-card__button">
                                       <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="common-button">Contact us<span></span></a>
