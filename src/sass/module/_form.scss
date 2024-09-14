@@ -71,8 +71,6 @@ input::placeholder {
 
 .form__privacyCheck {
 	margin-top: rem(40);
-	display: flex;
-	justify-content: center;
 	@include mq(md){
     margin-top: rem(80);
   }
@@ -272,4 +270,14 @@ textarea {
 
 .wpcf7-not-valid-tip {
   display: none;
+}
+
+input.wpcf7-not-valid, textarea.wpcf7-not-valid {
+  background: rgba(201, 72, 0, 0.2);
+  border: 1px solid #C94800;
+}
+
+/* エラー時のプレースホルダーの色 */
+input.wpcf7-not-valid::placeholder {
+  color: #fff;
 }

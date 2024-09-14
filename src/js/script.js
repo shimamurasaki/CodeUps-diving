@@ -91,19 +91,36 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     });
   });
 
-  //topボタン
+  // topボタン
   let topBtn = $('.top-up');
-  topBtn.hide();
-
+  topBtn.hide(); // 初期は非表示
   // ボタンの表示設定
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 80) {
+      let scrollTop = $(this).scrollTop();
+      let footerHeight = $('footer').outerHeight(); // フッターの高さを取得
+      let windowHeight = $(window).height(); // 画面の高さを取得
+      let documentHeight = $(document).height(); // ドキュメント全体の高さを取得
       // 指定px以上のスクロールでボタンを表示
-      topBtn.fadeIn();
-    } else {
-      // 画面が指定pxより上ならボタンを非表示
-      topBtn.fadeOut();
-    }
+      if (scrollTop > 80) {
+          topBtn.fadeIn();
+      } else {
+          topBtn.fadeOut();
+      }
+      // フッター手前でボタンを固定する処理
+      if (scrollTop + windowHeight > documentHeight - footerHeight) {
+          // ボタンがフッターの手前で止まるように設定
+          let stopPosition = documentHeight - footerHeight - windowHeight + 20; // フッター手前20pxに配置
+          topBtn.css({
+              'position': 'absolute',
+              'bottom': stopPosition + 'px' // フッター手前で固定
+          });
+      } else {
+          // フッターより上では、画面の下部にボタンを固定
+          topBtn.css({
+              'position': 'fixed',
+              'bottom': '20px' // 通常時の位置
+          });
+      }
   });
 
   //モーダル
@@ -186,7 +203,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     }
   });
 
-
   //サイドバー（トグルリスト）
   $('.toggle-list__content.first').show().prev('.jsToggleTitle').addClass('is-active');
   $(document).ready(function() {
@@ -196,7 +212,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     });
   });
 
-
   // FAQアコーディオン
   $(document).ready(function(){
     $('.js-accordion-content:first').show();
@@ -205,98 +220,6 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
       $(this).toggleClass('is-active');
     });
   });
-
-  // お問い合わせフォームエラーメッセージ
-  $("#form").click(function () {
-    $(".form__error").toggleClass('is-active');
-  });
-
-  //お問い合わせフォームエラー
-  $(document).ready(function() {
-    $('#js-submit').click(function(event) {
-      event.preventDefault(); // フォームの送信を防止
-
-      // 必須フィールドを取得
-      var nameField = $('#name');
-      var emailField = $('#email');
-      var telField = $('#tel');
-      var messageField = $('textarea[name="contents"]');
-      var privacyCheck = $('#privacyCheck');
-
-      // エラーメッセージ要素を取得
-      var nameError = $('#name-error');
-      var emailError = $('#email-error');
-      var telError = $('#tel-error');
-      var messageError = $('#message-error');
-      var privacyError = $('#privacy-error');
-
-      // 全てのエラーメッセージを一旦非表示にする
-      $('.form__error').hide();
-
-      // 入力フィールドのエラースタイルをリセット
-      resetErrorStyles();
-
-      // バリデーションフラグ
-      var isValid = true;
-
-      // バリデーションチェック
-      if (!nameField.val().trim()) {
-          setErrorStyle(nameField.closest('.form__input'));
-          nameError.show();
-          isValid = false;
-      }
-
-      if (!emailField.val().trim()) {
-          setErrorStyle(emailField.closest('.form__input'));
-          emailError.show();
-          isValid = false;
-      }
-
-      if (!telField.val().trim()) {
-          setErrorStyle(telField.closest('.form__input'));
-          telError.show();
-          isValid = false;
-      }
-
-      if (!messageField.val().trim()) {
-          setErrorStyle(messageField.closest('.form__textarea'));
-          messageError.show();
-          isValid = false;
-      }
-
-      if (!privacyCheck.is(':checked')) {
-          setErrorStyle(privacyCheck.closest('.form__privacyCheck'));
-          privacyError.show();
-          isValid = false;
-      }
-
-      // エラーがあればエラーメッセージを表示
-      if (!isValid) {
-          $('.form__error').css('display', 'flex');
-      } else {
-          // フォームを送信する処理をここに追加
-          // ここではデモとしてアラートを表示します
-          alert('フォームの送信が完了しました！');
-          // リダイレクト先のURL
-          var redirectUrl = './page-thanks.html';
-          // ページをリダイレクトする
-          window.location.href = redirectUrl;
-          // フォームの実際の送信処理を追加する場合はここに記述
-          // $('#form').submit();
-      }
-    });
-    
-    function setErrorStyle(element) {
-        element.addClass('error');
-    }
-
-    function resetErrorStyles() {
-        $('.form__input.error, .form__textarea.error, .form__checkbox.error, .form__privacyCheck.error').removeClass('error');
-    }
-  });
-    
-    
-      
 
       
 });

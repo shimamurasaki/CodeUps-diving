@@ -23,7 +23,7 @@
     <div class="page-campaign__contents tab-menu">
       <!-- タブメニュー -->
       <ul class="tab-menu__list">
-        <li class="tab-menu__item current">
+        <li class="tab-menu__item">
           <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>">ALL</a>
         </li>
         <?php 

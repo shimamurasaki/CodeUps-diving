@@ -585,6 +585,7 @@ a {
 	background-color: #408F95;
 	border: 1px solid #408F95;
 	color: #fff;
+	cursor: pointer;
 	display: inline-block;
 	font-family: "Gotu", sans-serif;
 	font-size: 0.875rem;
@@ -1010,8 +1011,6 @@ input::placeholder {
 }
 
 .form__privacyCheck {
-	display: flex;
-	justify-content: center;
 	margin-top: 2.5rem;
 }
 
@@ -1177,6 +1176,22 @@ textarea {
 
 .wpcf7-not-valid-tip {
 	display: none;
+}
+
+input.wpcf7-not-valid,
+textarea.wpcf7-not-valid {
+	background: rgba(201, 72, 0, 0.2);
+	border: 1px solid #C94800;
+}
+
+/* エラー時のプレースホルダーの色 */
+
+input.wpcf7-not-valid::-moz-placeholder {
+	color: #fff;
+}
+
+input.wpcf7-not-valid::placeholder {
+	color: #fff;
 }
 
 .gallery__contents {
