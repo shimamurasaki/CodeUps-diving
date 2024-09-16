@@ -1,1 +1,3 @@
 # codeups-wordpress
+# WeddingCompass
+# WeddingCompass
